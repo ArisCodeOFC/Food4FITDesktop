@@ -1,5 +1,4 @@
-#main{
-    -fx-pref-height:100%;
-    -fx-background-color: brown;
-   
+
+.AnchorPane{
+	-fx-background-color:red;
 }
