@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.Main">
+   <children>
+      <Label layoutX="23.0" layoutY="22.0" onMouseClicked="#voltarLogin" text="Voltar" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Label layoutX="257.0" layoutY="113.0" text="FOOD">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="255.0" layoutY="156.0" text="4FIT">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="252.0" layoutY="213.0" text="COMIDAS FITNESS">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="88.0" layoutY="282.0" text="Caso você não tenha uma conta no sistema, contate um administrador para que ele ">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="99.0" layoutY="305.0" text="realize o seu cadastro de forma oficial para que você tenha acesso ao software. " />
+      <Label layoutX="96.0" layoutY="327.0" text="Suas informações de contrato serão requiridas, assim como seus dados pessoais." />
+   </children>
+</AnchorPane>

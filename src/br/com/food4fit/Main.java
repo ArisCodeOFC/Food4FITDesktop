@@ -1,6 +1,7 @@
 package br.com.food4fit;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
@@ -18,21 +19,10 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		Main.primaryStage = primaryStage;
 
-		Main.primaryStage.setResizable(false);
-		Main.primaryStage.setMaximized(true);
-
-		Screen screen = Screen.getPrimary();
-		Rectangle2D bounds = screen.getVisualBounds();
-
-		primaryStage.setX(bounds.getMinX());
-		primaryStage.setY(bounds.getMinY());
-		primaryStage.setMaxWidth(bounds.getWidth());
-		primaryStage.setMinWidth(bounds.getWidth());
-		primaryStage.setMaxHeight(bounds.getHeight());
-		primaryStage.setMinHeight(bounds.getHeight());
 
 
-		Main.abrirTela("Login");
+
+		Main.abrirTela("MensagemLogin");
 
 	}
 
@@ -59,6 +49,11 @@ public class Main extends Application {
 
 		//scene.getStylesheets().add(getClass().getResource("css/application.css").toExternalForm());
 
+	}
+
+	@FXML
+	public void voltarLogin(){
+		Main.abrirTela("Login");
 	}
 
 
