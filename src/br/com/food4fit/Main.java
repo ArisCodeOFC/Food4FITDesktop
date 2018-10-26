@@ -21,15 +21,14 @@ public class Main extends Application {
 
 		Main.primaryStage.setResizable(false);
 
-		Screen screen = Screen.getPrimary();
-		Rectangle2D bounds = screen.getVisualBounds();
-
-		primaryStage.setX(bounds.getMinX());
-		primaryStage.setY(bounds.getMinY());
-		primaryStage.setMaxWidth(bounds.getWidth());
-		primaryStage.setMinWidth(bounds.getWidth());
-		primaryStage.setMaxHeight(bounds.getHeight());
-		primaryStage.setMinHeight(bounds.getHeight());
+		//Screen screen = Screen.getPrimary();
+		//Rectangle2D bounds = screen.getVisualBounds();
+		//primaryStage.setX(bounds.getMinX());
+		//primaryStage.setY(bounds.getMinY());
+		//primaryStage.setMaxWidth(bounds.getWidth());
+		//primaryStage.setMinWidth(bounds.getWidth());
+		//primaryStage.setMaxHeight(bounds.getHeight());
+		//primaryStage.setMinHeight(bounds.getHeight());
 
 
 		Main.abrirTela("Login");
