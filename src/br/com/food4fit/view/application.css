@@ -1,0 +1,16 @@
+.root{
+	-fx-background-color:red;
+}
+
+AnchorPane{
+	-fx-background-color:#dfdfdf;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('Roboto-Medium.ttf');
+}
+
+.text {
+    -fx-font-family: "Roboto";
+}

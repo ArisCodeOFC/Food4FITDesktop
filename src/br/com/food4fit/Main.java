@@ -8,6 +8,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 
 
@@ -19,7 +20,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		Main.primaryStage = primaryStage;
 
-		Main.primaryStage.setResizable(false);
+		;
 
 		//Screen screen = Screen.getPrimary();
 		//Rectangle2D bounds = screen.getVisualBounds();
@@ -48,6 +49,14 @@ public class Main extends Application {
 
 			//Colocando o objeto fde cena no Stage
 			primaryStage.setScene(sc);
+
+			//primaryStage.setResizable(false);
+
+
+			primaryStage.setTitle("FOOD 4FIT");
+
+
+			//primaryStage.getIcons().add(new Image("br/com/food4fit/assets/icons/logo.svg"));
 
 			//Exibindo na tela
 			primaryStage.show();

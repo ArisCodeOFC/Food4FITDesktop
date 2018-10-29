@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.LoginController">
    <children>
-      <StackPane prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane layoutX="77.0" layoutY="-14.0" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
          <children>
             <Group>
                <children>
-                  <Label layoutX="-94.0" text="FOOD" />
-                  <Label layoutX="-93.0" layoutY="155.0" text="4FIT" />
+                  <TextFlow prefHeight="200.0" prefWidth="200.0" />
+                  <Label layoutY="1.0" text="FOOD" textAlignment="CENTER" />
+                  <Label layoutY="24.0" text="4FIT" />
+                  <Label layoutY="48.0" text="COMIDA FITNESS" />
+                  <TextField fx:id="txt" layoutY="82.0" prefHeight="32.0" prefWidth="282.0" promptText="Digite sua matricula..." />
+                  <Label layoutY="174.0" onMouseClicked="#semConta" text="Não tenho uma conta">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
+                  <Button layoutX="258.0" layoutY="170.0" mnemonicParsing="false" onAction="#login" text="Entrar" />
+                  <PasswordField fx:id="txtSenha" layoutY="125.0" prefHeight="33.0" prefWidth="283.0" promptText="Digite sua senha..." />
                </children>
             </Group>
          </children>
