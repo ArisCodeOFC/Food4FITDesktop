@@ -1,16 +1,30 @@
-.root{
-	-fx-background-color:red;
-}
+/*AnchorPane{-fx-background-color:#dfdfdf;}*/
 
-AnchorPane{
-	-fx-background-color:#dfdfdf;
+@font-face {
+    font-family: Titulo;
+    src: url('../assets/fonts/Roboto-Black.ttf');
 }
 
 @font-face {
-    font-family: Roboto;
-    src: url('Roboto-Medium.ttf');
+    font-family: Subtitulo;
+    src: url('../assets/fonts/Roboto-Medium.ttf');
 }
 
-.text {
-    -fx-font-family: "Roboto";
+@font-face {
+    font-family: Texto;
+    src: url('../assets/fonts/Roboto-Regular.ttf');
 }
+
+
+.titulo {
+    -fx-font-family: "Titulo";
+}
+
+.subtitulo {
+    -fx-font-family: "Subtitulo";
+}
+
+.texto {
+    -fx-font-family: "Texto";
+}
+

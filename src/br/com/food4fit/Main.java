@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 
 
 public class Main extends Application {
@@ -32,6 +33,11 @@ public class Main extends Application {
 		//primaryStage.setMinHeight(bounds.getHeight());
 
 
+		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Regular.ttf"), 10);
+		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Medium.ttf"), 10);
+		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Black.ttf"), 10);
+
+
 		Main.abrirTela("Login");
 
 	}
@@ -45,19 +51,18 @@ public class Main extends Application {
 			tela = FXMLLoader.load(Main.class.getResource("view/"+ nomeArquivo + ".fxml"));
 
 			//Criando o objeto de "cena" com xml
-			Scene sc = new Scene(tela);
+			Scene scene = new Scene(tela);
 
 			//Colocando o objeto fde cena no Stage
-			primaryStage.setScene(sc);
+			primaryStage.setScene(scene);
 
-			//primaryStage.setResizable(false);
+			primaryStage.setResizable(false);
 
 
 			primaryStage.setTitle("FOOD 4FIT");
 
 
-			//primaryStage.getIcons().add(new Image("br/com/food4fit/assets/icons/logo.svg"));
-
+			primaryStage.getIcons().add(new Image(Main.class.getResource("assets/icons/logo.png").openStream()));
 			//Exibindo na tela
 			primaryStage.show();
 
@@ -65,7 +70,7 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 
-		//scene.getStylesheets().add(getClass().getResource("css/application.css").toExternalForm());
+
 
 	}
 
