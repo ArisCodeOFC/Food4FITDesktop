@@ -12,7 +12,7 @@ public interface FuncionarioService {
 
 	//<Funcionario> -> o que esta sendo recebido
 	//login -> criando metodo
-	(@Body DadosFuncionario dados) -> o que esta sendo enviado
+	//(@Body DadosFuncionario dados) -> o que esta sendo enviado
 	Call<Funcionario> login(@Body DadosFuncionario dados);
 
 }
