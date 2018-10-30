@@ -21,7 +21,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		Main.primaryStage = primaryStage;
 
-		;
+
 
 		//Screen screen = Screen.getPrimary();
 		//Rectangle2D bounds = screen.getVisualBounds();
@@ -38,7 +38,9 @@ public class Main extends Application {
 		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Black.ttf"), 10);
 
 
-		Main.abrirTela("Login");
+		Main.abrirTela("PadraoLayout");
+		System.out.println(primaryStage.getWidth());
+		System.out.println(primaryStage.getHeight());
 
 	}
 
@@ -62,7 +64,7 @@ public class Main extends Application {
 			primaryStage.setTitle("FOOD 4FIT");
 
 
-			primaryStage.getIcons().add(new Image(Main.class.getResource("assets/icons/logo.png").openStream()));
+			primaryStage.getIcons().add(new Image(Main.class.getResource("assets/icons/favicon.png").openStream()));
 			//Exibindo na tela
 			primaryStage.show();
 

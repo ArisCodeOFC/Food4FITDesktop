@@ -9,9 +9,9 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.LoginController">
    <children>
-      <StackPane layoutY="-14.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: fff;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-14.0">
+      <StackPane layoutY="-14.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Group>
+            <Group StackPane.alignment="CENTER">
                <children>
                   <TextFlow prefHeight="200.0" prefWidth="200.0" />
                   <Label layoutX="81.0" layoutY="-73.0" text="4FIT" textFill="#9cc283">
@@ -22,7 +22,10 @@
                      <font>
                         <Font name="Roboto Medium" size="18.0" />
                      </font></Label>
-                  <TextField fx:id="txt" layoutY="82.0" prefHeight="32.0" prefWidth="308.0" promptText="Digite sua matricula..." style="-fx-border-color: #9cc283;" />
+                  <TextField fx:id="txt" layoutY="82.0" prefHeight="32.0" prefWidth="308.0" promptText="Digite sua matricula..." style="-fx-border-color: #9cc283;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></TextField>
                   <Label layoutY="174.0" onMouseClicked="#semConta" text="Não tenho uma conta">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -33,9 +36,15 @@
                   <Button layoutX="251.0" layoutY="166.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #9cc283;" text="Entrar" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
-                     </font></Button>
-                  <PasswordField fx:id="txtSenha" layoutY="125.0" prefHeight="33.0" prefWidth="309.0" promptText="Digite sua senha..." style="-fx-border-color: #9cc283;" />
-                  <Label layoutX="83.0" layoutY="-137.0" style="-fx-color: red;" text="FOOD" textFill="#9cc283">
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <PasswordField fx:id="txtSenha" layoutY="125.0" prefHeight="33.0" prefWidth="309.0" promptText="Digite sua senha..." style="-fx-border-color: #9cc283;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></PasswordField>
+                  <Label layoutX="83.0" layoutY="-137.0" text="FOOD" textFill="#9cc283">
                      <font>
                         <Font name="Roboto Black" size="64.0" />
                      </font>
