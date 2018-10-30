@@ -37,7 +37,6 @@ public class Main extends Application {
 		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Medium.ttf"), 10);
 		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Black.ttf"), 10);
 
-
 		Main.abrirTela("Login");
 		System.out.println(primaryStage.getWidth());
 		System.out.println(primaryStage.getHeight());

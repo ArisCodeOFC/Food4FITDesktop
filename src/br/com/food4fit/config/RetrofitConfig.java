@@ -10,7 +10,7 @@ public class RetrofitConfig {
 
 	public RetrofitConfig(){
 		this.retrofit = new Retrofit.Builder()
-				.baseUrl("http://localhos:3000/")
+				.baseUrl("http://localhost:3000/")
 				.addConverterFactory(JacksonConverterFactory.create())
 				.build();
 	}

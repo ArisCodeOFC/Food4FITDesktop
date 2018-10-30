@@ -4,6 +4,7 @@ import br.com.food4fit.Main;
 import br.com.food4fit.config.RetrofitConfig;
 import br.com.food4fit.model.DadosFuncionario;
 import br.com.food4fit.model.Funcionario;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -50,7 +51,9 @@ public class LoginController {
 					if(funcionario == null){
 						//mensagem pro usuario 'matricula ou senha incorreto'
 					}else{
-						Main.abrirTela("PadraoLayout");
+						Platform.runLater(() -> {
+							Main.abrirTela("PadraoLayout");
+						});
 					}
 
 				}
