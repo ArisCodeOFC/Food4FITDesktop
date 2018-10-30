@@ -11,37 +11,37 @@
    <children>
       <Label layoutX="23.0" layoutY="22.0" onMouseClicked="#voltarLogin" text="Voltar" textFill="#9cc283" textOverrun="CLIP">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Roboto Black" size="16.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Label layoutX="577.0" layoutY="176.0" text="FOOD" textFill="#9cc283">
+      <Label layoutX="552.0" layoutY="176.0" text="FOOD" textFill="#9cc283">
          <font>
-            <Font name="System Bold" size="46.0" />
+            <Font name="Roboto Black" size="64.0" />
          </font>
       </Label>
-      <Label layoutX="574.0" layoutY="237.0" text="4FIT" textFill="#9cc283">
+      <Label layoutX="549.0" layoutY="237.0" text="4FIT" textFill="#9cc283">
          <font>
-            <Font name="System Bold" size="46.0" />
+            <Font name="Roboto Black" size="64.0" />
          </font>
       </Label>
-      <Label layoutX="574.0" layoutY="297.0" text="COMIDAS FITNESS" textFill="#7f7f7f">
+      <Label layoutX="554.0" layoutY="324.0" text="COMIDAS FITNESS" textFill="#7f7f7f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="394.0" layoutY="425.0" text="Caso você não tenha uma conta no sistema, contate um administrador para que ele ">
+      <Label layoutX="380.0" layoutY="425.0" text="Caso você não tenha uma conta no sistema, contate um administrador para que ele ">
          <font>
             <Font name="Roboto" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="405.0" layoutY="448.0" text="realize o seu cadastro de forma oficial para que você tenha acesso ao software. ">
+      <Label layoutX="390.0" layoutY="448.0" text="realize o seu cadastro de forma oficial para que você tenha acesso ao software. ">
          <font>
             <Font name="Roboto" size="15.0" />
          </font></Label>
-      <Label layoutX="402.0" layoutY="470.0" text="Suas informações de contrato serão requiridas, assim como seus dados pessoais.">
+      <Label layoutX="380.0" layoutY="470.0" text="Suas informações de contrato serão requiridas, assim como seus dados pessoais.">
          <font>
             <Font name="Roboto" size="15.0" />
          </font></Label>

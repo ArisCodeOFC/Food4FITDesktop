@@ -14,11 +14,11 @@
             <Group StackPane.alignment="CENTER">
                <children>
                   <TextFlow prefHeight="200.0" prefWidth="200.0" />
-                  <Label layoutX="81.0" layoutY="-73.0" text="4FIT" textFill="#9cc283">
+                  <Label layoutX="78.0" layoutY="-73.0" text="4FIT" textFill="#9cc283">
                      <font>
                         <Font name="Roboto Black" size="64.0" />
                      </font></Label>
-                  <Label layoutX="83.0" layoutY="7.0" text="COMIDA FITNESS" textFill="#7f7f7f">
+                  <Label layoutX="80.0" layoutY="7.0" text="COMIDA FITNESS" textFill="#7f7f7f">
                      <font>
                         <Font name="Roboto Medium" size="18.0" />
                      </font></Label>
@@ -26,13 +26,11 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></TextField>
-                  <Label layoutY="174.0" onMouseClicked="#semConta" text="Não tenho uma conta">
+                  <PasswordField fx:id="txtSenha" layoutY="125.0" prefHeight="33.0" prefWidth="309.0" promptText="Digite sua senha..." style="-fx-border-color: #9cc283;">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                     <font>
-                        <Font name="Roboto" size="14.0" />
-                     </font></Label>
+                  </PasswordField>
                   <Button layoutX="251.0" layoutY="166.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #9cc283;" text="Entrar" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
@@ -40,11 +38,14 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <PasswordField fx:id="txtSenha" layoutY="125.0" prefHeight="33.0" prefWidth="309.0" promptText="Digite sua senha..." style="-fx-border-color: #9cc283;">
+                  <Label layoutY="174.0" onMouseClicked="#semConta" text="Não tenho uma conta">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></PasswordField>
-                  <Label layoutX="83.0" layoutY="-137.0" text="FOOD" textFill="#9cc283">
+                     </cursor>
+                     <font>
+                        <Font name="Roboto" size="14.0" />
+                     </font></Label>
+                  <Label layoutX="80.0" layoutY="-137.0" text="FOOD" textFill="#9cc283">
                      <font>
                         <Font name="Roboto Black" size="64.0" />
                      </font>

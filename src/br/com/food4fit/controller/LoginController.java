@@ -67,7 +67,5 @@ public class LoginController {
 			}
 		});
 
-    	System.out.println(senha);
-
     }
 }
