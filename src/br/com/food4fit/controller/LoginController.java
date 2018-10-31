@@ -1,5 +1,7 @@
 package br.com.food4fit.controller;
 
+import java.io.IOException;
+
 import br.com.food4fit.Main;
 import br.com.food4fit.config.RetrofitConfig;
 import br.com.food4fit.model.DadosFuncionario;
@@ -15,7 +17,7 @@ import retrofit2.Response;
 public class LoginController {
 
     @FXML
-    private TextField txt;
+    private TextField txtMatricula;
 
     @FXML
     private PasswordField txtSenha;
@@ -28,9 +30,21 @@ public class LoginController {
     @FXML
     void login() {
 
+
+    	if(txtMatricula.getText() == null || txtMatricula.getText().isEmpty()){
+    		System.out.println("Favor preencher a matricula");
+    		return;
+    	}
+
+    	if(txtSenha.getText() == null || txtSenha.getText().isEmpty()){
+    		System.out.println("Favor preencher a senha");
+    		return;
+    	}
+
     	String senha = txtSenha.getText();
 
-    	int matricula = Integer.parseInt(txt.getText());
+    	int matricula = Integer.parseInt(txtMatricula.getText());
+
 
     	DadosFuncionario dadosFuncionario = new DadosFuncionario();
 
@@ -43,8 +57,15 @@ public class LoginController {
 
 			@Override
 			public void onResponse(Call<Funcionario> call, Response<Funcionario> response) {
+
+
+
 				if(response.code() == 401 ){
 					//mensagem pro usuario 'matricula ou senha incorreto'
+					System.out.println("Matricula ou senha incoretos");
+				}else if(response.code() == 500){
+					//erro de sql
+					System.out.println("Erro ao conectar com o Banco de Dados");
 				}else{
 
 					Funcionario funcionario = response.body();
@@ -63,9 +84,11 @@ public class LoginController {
 
 			@Override
 			public void onFailure(Call<Funcionario> arg0, Throwable arg1) {
-				//mensagem pro usuario
+				//mensagem pro usuario quando nao estiver conectado a internet
+
 			}
 		});
 
     }
+
 }

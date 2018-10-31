@@ -59,7 +59,6 @@ public class Main extends Application {
 
 			primaryStage.setTitle("FOOD 4FIT");
 
-
 			primaryStage.getIcons().add(new Image(Main.class.getResource("assets/icons/favicon.png").openStream()));
 			//Exibindo na tela
 			primaryStage.show();

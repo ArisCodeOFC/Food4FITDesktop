@@ -22,14 +22,20 @@
                      <font>
                         <Font name="Roboto Medium" size="18.0" />
                      </font></Label>
-                  <TextField fx:id="txt" layoutY="82.0" prefHeight="32.0" prefWidth="308.0" promptText="Digite sua matricula..." style="-fx-border-color: #9cc283;">
+                  <TextField fx:id="txtMatricula" layoutY="82.0" prefHeight="32.0" prefWidth="308.0" promptText="Digite sua matricula..." style="-fx-border-color: #9cc283;">
                      <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></TextField>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font></TextField>
                   <PasswordField fx:id="txtSenha" layoutY="125.0" prefHeight="33.0" prefWidth="309.0" promptText="Digite sua senha..." style="-fx-border-color: #9cc283;">
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="TEXT" />
                      </cursor>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
                   </PasswordField>
                   <Button layoutX="251.0" layoutY="166.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #9cc283;" text="Entrar" textFill="WHITE">
                      <font>
