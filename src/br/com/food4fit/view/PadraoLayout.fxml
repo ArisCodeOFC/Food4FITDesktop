@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-padding: 0px; -fx-margin: 0px;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.PadraoLayoutController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-padding: 0px; -fx-margin: 0px; -fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.PadraoLayoutController">
    <children>
       <Pane layoutX="253.0" prefHeight="94.0" prefWidth="1027.0" style="-fx-background-color: #dcdcdc;">
          <children>
@@ -33,12 +33,15 @@
                </cursor>
             </ImageView>
          </children></Pane>
-      <Pane layoutX="253.0" layoutY="94.0" prefHeight="626.0" prefWidth="1027.0" style="-fx-background-color: #9cc283;" />
+      <Pane fx:id="main" layoutX="280.0" layoutY="94.0" prefHeight="626.0" prefWidth="1000.0" style="-fx-background-color: #fff;">
+         <padding>
+            <Insets left="20.0" />
+         </padding></Pane>
       <Pane prefHeight="720.0" prefWidth="253.0">
          <children>
-            <ScrollPane prefHeight="720.0" prefWidth="253.0">
+            <ScrollPane hbarPolicy="NEVER" hmax="0.0" pannable="true" prefHeight="720.0" prefWidth="253.0" style="-fx-border: none;" vbarPolicy="NEVER" vmax="0.0">
                <content>
-                  <VBox prefHeight="720.0" prefWidth="251.0" style="-fx-background-color: #fff;">
+                  <VBox prefHeight="720.0" prefWidth="248.0" style="-fx-background-color: #fff;">
                      <children>
                         <Pane prefHeight="178.0" prefWidth="251.0" style="-fx-background-color: #fff;">
                            <children>
@@ -92,7 +95,7 @@
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
                                  <cursor>
-                                    <Cursor fx:constant="DEFAULT" />
+                                    <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Label>
                            </children>
@@ -120,11 +123,17 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="231.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -148,6 +157,9 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="274.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -171,6 +183,9 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <Separator maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;">
                            <VBox.margin>
@@ -197,8 +212,14 @@
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="363.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -222,6 +243,9 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="406.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -245,6 +269,9 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="449.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -268,6 +295,9 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="492.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -291,6 +321,9 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="535.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -314,6 +347,9 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="578.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -337,6 +373,9 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <Separator layoutX="10.0" layoutY="360.0" maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;">
                            <VBox.margin>
@@ -364,6 +403,9 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="667.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -387,6 +429,9 @@
                                  </font>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="688.0" onMouseClicked="#sair" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -405,8 +450,14 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                      </children>
                   </VBox>

@@ -85,6 +85,7 @@ public class LoginController {
 					}else{
 						Platform.runLater(() -> {
 							Main.abrirTela("PadraoLayout");
+
 						});
 					}
 

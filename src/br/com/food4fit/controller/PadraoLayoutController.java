@@ -1,57 +1,66 @@
 package br.com.food4fit.controller;
 
+import java.io.IOException;
 import java.util.Optional;
+
+import org.omg.CORBA.INITIALIZE;
 
 import br.com.food4fit.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class PadraoLayoutController {
 
-    @FXML
-    private Label nomeTela;
-
+	@FXML
+	private Pane main;
 
 	@FXML
-    void menuHome(ActionEvent event) {
-		System.out.println(event.getSource());
+	private Label nomeTela;
 
-    }
+	@FXML
+	public void initialize() {
+		mudarTela("Funcionarios", "Dashboard");
+	}
 
-	  @FXML
-	    void sair() {
+	@FXML
+	void menuHome() {
+		mudarTela("Funcionarios", "Dashboard");
 
-		   PadraoLayoutController.showConfirmDialog("Sair", "Deseja sair da sua conta?");
+	}
 
+	@FXML
+	void sair() {
 
-	    }
+		int result = Main.showConfirmDialog("Sair", "Deseja sair da sua conta?");
 
-
-	  public static Optional<ButtonType> showConfirmDialog(String titulo, String texto){
-			Alert dialogo = new Alert(Alert.AlertType.WARNING);
-          ButtonType btnSim = new ButtonType("Sim");
-          ButtonType btnNao = new ButtonType("Cancelar", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-          dialogo.setTitle(titulo);
-          dialogo.setHeaderText(texto);
-          dialogo.getButtonTypes().setAll(btnSim,  btnNao);
-
-          Stage stage = (Stage) dialogo.getDialogPane().getScene().getWindow();
-
-          // Adiciona uma imagen no icone do dialog
-          stage.getIcons().add(new Image(Main.class.getResource("assets/icons/favicon.png").toString()));
-          Optional<ButtonType> result = dialogo.showAndWait();
-
-           System.out.println(result);
-
-          return result;
-          //dialogo.showAndWait().ifPresent(b -> {if (b == btnSim) {Main.abrirTela("Login");}}
-
+		if (result == 1) {
+			Main.abrirTela("Login");
 		}
+
+	}
+
+	void mudarTela(String conteudo, String nome) {
+		Pane xml;
+		try {
+			xml = FXMLLoader.load(PadraoLayoutController.class.getResource("../view/" + conteudo + ".fxml"));
+
+			main.getChildren().clear();
+			main.getChildren().add(xml);
+
+			nomeTela.setText(nome);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }
