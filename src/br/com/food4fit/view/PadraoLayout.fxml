@@ -11,16 +11,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-padding: 0px; -fx-margin: 0px;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-padding: 0px; -fx-margin: 0px;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.PadraoLayoutController">
    <children>
       <Pane layoutX="253.0" prefHeight="94.0" prefWidth="1027.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Label layoutX="36.0" layoutY="37.0" text="Nome Tela">
+            <Label fx:id="nomeTela" layoutX="36.0" layoutY="37.0" text="Nome Tela">
                <font>
                   <Font name="Roboto Medium" size="20.0" />
                </font>
             </Label>
             <TextField focusTraversable="false" layoutX="386.0" layoutY="32.0" prefHeight="35.0" prefWidth="235.0" promptText="Pesquise por algo" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="964.0" layoutY="31.0" nodeOrientation="INHERIT" onMouseClicked="#sair" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/person.jpg" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children></Pane>
       <Pane layoutX="253.0" layoutY="94.0" prefHeight="626.0" prefWidth="1027.0" style="-fx-background-color: #9cc283;" />
       <Pane prefHeight="720.0" prefWidth="253.0">
@@ -63,7 +74,7 @@
                               </Label>
                            </children>
                         </Pane>
-                        <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="251.0">
+                        <HBox alignment="CENTER_LEFT" onMouseClicked="#menuHome" prefHeight="43.0" prefWidth="251.0">
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <viewport>
@@ -80,11 +91,17 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
                               </Label>
                            </children>
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="188.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
@@ -103,6 +120,9 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
@@ -123,6 +143,9 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
@@ -143,10 +166,17 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
-                        <Separator prefWidth="215.0" style="-fx-background-color: #000;" />
+                        <Separator maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="15.0" top="5.0" />
+                           </VBox.margin>
+                        </Separator>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="317.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -164,6 +194,9 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
@@ -184,6 +217,9 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
@@ -204,6 +240,9 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
@@ -224,6 +263,9 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
@@ -244,6 +286,9 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
@@ -264,6 +309,9 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
@@ -284,10 +332,16 @@
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                         </HBox>
-                        <Separator layoutX="10.0" layoutY="360.0" prefWidth="215.0" style="-fx-background-color: #000;" />
+                        <Separator layoutX="10.0" layoutY="360.0" maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="15.0" top="5.0" />
+                           </VBox.margin></Separator>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="621.0" prefHeight="43.0" prefWidth="251.0">
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -302,6 +356,52 @@
                                  </HBox.margin>
                               </ImageView>
                               <Label text="Meu Perfil">
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="667.0" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/person.jpg" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="Ajuda">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="688.0" onMouseClicked="#sair" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/person.jpg" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="Sair">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>

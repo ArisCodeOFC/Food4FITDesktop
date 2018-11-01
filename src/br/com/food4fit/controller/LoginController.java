@@ -8,8 +8,10 @@ import br.com.food4fit.model.DadosFuncionario;
 import br.com.food4fit.model.Funcionario;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,12 +33,15 @@ public class LoginController {
     void login() {
 
 
+
     	if(txtMatricula.getText() == null || txtMatricula.getText().isEmpty()){
+    		txtMatricula.setStyle("-fx-background-color: #D50000");
     		System.out.println("Favor preencher a matricula");
     		return;
     	}
 
     	if(txtSenha.getText() == null || txtSenha.getText().isEmpty()){
+    		txtSenha.setStyle("-fx-background-color: #D50000");
     		System.out.println("Favor preencher a senha");
     		return;
     	}
@@ -62,6 +67,12 @@ public class LoginController {
 
 				if(response.code() == 401 ){
 					//mensagem pro usuario 'matricula ou senha incorreto'
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setTitle("Falha");
+					alert.setHeaderText("Look, an Error Dialog");
+					alert.setContentText("Ooops, there was an error!");
+
+					alert.showAndWait();
 					System.out.println("Matricula ou senha incoretos");
 				}else if(response.code() == 500){
 					//erro de sql
