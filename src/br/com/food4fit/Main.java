@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
@@ -101,6 +102,21 @@ public class Main extends Application {
 		}
 
 		return resultado;
+	}
+
+	public static void showErrorDialog(String titulo, String texto, String contexto) {
+		Alert dialogo = new Alert(Alert.AlertType.ERROR);
+
+		dialogo.setTitle(titulo);
+		dialogo.setHeaderText(texto);
+		dialogo.setContentText(contexto);
+
+		Stage stage = (Stage) dialogo.getDialogPane().getScene().getWindow();
+
+		stage.getIcons().add(new Image(Main.class.getResource("assets/icons/favicon.png").toString()));
+
+		dialogo.showAndWait();
+
 	}
 
 }

@@ -37,6 +37,71 @@ public class PadraoLayoutController {
 	}
 
 	@FXML
+	void menuEstatisticas() {
+		mudarTela("Funcionarios", "Estatísticas");
+	}
+
+	@FXML
+	void menuFornecedor() {
+		mudarTela("Funcionarios", "Fornecedores");
+	}
+
+	@FXML
+	void menuFuncionario() {
+		mudarTela("Funcionarios", "Funcionários");
+	}
+
+	@FXML
+	void menuUsuario() {
+		mudarTela("Funcionarios", "Usuários");
+	}
+
+	@FXML
+	void menuNivel() {
+		mudarTela("Funcionarios", "Nível de Acesso");
+	}
+
+	@FXML
+	void menuDespesa() {
+		mudarTela("Funcionarios", "Despesas");
+	}
+
+	@FXML
+	void menuRelatorio() {
+		mudarTela("Funcionarios", "Relários");
+	}
+
+	@FXML
+	void menuBanco() {
+		mudarTela("Funcionarios", "Banco");
+	}
+
+	@FXML
+	void menuDepartamento() {
+		mudarTela("Funcionarios", "Departamento");
+	}
+
+	@FXML
+	void menuFaturamento() {
+		mudarTela("Funcionarios", "Faturamento");
+	}
+
+	@FXML
+	void menuUnidade() {
+		mudarTela("UnidadeDeMedida", "Unidade de Medida");
+	}
+
+	@FXML
+	void menuPerfil() {
+		mudarTela("Funcionarios", "Meu Perfil");
+	}
+
+	@FXML
+	void menuAjuda() {
+		mudarTela("Funcionarios", "Ajuda");
+	}
+
+	@FXML
 	void sair() {
 
 		int result = Main.showConfirmDialog("Sair", "Deseja sair da sua conta?");
