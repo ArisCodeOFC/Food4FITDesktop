@@ -23,7 +23,7 @@
             <TextField focusTraversable="false" layoutX="386.0" layoutY="32.0" prefHeight="35.0" prefWidth="235.0" promptText="Pesquise por algo" />
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="964.0" layoutY="31.0" nodeOrientation="INHERIT" onMouseClicked="#sair" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons/person.jpg" />
+                  <Image url="@../assets/icons/sair-c.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -87,7 +87,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/home-c.png" />
                                  </image>
                               </ImageView>
                               <Label text="Dashboard">
@@ -110,7 +110,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/estatistica-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -139,7 +139,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/fornecedor-v.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -165,7 +165,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/funcionario-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -196,7 +196,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/usuario-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -225,7 +225,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/nivel-acesso-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -251,7 +251,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/despesa-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -277,7 +277,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/relatorio-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -303,7 +303,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/banco-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -329,7 +329,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/departamento-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -355,7 +355,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/faturamento-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -411,7 +411,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/perfil-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -463,7 +463,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/sair-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -490,6 +490,11 @@
                </content>
             </ScrollPane>
          </children>
+      </Pane>
+      <Pane fx:id="main1" layoutX="290.0" layoutY="104.0" prefHeight="626.0" prefWidth="1000.0" style="-fx-background-color: #fff;">
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Pane>
    </children>
 </AnchorPane>

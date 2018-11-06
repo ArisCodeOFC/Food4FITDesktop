@@ -37,7 +37,7 @@ public class LoginController {
 
 			@Override
 			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-				txtMatricula.setStyle("-fx-background-color: #fff;" +  "-fx-border-color:#9cc283");
+				txtMatricula.setStyle("-fx-background-color: #fff;" + "-fx-border-color:#9cc283");
 				return;
 			}
 		});
@@ -46,7 +46,7 @@ public class LoginController {
 
 			@Override
 			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-				txtSenha.setStyle("-fx-background-color: #fff;" +  "-fx-border-color:#9cc283");
+				txtSenha.setStyle("-fx-background-color: #fff;" + "-fx-border-color:#9cc283");
 				return;
 			}
 		});
@@ -83,9 +83,10 @@ public class LoginController {
 
 				if (response.code() == 401) {
 					// mensagem pro usuario 'matricula ou senha incorreto'
-					Platform.runLater(()->{
+					Platform.runLater(() -> {
 
-						Main.showErrorDialog("Erro", "Falha ao tentar realizar o login", "Matricula ou senha incorretos");
+						Main.showErrorDialog("Erro", "Falha ao tentar realizar o login",
+								"Matricula ou senha incorretos");
 						txtSenha.clear();
 
 					});

@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="626.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.UnidadeDeMedidaController">
    <children>
-      <Button layoutX="25.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #9cc283;" text="Cadastrar Unidade de Medida" textFill="WHITE">
+      <Button layoutX="25.0" layoutY="23.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="Cadastrar Unidade de Medida" textFill="WHITE">
          <font>
             <Font name="Roboto Medium" size="14.0" />
          </font>
@@ -24,9 +24,9 @@
             <TableColumn fx:id="colunaOpc" prefWidth="108.0" text="Opç" />
         </columns>
       </TableView>
-      <Pane layoutX="562.0" layoutY="81.0" prefHeight="261.0" prefWidth="332.0" style="-fx-background-color: #dcdcdc;">
+      <Pane fx:id="paneConteudo" layoutX="562.0" layoutY="81.0" prefHeight="261.0" prefWidth="332.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Button layoutX="266.0" layoutY="222.0" mnemonicParsing="false" text="Cancelar" />
+            <Button layoutX="266.0" layoutY="222.0" mnemonicParsing="false" onAction="#fechaConteudo" text="Cancelar" />
             <Label layoutX="49.0" layoutY="36.0" text="Unidade de Medida:" />
             <Label layoutX="56.0" layoutY="140.0" text="Sigla:" />
             <TextField fx:id="txtUnidadeDeMedida" layoutX="49.0" layoutY="65.0" />
