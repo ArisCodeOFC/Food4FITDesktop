@@ -39,7 +39,7 @@ public class Main extends Application {
 		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Medium.ttf"), 10);
 		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Black.ttf"), 10);
 
-		Main.abrirTela("PadraoLayout");
+		Main.abrirTela("Login");
 	}
 
 	public static void abrirTela(String nomeArquivo) {
@@ -80,10 +80,10 @@ public class Main extends Application {
 
 	// Metodos para dialogs
 
-	public static int showConfirmDialog(String titulo, String texto) {
+	public static int showConfirmDialog(String bt, String titulo, String texto) {
 		int resultado = 0;
 		Alert dialogo = new Alert(Alert.AlertType.WARNING);
-		ButtonType btnSim = new ButtonType("Sim");
+		ButtonType btnSim = new ButtonType(bt);
 		ButtonType btnNao = new ButtonType("Cancelar", ButtonBar.ButtonData.CANCEL_CLOSE);
 
 		dialogo.setTitle(titulo);
@@ -105,7 +105,7 @@ public class Main extends Application {
 	}
 
 	public static void showErrorDialog(String titulo, String texto, String contexto) {
-		Alert dialogo = new Alert(Alert.AlertType.ERROR);
+		Alert dialogo = new Alert(Alert.AlertType.CONFIRMATION);
 
 		dialogo.setTitle(titulo);
 		dialogo.setHeaderText(texto);
@@ -118,5 +118,7 @@ public class Main extends Application {
 		dialogo.showAndWait();
 
 	}
+
+
 
 }

@@ -1,7 +1,9 @@
 package br.com.food4fit.controller;
 
+import br.com.food4fit.Main;
 import br.com.food4fit.config.RetrofitConfig;
 import br.com.food4fit.model.UnidadeDeMedida;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -15,7 +17,7 @@ import retrofit2.Response;
 
 public class UnidadeDeMedidaController {
 	@FXML
-	private TableView tblUnidadeDdeMedida;
+	private TableView tblUnidadeDeMedida;
 
 	@FXML
 	private TableColumn colunaOpc;
@@ -45,7 +47,7 @@ public class UnidadeDeMedidaController {
 				colunaUnidadeMedida
 						.setCellValueFactory(new PropertyValueFactory<UnidadeDeMedida, String>("unidadeMedida"));
 				colunaSigla.setCellValueFactory(new PropertyValueFactory<UnidadeDeMedida, String>("sigla"));
-				tblUnidadeDdeMedida.setItems(FXCollections.observableArrayList(arg1.body()));
+				tblUnidadeDeMedida.setItems(FXCollections.observableArrayList(arg1.body()));
 
 			}
 
@@ -57,14 +59,71 @@ public class UnidadeDeMedidaController {
 		});
 	}
 
-
-	//Abrir o panel oculto
 	@FXML
-	void abrirConteudo() {
-		paneConteudo.setStyle("visibility: true");
+	void salvar() {
+		if (txtUnidadeDeMedida.getText().isEmpty()) {
+			txtUnidadeDeMedida.setStyle("-fx-background-color: #ed2121;" + "-fx-prompt-text-fill: #fff");
+			return;
+		}
+
+		if (txtSigla.getText().isEmpty()) {
+			txtSigla.setStyle("-fx-background-color: #ed2121;" + "-fx-prompt-text-fill: #fff");
+			return;
+		}
+
+		String unidade = txtUnidadeDeMedida.getText();
+
+		String sigla = txtSigla.getText();
+
+		UnidadeDeMedida unidadeMedida = new UnidadeDeMedida();
+
+		unidadeMedida.setUnidadeMedida(unidade);
+		unidadeMedida.setSigla(sigla);
+
+		Call<UnidadeDeMedida> retorno = new RetrofitConfig().getUnidadeDeMedida().salvar(unidadeMedida);
+
+		retorno.enqueue(new Callback<UnidadeDeMedida>() {
+
+			@Override
+			public void onResponse(Call<UnidadeDeMedida> call, Response<UnidadeDeMedida> resposta) {
+				if (resposta.code() == 500) {
+					Main.showConfirmDialog("OK", "Erro", "Falha ao tentar conectar com o servidor");
+				} else {
+
+					UnidadeDeMedida medida = resposta.body();
+
+					if (medida == null) {
+						System.out.println("Deu ruim");
+					} else {
+						Platform.runLater(() -> {
+							Main.showConfirmDialog("OK", "Sucesso", "Unidade de Medida cadastrada com secesso!!!");
+							fechaConteudo();
+
+							 tblUnidadeDeMedida.refresh();
+
+						});
+					}
+
+				}
+
+			}
+
+			@Override
+			public void onFailure(Call<UnidadeDeMedida> arg0, Throwable arg1) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+
 	}
 
-	//Fecha o panel que foi aberto
+	// Abrir o panel oculto
+	@FXML
+	void abrirConteudo() {
+		paneConteudo.setStyle("visibility: true; -fx-background-color: #dcdcdc");
+	}
+
+	// Fecha o panel que foi aberto
 	@FXML
 	void fechaConteudo() {
 		paneConteudo.setStyle("visibility: false");

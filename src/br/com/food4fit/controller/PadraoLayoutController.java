@@ -104,7 +104,7 @@ public class PadraoLayoutController {
 	@FXML
 	void sair() {
 
-		int result = Main.showConfirmDialog("Sair", "Deseja sair da sua conta?");
+		int result = Main.showConfirmDialog("Sim", "Sair", "Deseja sair da sua conta?");
 
 		if (result == 1) {
 			Main.abrirTela("Login");

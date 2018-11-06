@@ -9,14 +9,14 @@
 
 <AnchorPane prefHeight="626.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="23.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #9cc283;" text="CADASTRO DE FUNCIONÁRIO" textFill="WHITE">
+      <Button layoutX="150.0" layoutY="51.0" mnemonicParsing="false" style="-fx-background-color: #9cc283;" text="CADASTRO DE FUNCIONÁRIO" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="Roboto Medium" size="14.0" />
          </font></Button>
-      <TableView layoutY="73.0" prefHeight="200.0" prefWidth="700.0">
+      <TableView layoutX="150.0" layoutY="138.0" prefHeight="200.0" prefWidth="700.0">
         <columns>
           <TableColumn prefWidth="75.0" text="NOME" />
           <TableColumn prefWidth="75.0" text="MATRÍCULA" />

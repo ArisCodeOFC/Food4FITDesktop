@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="626.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.UnidadeDeMedidaController">
    <children>
-      <Button layoutX="25.0" layoutY="23.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="Cadastrar Unidade de Medida" textFill="WHITE">
+      <Button layoutX="92.0" layoutY="24.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="Cadastrar Unidade de Medida" textFill="WHITE">
          <font>
             <Font name="Roboto Medium" size="14.0" />
          </font>
@@ -17,21 +17,30 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="tblUnidadeDdeMedida" layoutX="25.0" layoutY="81.0" prefHeight="524.0" prefWidth="407.0">
+      <TableView fx:id="tblUnidadeDeMedida" focusTraversable="false" layoutX="92.0" layoutY="74.0" prefHeight="524.0" prefWidth="410.0">
         <columns>
-          <TableColumn fx:id="colunaUnidadeMedida" prefWidth="182.0" text="Unidade de Medida" />
-            <TableColumn fx:id="colunaSigla" prefWidth="118.0" text="Sigla" />
-            <TableColumn fx:id="colunaOpc" prefWidth="108.0" text="Opç" />
+          <TableColumn fx:id="colunaUnidadeMedida" editable="false" minWidth="-Infinity" prefWidth="182.0" resizable="false" sortable="false" text="Unidade de Medida" />
+            <TableColumn fx:id="colunaSigla" editable="false" minWidth="-Infinity" prefWidth="118.0" resizable="false" sortable="false" text="Sigla" />
+            <TableColumn fx:id="colunaOpc" editable="false" minWidth="-Infinity" prefWidth="108.0" resizable="false" sortable="false" text="Opç" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
-      <Pane fx:id="paneConteudo" layoutX="562.0" layoutY="81.0" prefHeight="261.0" prefWidth="332.0" style="-fx-background-color: #dcdcdc;">
+      <Pane fx:id="paneConteudo" layoutX="639.0" layoutY="74.0" prefHeight="280.0" prefWidth="280.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Button layoutX="266.0" layoutY="222.0" mnemonicParsing="false" onAction="#fechaConteudo" text="Cancelar" />
-            <Label layoutX="49.0" layoutY="36.0" text="Unidade de Medida:" />
-            <Label layoutX="56.0" layoutY="140.0" text="Sigla:" />
-            <TextField fx:id="txtUnidadeDeMedida" layoutX="49.0" layoutY="65.0" />
-            <TextField fx:id="txtSigla" layoutX="49.0" layoutY="167.0" />
-            <Button layoutX="58.0" layoutY="220.0" mnemonicParsing="false" text="Salvar" />
+            <Button layoutX="157.0" layoutY="220.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #9cc283;" text="Cancelar" textFill="WHITE" />
+            <Label layoutX="61.5" layoutY="36.0" text="Unidade de Medida:">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font></Label>
+            <Label layoutX="61.5" layoutY="140.0" text="Sigla:">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font></Label>
+            <TextField fx:id="txtUnidadeDeMedida" layoutX="61.5" layoutY="65.0" prefHeight="25.0" prefWidth="157.0" />
+            <TextField fx:id="txtSigla" layoutX="61.5" layoutY="167.0" prefHeight="25.0" prefWidth="157.0" />
+            <Button layoutX="61.5" layoutY="220.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="Salvar" textFill="WHITE" />
          </children>
       </Pane>
       <Accordion layoutX="540.0" layoutY="371.0" />
