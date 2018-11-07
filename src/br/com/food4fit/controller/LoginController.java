@@ -86,7 +86,7 @@ public class LoginController {
 					Platform.runLater(() -> {
 
 						Main.showErrorDialog("Erro", "Falha ao tentar realizar o login",
-								"Matricula ou senha incorretos");
+								"Matricula ou senha incorretos", Alert.AlertType.WARNING);
 						txtSenha.clear();
 
 					});

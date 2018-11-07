@@ -15,12 +15,14 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 
 public class Main extends Application {
 
 	static Stage primaryStage;
+
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -80,7 +82,7 @@ public class Main extends Application {
 
 	// Metodos para dialogs
 
-	public static int showConfirmDialog(String bt, String titulo, String texto) {
+	public static int showConfirmDialog(String bt, String titulo, String texto, AlertType estilo) {
 		int resultado = 0;
 		Alert dialogo = new Alert(Alert.AlertType.WARNING);
 		ButtonType btnSim = new ButtonType(bt);
@@ -104,8 +106,8 @@ public class Main extends Application {
 		return resultado;
 	}
 
-	public static void showErrorDialog(String titulo, String texto, String contexto) {
-		Alert dialogo = new Alert(Alert.AlertType.CONFIRMATION);
+	public static void showErrorDialog(String titulo, String texto, String contexto, AlertType estilo) {
+		Alert dialogo = new Alert(estilo);
 
 		dialogo.setTitle(titulo);
 		dialogo.setHeaderText(texto);
@@ -119,6 +121,19 @@ public class Main extends Application {
 
 	}
 
+	public static void showInfDialog(String titulo, String texto, String contexto) {
+		Alert dialogo = new Alert(Alert.AlertType.INFORMATION);
 
+		dialogo.setTitle(titulo);
+		dialogo.setHeaderText(texto);
+		dialogo.setContentText(contexto);
+
+		Stage stage = (Stage) dialogo.getDialogPane().getScene().getWindow();
+
+		stage.getIcons().add(new Image(Main.class.getResource("assets/icons/favicon.png").toString()));
+
+		dialogo.showAndWait();
+
+	}
 
 }
