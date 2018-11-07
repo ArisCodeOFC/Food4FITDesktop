@@ -84,7 +84,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                                  <image>
-                                    <Image url="@../assets/icons/home-c.png" />
+                                    <Image url="@../assets/icons/person.jpg" />
                                  </image>
                               </ImageView>
                               <Label text="Dashboard">
@@ -378,7 +378,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/unidade-medida-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -434,7 +434,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/ajuda-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />

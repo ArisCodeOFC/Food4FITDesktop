@@ -25,10 +25,10 @@ public interface UnidadeDeMedidaService {
 
 	@PUT("unidade-medida/{id}")
 
-	Call<UnidadeDeMedida> editar(@Body UnidadeDeMedida dados, @Path("id") int id);
+	Call<Void> editar(@Body UnidadeDeMedida dados, @Path("id") int id);
 
 
 	@DELETE("unidade-medida/{id}")
 
-	Call<UnidadeDeMedida> excluir(@Path("id") int id);
+	Call<Void> excluir(@Path("id") int id);
 }
