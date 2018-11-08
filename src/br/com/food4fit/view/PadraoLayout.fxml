@@ -84,7 +84,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                                  <image>
-                                    <Image url="@../assets/icons/person.jpg" />
+                                    <Image url="@../assets/icons/home-c.png" />
                                  </image>
                               </ImageView>
                               <Label text="Dashboard">

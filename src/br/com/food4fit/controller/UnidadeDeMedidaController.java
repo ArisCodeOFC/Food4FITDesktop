@@ -67,18 +67,20 @@ public class UnidadeDeMedidaController {
 					editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
 						// UnidadeDeMedida unidadeClass = new UnidadeDeMedida();
 						// unidadeClass.setId(u.get);
+						txtUnidadeDeMedida.setUserData(u);
+						abrirConteudo();
+						txtUnidadeDeMedida.setText(u.getUnidadeMedida());
+						txtSigla.setText(u.getSigla());
 
-						u.getId();
-						System.out.println(u.getId());
 						event.consume();
 					});
 
-					ImageView cancelView = new ImageView();
-					cancelView.prefHeight(15);
-					cancelView.prefWidth(15);
-					cancelView.setImage(cancelImg);
-					cancelView.setStyle("-fx-cursor: hand");
-					cancelView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+					ImageView deleteView = new ImageView();
+					deleteView.prefHeight(15);
+					deleteView.prefWidth(15);
+					deleteView.setImage(cancelImg);
+					deleteView.setStyle("-fx-cursor: hand");
+					deleteView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
 						Call<Void> resultAcao = new RetrofitConfig().getUnidadeDeMedida().excluir(u.getId());
 						resultAcao.enqueue(new Callback<Void>() {
 
@@ -112,7 +114,7 @@ public class UnidadeDeMedidaController {
 						event.consume();
 					});
 
-					HBox hBox = new HBox(editView, cancelView);
+					HBox hBox = new HBox(editView, deleteView);
 					hBox.setPrefHeight(15);
 					hBox.setPrefWidth(15);
 					hBox.setStyle("-fx-padding: 0 0 0 20; -fx-spacing:10;");
@@ -178,41 +180,77 @@ public class UnidadeDeMedidaController {
 		unidadeMedida.setUnidadeMedida(unidade);
 		unidadeMedida.setSigla(sigla);
 
-		Call<UnidadeDeMedida> retorno = new RetrofitConfig().getUnidadeDeMedida().salvar(unidadeMedida);
+		if (txtUnidadeDeMedida.getUserData() == null) {
+			Call<UnidadeDeMedida> retorno = new RetrofitConfig().getUnidadeDeMedida().salvar(unidadeMedida);
 
-		retorno.enqueue(new Callback<UnidadeDeMedida>() {
+			retorno.enqueue(new Callback<UnidadeDeMedida>() {
 
-			@Override
-			public void onResponse(Call<UnidadeDeMedida> call, Response<UnidadeDeMedida> resposta) {
-				if (resposta.code() == 500) {
-					Main.showConfirmDialog("OK", "Erro", "Falha ao tentar conectar com o servidor",
-							Alert.AlertType.WARNING);
-				} else {
-
-					UnidadeDeMedida medida = resposta.body();
-
-					if (medida == null) {
-						System.out.println("Deu ruim");
+				@Override
+				public void onResponse(Call<UnidadeDeMedida> call, Response<UnidadeDeMedida> resposta) {
+					if (resposta.code() == 500) {
+						Main.showConfirmDialog("OK", "Erro", "Falha ao tentar conectar com o servidor",
+								Alert.AlertType.WARNING);
 					} else {
-						Platform.runLater(() -> {
-							Main.showInfDialog("Sucesso", "", "Unidade de Medida cadastrada com secesso!!!");
-							fechaConteudo();
 
-							initialize();
+						UnidadeDeMedida medida = resposta.body();
 
-						});
+						if (medida == null) {
+							System.out.println("Deu ruim");
+						} else {
+							Platform.runLater(() -> {
+								Main.showInfDialog("Sucesso", "", "Unidade de Medida cadastrada com secesso!!!");
+								fechaConteudo();
+
+								initialize();
+
+							});
+						}
+
 					}
 
 				}
 
+				@Override
+				public void onFailure(Call<UnidadeDeMedida> arg0, Throwable arg1) {
+					// TODO Auto-generated method stub
+
+				}
+			});
+		} else {
+			int decisao = Main.showConfirmDialog("Sim", "Editar", "Deseja editar as informações?", Alert.AlertType.WARNING);
+
+			if(decisao == 1){
+				UnidadeDeMedida u = (UnidadeDeMedida) txtUnidadeDeMedida.getUserData();
+				int id = u.getId();
+
+				Call<Void> retorno = new RetrofitConfig().getUnidadeDeMedida().editar(unidadeMedida, id);
+
+				retorno.enqueue(new Callback<Void>() {
+
+					@Override
+					public void onResponse(Call<Void> arg0, Response<Void> arg1) {
+						if (arg1.code() == 500) {
+							Main.showConfirmDialog("OK", "Erro", "Falha ao tentar conectar com o servidor",
+									Alert.AlertType.WARNING);
+						}else{
+							Platform.runLater(() ->{
+								fechaConteudo();
+								initialize();
+								txtUnidadeDeMedida.setUserData(null);
+							});
+						}
+
+					}
+
+					@Override
+					public void onFailure(Call<Void> arg0, Throwable arg1) {
+						// TODO Auto-generated method stub
+
+					}
+				});
 			}
 
-			@Override
-			public void onFailure(Call<UnidadeDeMedida> arg0, Throwable arg1) {
-				// TODO Auto-generated method stub
-
-			}
-		});
+		}
 
 	}
 

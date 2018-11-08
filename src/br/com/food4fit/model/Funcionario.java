@@ -1,5 +1,12 @@
 package br.com.food4fit.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javafx.scene.layout.Pane;
+
 public class Funcionario {
 
 	private int id;
@@ -7,6 +14,40 @@ public class Funcionario {
 	private String sobrenome;
 	private String email;
 	private int matricula;
+	private String cargo;
+	private Date dataAdmissao;
+	@JsonIgnore
+	private Pane paneOpcoes;
+
+
+	public String getNomeCompleto(){
+		return nome+" "+sobrenome ;
+	}
+
+	public String getDataFormatada(){
+		SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
+
+		return data.format(dataAdmissao);
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+	public Date getDataAdmissao() {
+		return dataAdmissao;
+	}
+
+	public void setDataAdmissao(Date dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
+	}
+
+
+
 
 	public int getId() {
 		return id;
@@ -46,6 +87,14 @@ public class Funcionario {
 
 	public void setMatricula(int matricula) {
 		this.matricula = matricula;
+	}
+
+	public Pane getPaneOpcoes() {
+		return paneOpcoes;
+	}
+
+	public void setPaneOpcoes(Pane paneOpcoes) {
+		this.paneOpcoes = paneOpcoes;
 	}
 
 }

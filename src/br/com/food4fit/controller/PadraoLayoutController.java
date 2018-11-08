@@ -27,7 +27,7 @@ public class PadraoLayoutController {
 
 	@FXML
 	public void initialize() {
-		mudarTela("Funcionarios", "Dashboard");
+		mudarTela("UnidadeDeMedida", "Dashboard");
 	}
 
 	@FXML

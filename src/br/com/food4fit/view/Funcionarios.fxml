@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
@@ -9,7 +11,7 @@
 
 <AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.FuncionarioController">
    <children>
-      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#cadastroFuncionario" style="-fx-background-color: #9cc283;" text="CADASTRO DE FUNCIONÁRIO" textFill="WHITE">
+      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="CADASTRO DE FUNCIONÁRIO" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -23,8 +25,29 @@
             <TableColumn fx:id="colunaEmail" editable="false" prefWidth="220.0" sortable="false" text="E-MAIL" />
             <TableColumn fx:id="colunaCargo" editable="false" prefWidth="192.0" sortable="false" text="CARGO" />
             <TableColumn fx:id="colunaAdmissao" editable="false" prefWidth="145.0" sortable="false" text="DT.ADMISSÃO" />
-            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" sortable="false" text="OPÇÕES" />
+            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="129.0" sortable="false" text="OPÇÕES" />
         </columns>
       </TableView>
+      <Pane fx:id="paneConteudo" layoutX="673.0" prefHeight="626.0" prefWidth="354.0" style="-fx-background-color: #dcdcdc;">
+         <children>
+            <Label layoutX="108.0" layoutY="10.0" text="Cadastrar Funcionário">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutY="43.0" prefHeight="583.0" prefWidth="354.0">
+               <content>
+                  <VBox prefHeight="583.0" prefWidth="339.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets left="70.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children></VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

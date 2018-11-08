@@ -54,10 +54,10 @@ public class LoginController {
 
 	@FXML
 	void login() {
-
 		Platform.runLater(() -> {
 			Main.abrirTela("PadraoLayout");
 		});
+
 
 		if (txtMatricula.getText() == null || txtMatricula.getText().isEmpty()) {
 			txtMatricula.setStyle("-fx-background-color: #ed2121;" + "-fx-prompt-text-fill: #fff");

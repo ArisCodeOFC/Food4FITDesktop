@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.embed.swing.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TableView fx:id="tblFornecedor" layoutY="110.0" prefHeight="516.0" prefWidth="660.0">
         <columns>
@@ -29,6 +29,7 @@
             <Label layoutX="75.0" layoutY="167.0" text="Status Inicial:" />
             <Label layoutX="122.0" layoutY="207.0" text="Ativado/Desativado" />
             <TextField layoutX="108.0" layoutY="108.0" />
+            <ToggleButton layoutX="21.0" layoutY="203.0" mnemonicParsing="false" text="ToggleButton" />
          </children>
       </Pane>
    </children>
