@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.FornecedorController">
+   <children>
+      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#cadastroFornecedor" style="-fx-background-color: #9cc283;" text="CADASTRO DE FORNECEDOR" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblFornecedor" focusTraversable="false" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0">
+        <columns>
+          <TableColumn fx:id="colunaNome" editable="false" prefWidth="230.0" sortable="false" text="NOME FANTASIA" />
+          <TableColumn fx:id="colunaRazao" editable="false" prefWidth="235.0" sortable="false" text="RAZÃO SOCIAL" />
+            <TableColumn fx:id="colunaCpf" editable="false" prefWidth="192.0" sortable="false" text="CPF/CNPJ " />
+            <TableColumn fx:id="colunaEmail" editable="false" prefWidth="240.0" sortable="false" text="E-MAIL" />
+            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" sortable="false" text="OPÇÕES" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

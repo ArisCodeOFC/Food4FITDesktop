@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="626.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.UnidadeDeMedidaController">
+<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.UnidadeDeMedidaController">
    <children>
       <Button layoutX="92.0" layoutY="24.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="Cadastrar Unidade de Medida" textFill="WHITE">
          <font>
@@ -27,7 +27,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Pane fx:id="paneConteudo" layoutX="639.0" layoutY="74.0" prefHeight="280.0" prefWidth="280.0" style="-fx-background-color: #dcdcdc;">
+      <Pane fx:id="paneConteudo" layoutX="637.0" layoutY="74.0" prefHeight="280.0" prefWidth="280.0" style="-fx-background-color: #dcdcdc;">
          <children>
             <Button layoutX="157.0" layoutY="220.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #9cc283;" text="Cancelar" textFill="WHITE" />
             <Label layoutX="61.5" layoutY="36.0" text="Unidade de Medida:">

@@ -7,24 +7,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="626.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.FuncionarioController">
    <children>
-      <Button layoutX="150.0" layoutY="51.0" mnemonicParsing="false" style="-fx-background-color: #9cc283;" text="CADASTRO DE FUNCIONÁRIO" textFill="WHITE">
+      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#cadastroFuncionario" style="-fx-background-color: #9cc283;" text="CADASTRO DE FUNCIONÁRIO" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="Roboto Medium" size="14.0" />
          </font></Button>
-      <TableView layoutX="150.0" layoutY="138.0" prefHeight="200.0" prefWidth="700.0">
+      <TableView fx:id="tblFuncionario" focusTraversable="false" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="NOME" />
-          <TableColumn prefWidth="75.0" text="MATRÍCULA" />
-            <TableColumn prefWidth="75.0" text="E-MAIL" />
-            <TableColumn prefWidth="75.0" text="CARGO" />
-            <TableColumn prefWidth="75.0" text="SALÁRIO" />
-            <TableColumn prefWidth="101.0" text="DT.ADMISSÃO" />
-            <TableColumn prefWidth="223.0" text="OPÇÕES" />
+          <TableColumn fx:id="colunaNome" editable="false" prefWidth="210.0" sortable="false" text="NOME" />
+          <TableColumn fx:id="colunaMatricula" editable="false" prefWidth="130.0" sortable="false" text="MATRÍCULA" />
+            <TableColumn fx:id="colunaEmail" editable="false" prefWidth="220.0" sortable="false" text="E-MAIL" />
+            <TableColumn fx:id="colunaCargo" editable="false" prefWidth="192.0" sortable="false" text="CARGO" />
+            <TableColumn fx:id="colunaAdmissao" editable="false" prefWidth="145.0" sortable="false" text="DT.ADMISSÃO" />
+            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" sortable="false" text="OPÇÕES" />
         </columns>
       </TableView>
    </children>

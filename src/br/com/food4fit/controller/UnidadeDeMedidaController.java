@@ -95,20 +95,14 @@ public class UnidadeDeMedidaController {
 											Alert.AlertType.WARNING);
 								} else {
 
-									//UnidadeDeMedida medida = arg1.body();
-
-									if (medida == null) {
-										System.out.println("Deu ruim");
-									} else {
-										Platform.runLater(() -> {
-											Main.showConfirmDialog("OK", "Excluir", "Deseja excluir o item?",
-													Alert.AlertType.WARNING);
-											fechaConteudo();
-
+									Platform.runLater(() -> {
+										int result = Main.showConfirmDialog("OK", "Excluir", "Deseja excluir o item?",
+												Alert.AlertType.WARNING);
+										if (result == 1) {
 											initialize();
+										}
 
-										});
-									}
+									});
 
 								}
 
@@ -160,6 +154,8 @@ public class UnidadeDeMedidaController {
 		});
 
 	}
+
+	// Metodo para salvar no banco
 
 	@FXML
 	void salvar() {

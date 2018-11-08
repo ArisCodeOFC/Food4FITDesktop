@@ -27,7 +27,7 @@ public class PadraoLayoutController {
 
 	@FXML
 	public void initialize() {
-		mudarTela("UnidadeDeMedida", "Dashboard");
+		mudarTela("Funcionarios", "Dashboard");
 	}
 
 	@FXML
@@ -43,7 +43,7 @@ public class PadraoLayoutController {
 
 	@FXML
 	void menuFornecedor() {
-		mudarTela("Funcionarios", "Fornecedores");
+		mudarTela("Fornecedor", "Fornecedores");
 	}
 
 	@FXML
@@ -53,7 +53,7 @@ public class PadraoLayoutController {
 
 	@FXML
 	void menuUsuario() {
-		mudarTela("Funcionarios", "Usuários");
+		mudarTela("Usuario", "Usuários");
 	}
 
 	@FXML
@@ -78,7 +78,7 @@ public class PadraoLayoutController {
 
 	@FXML
 	void menuDepartamento() {
-		mudarTela("Funcionarios", "Departamento");
+		mudarTela("Departamento", "Departamento");
 	}
 
 	@FXML
