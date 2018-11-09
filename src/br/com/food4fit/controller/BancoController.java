@@ -35,6 +35,10 @@ public class BancoController {
     private TableColumn colunaConta;
 
 
+    public void initialize(){
+    	paneConteudo.setStyle("visibility: false");
+    }
+
 
     @FXML
     void salvar() {
@@ -51,6 +55,9 @@ public class BancoController {
  	@FXML
  	void fechaConteudo() {
  		paneConteudo.setStyle("visibility: false");
+ 		txtBanco.clear();
+ 		txtAgencia.clear();
+ 		txtConta.clear();
 
  	}
 }

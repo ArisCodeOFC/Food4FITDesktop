@@ -7,41 +7,43 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="626.0" prefWidth="1027.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.com.food4fit.controller.BancoController">
+<AnchorPane prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.BancoController">
    <children>
       <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="CADASTRAR BANCO" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Roboto" size="14.0" />
          </font>
       </Button>
       <TableView fx:id="tblBanco" layoutY="110.0" prefHeight="516.0" prefWidth="720.0">
         <columns>
-          <TableColumn fx:id="colunaBanco" prefWidth="260.0" text="BANCO" />
-          <TableColumn fx:id="colunaAgencia" prefWidth="160.0" text="AGÊNCIA" />
-            <TableColumn fx:id="colunaConta" prefWidth="170.0" text="CONTA" />
-            <TableColumn fx:id="colunaOpc" prefWidth="130.0" text="OPÇÔES" />
+          <TableColumn fx:id="colunaBanco" editable="false" prefWidth="260.0" sortable="false" text="BANCO" />
+          <TableColumn fx:id="colunaAgencia" editable="false" prefWidth="160.0" sortable="false" text="AGÊNCIA" />
+            <TableColumn fx:id="colunaConta" editable="false" prefWidth="170.0" sortable="false" text="CONTA" />
+            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" sortable="false" text="OPÇÔES" />
         </columns>
       </TableView>
-      <Pane fx:id="paneConteudo" layoutX="737.0" layoutY="110.0" prefHeight="516.0" prefWidth="290.0" style="-fx-background-color: dcdcdc;">
+      <Pane fx:id="paneConteudo" layoutX="720.0" prefHeight="626.0" prefWidth="307.0" style="-fx-background-color: dcdcdc;">
          <children>
             <Label layoutX="96.0" layoutY="19.0" text="Cadastrar Banco">
                <font>
-                  <Font size="16.0" />
+                  <Font name="Roboto Black" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="95.0" text="Banco:" />
+            <Label layoutX="45.0" layoutY="95.0" text="Banco:">
+               <font>
+                  <Font name="Roboto Medium" size="12.0" />
+               </font></Label>
             <Label layoutX="45.0" layoutY="175.0" text="Agência:" />
             <Label layoutX="45.0" layoutY="255.0" text="Conta:" />
             <TextField fx:id="txtBanco" layoutX="45.0" layoutY="125.0" prefWidth="200.0" />
             <TextField fx:id="txtAgencia" layoutX="45.0" layoutY="205.0" prefWidth="200.0" />
             <TextField fx:id="txtConta" layoutX="45.0" layoutY="285.0" prefWidth="200.0" />
-            <Button layoutX="219.0" layoutY="476.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
+            <Button layoutX="219.0" layoutY="585.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="127.0" layoutY="476.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #9cc283;" text="CANCELAR" textFill="WHITE">
+            <Button layoutX="127.0" layoutY="585.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #9cc283;" text="CANCELAR" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

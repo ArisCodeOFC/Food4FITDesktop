@@ -30,37 +30,64 @@
       </TableView>
       <Pane fx:id="paneConteudo" layoutX="673.0" prefHeight="626.0" prefWidth="354.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Label layoutX="108.0" layoutY="10.0" text="Cadastrar Funcionário">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <ScrollPane layoutY="43.0" prefHeight="583.0" prefWidth="354.0">
+            <ScrollPane prefHeight="626.0" prefWidth="354.0">
                <content>
-                  <VBox prefHeight="583.0" prefWidth="339.0">
+                  <VBox prefHeight="1222.0" prefWidth="339.0">
                      <children>
+                        <Label text="Cadastrar Funcionário">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="90.0" />
+                           </VBox.margin>
+                        </Label>
                         <Pane layoutX="69.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #dfdfdf;">
                            <VBox.margin>
                               <Insets left="44.5" top="10.0" />
                            </VBox.margin>
                            <children>
-                              <ImageView fx:id="fotoFuncionario" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="fotoFuncionario" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/us.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </Pane>
+                        <Button fx:id="escolherImg" mnemonicParsing="false" prefHeight="25.0" prefWidth="260.0" style="-fx-background-color: #9cc283;" text="ESCOLHA UMA IMAGEM" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets left="40.0" top="10.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                         <Label text="Matrícula:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin></Label>
-                        <TextField fx:id="txtMatricula" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin></TextField>
-                        <Label layoutX="50.0" layoutY="285.0" text="Empregado:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="txtEmpregado" layoutX="50.0" layoutY="307.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        <TextField fx:id="txtMatricula" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="50.0" layoutY="285.0" text="Nome:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtNome" layoutX="50.0" layoutY="307.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Sobrenome:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtSobrenome" maxWidth="-Infinity" prefWidth="260.0">
                            <VBox.margin>
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
@@ -107,22 +134,12 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="10.0" layoutY="513.0" text="Celular 1:">
+                        <Label layoutX="10.0" layoutY="513.0" text="Celular:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
                         </Label>
                         <TextField fx:id="txtCelularU" layoutX="10.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label layoutX="10.0" layoutY="551.0" text="Celular 2:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="txtCelularD" layoutX="10.0" layoutY="568.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
                            <VBox.margin>
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
@@ -210,13 +227,15 @@
                               <Button mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
+                                 </cursor>
+                              </Button>
                            </children>
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
                         </HBox>
-                     </children></VBox>
+                     </children>
+                  </VBox>
                </content>
             </ScrollPane>
          </children>

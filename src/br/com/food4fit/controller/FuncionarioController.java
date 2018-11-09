@@ -1,5 +1,10 @@
 package br.com.food4fit.controller;
 
+import java.awt.Desktop;
+import java.awt.EventQueue;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Date;
 
 import br.com.food4fit.Main;
@@ -8,8 +13,10 @@ import br.com.food4fit.model.Funcionario;
 import br.com.food4fit.model.UnidadeDeMedida;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -22,6 +29,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -53,9 +61,6 @@ public class FuncionarioController {
 
 	@FXML
 	private Pane paneConteudo;
-
-	@FXML
-	private TextField txtCelularD;
 
 	@FXML
 	private TextField txtEmail;
@@ -91,18 +96,33 @@ public class FuncionarioController {
 	private TextField txtMatricula;
 
 	@FXML
-	private TextField txtEmpregado;
+	private TextField txtNome;
+
+	@FXML
+	private TextField txtSobrenome;
 
 	@FXML
 	private TextField txtRg;
 
 	@FXML
-    private ImageView fotoFuncionario;
+	private ImageView fotoFuncionario;
 
+	@FXML
+	private Button escolherImg;
+
+	private final Desktop desktop = Desktop.getDesktop();
 
 	public void initialize() {
 		paneConteudo.setStyle("visibility: false");
+		final FileChooser fileChooser = new FileChooser();
 
+		escolherImg.setOnAction((final ActionEvent e) -> {
+			configureFileChooser(fileChooser);
+			File file = fileChooser.showOpenDialog(conteudo.getScene().getWindow());
+			if (file != null) {
+				openFile(file);
+			}
+		});
 
 		Call<Funcionario[]> retorno = new RetrofitConfig().getFuncionarioService().lista();
 		retorno.enqueue(new Callback<Funcionario[]>() {
@@ -120,8 +140,14 @@ public class FuncionarioController {
 					editView.setImage(editImg);
 					editView.setStyle("-fx-cursor: hand;");
 					editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-						abrirConteudo();
+						txtNome.setUserData(f);
+						txtSobrenome.setText(f.getSobrenome());
+						txtEmail.setText(f.getEmail());
+						comboCargo.setValue(f.getCargo());
+						txtNome.setText(f.getNome());
+						//txtCelularU.setText(f.get);
 
+						abrirConteudo();
 						event.consume();
 					});
 
@@ -190,6 +216,30 @@ public class FuncionarioController {
 
 	}
 
+	// ******************************************************************
+
+	// escolherImg
+
+	private static void configureFileChooser(final FileChooser fileChooser) {
+		fileChooser.setTitle("View Pictures");
+		fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Images", "*.*"),
+				new FileChooser.ExtensionFilter("JPG", "*.jpg"), new FileChooser.ExtensionFilter("PNG", "*.png"));
+	}
+
+	private void openFile(File file) {
+		EventQueue.invokeLater(() -> {
+			try {
+				Image imagen = new Image(new FileInputStream(file));
+				fotoFuncionario.setImage(imagen);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
+	}
+
+	// ******************************************************************
+
 	@FXML
 	void salvar() {
 
@@ -198,13 +248,27 @@ public class FuncionarioController {
 	// Abrir o panel oculto
 	@FXML
 	void abrirConteudo() {
-		paneConteudo.setStyle("visibility: true; -fx-background-color: #dcdcdc");
+		paneConteudo.setStyle("visibility: true;");
 	}
 
 	// Fecha o panel que foi aberto
 	@FXML
 	void fechaConteudo() {
 		paneConteudo.setStyle("visibility: false");
+		txtCelularU.clear();
+		txtCpf.clear();
+		txtDtAdmissao.clear();
+		txtDtNasc.clear();
+		txtEmail.clear();
+		txtMatricula.clear();
+		txtNome.clear();
+		txtRg.clear();
+		txtSalario.clear();
+		txtSobrenome.clear();
+		txtTelefone.clear();
+		comboCargo.setValue(null);
+		comboDepartamento.setValue(null);
+		sexo.selectToggle(null);
 
 	}
 

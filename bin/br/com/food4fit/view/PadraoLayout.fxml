@@ -20,7 +20,6 @@
                   <Font name="Roboto Medium" size="20.0" />
                </font>
             </Label>
-            <TextField focusTraversable="false" layoutX="386.0" layoutY="32.0" prefHeight="35.0" prefWidth="235.0" promptText="Pesquise por algo" />
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="964.0" layoutY="31.0" nodeOrientation="INHERIT" onMouseClicked="#sair" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/sair-c.png" />

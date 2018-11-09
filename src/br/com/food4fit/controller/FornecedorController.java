@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class FornecedorController {
 	  @FXML
@@ -27,9 +28,23 @@ public class FornecedorController {
 	    @FXML
 	    private TableView tblFornecedor;
 
+	    @FXML
+	    private Pane paneConteudo;
+
+
+	    public void initialize(){
+	    	paneConteudo.setStyle("visibility: false");
+	    }
+
 
 	    @FXML
 	    void abrirConteudo() {
+	    	paneConteudo.setStyle("visibility: true; -fx-background-color: #dcdcdc");
+	    }
 
+
+	    @FXML
+	    void fechaConteudo(){
+	    	paneConteudo.setStyle("visibility: false");
 	    }
 }
