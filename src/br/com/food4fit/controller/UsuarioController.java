@@ -27,8 +27,9 @@ public class UsuarioController {
     @FXML
     private TableColumn colunaNome;
 
+
     @FXML
-    void cadastroUsuario() {
+    void abrirConteudo() {
 
     }
 }

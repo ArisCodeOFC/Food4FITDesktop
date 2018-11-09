@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -8,10 +9,13 @@
 
 <AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.FornecedorController">
    <children>
-      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#cadastroFornecedor" style="-fx-background-color: #9cc283;" text="CADASTRO DE FORNECEDOR" textFill="WHITE">
+      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="CADASTRO DE FORNECEDOR" textFill="WHITE">
          <font>
             <Font name="Roboto Medium" size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <TableView fx:id="tblFornecedor" focusTraversable="false" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0">
         <columns>
@@ -22,5 +26,12 @@
             <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" sortable="false" text="OPÇÕES" />
         </columns>
       </TableView>
+      <Pane fx:id="paneConteudo" layoutX="318.0" layoutY="110.0" prefHeight="516.0" prefWidth="708.0" style="-fx-background-color: dcdcdc;">
+         <children>
+            <Label layoutX="289.0" layoutY="36.0" text="Cadastrar um Fornecedo" />
+            <VBox layoutY="72.0" prefHeight="387.0" prefWidth="354.0" style="-fx-background-color: #f1f1f1;" />
+            <VBox layoutX="354.0" layoutY="72.0" prefHeight="387.0" prefWidth="354.0" style="-fx-background-color: #fff;" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

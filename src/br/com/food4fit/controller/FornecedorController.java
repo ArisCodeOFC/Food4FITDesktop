@@ -27,8 +27,9 @@ public class FornecedorController {
 	    @FXML
 	    private TableView tblFornecedor;
 
+
 	    @FXML
-	    void cadastroFornecedor() {
+	    void abrirConteudo() {
 
 	    }
 }

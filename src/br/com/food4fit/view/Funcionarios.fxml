@@ -32,22 +32,197 @@
          <children>
             <Label layoutX="108.0" layoutY="10.0" text="Cadastrar Funcionário">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <ScrollPane layoutY="43.0" prefHeight="583.0" prefWidth="354.0">
                <content>
                   <VBox prefHeight="583.0" prefWidth="339.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <Pane layoutX="69.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #dfdfdf;">
                            <VBox.margin>
-                              <Insets left="70.0" />
+                              <Insets left="44.5" top="10.0" />
                            </VBox.margin>
-                        </ImageView>
+                           <children>
+                              <ImageView fx:id="fotoFuncionario" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
+                        <Label text="Matrícula:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin></Label>
+                        <TextField fx:id="txtMatricula" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin></TextField>
+                        <Label layoutX="50.0" layoutY="285.0" text="Empregado:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtEmpregado" layoutX="50.0" layoutY="307.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="10.0" layoutY="332.0" text="Dt. Nascimento:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtDtNasc" layoutX="10.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="50.0" layoutY="409.0" text="Gênero:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="25.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" text="Homem">
+                                 <HBox.margin>
+                                    <Insets left="40.0" right="25.0" top="5.0" />
+                                 </HBox.margin>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="sexo" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Mulher" toggleGroup="$sexo">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                        <Label layoutX="50.0" layoutY="409.0" text="E-Mail:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtEmail" layoutX="50.0" layoutY="431.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="10.0" layoutY="513.0" text="Celular 1:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtCelularU" layoutX="10.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="10.0" layoutY="551.0" text="Celular 2:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtCelularD" layoutX="10.0" layoutY="568.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="10.0" layoutY="551.0" text="Telefone:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtTelefone" layoutX="10.0" layoutY="551.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="10.0" layoutY="576.0" text="CPF:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtCpf" layoutX="10.0" layoutY="551.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="10.0" layoutY="551.0" text="RG:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtRg" layoutX="10.0" layoutY="568.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="50.0" layoutY="585.0" text="Dt. Admissão:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtDtAdmissao" layoutX="50.0" layoutY="607.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="10.0" layoutY="632.0" text="Cargo:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ComboBox fx:id="comboCargo" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <Label layoutX="50.0" layoutY="689.0" text="Departamento:">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ComboBox fx:id="comboDepartamento" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <Label layoutX="50.0" layoutY="997.0" text="Salário (R$):">
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtSalario" layoutX="50.0" layoutY="1019.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                           <VBox.margin>
+                              <Insets left="40.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <HBox layoutX="50.0" layoutY="285.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="260.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #9cc283;" text="CANCELAR" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets left="90.0" right="35.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="40.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
                      </children></VBox>
                </content>
             </ScrollPane>
          </children>
       </Pane>
    </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.embed.swing.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -17,19 +18,21 @@
             <TableColumn fx:id="colunaOpc" prefWidth="150.0" text="OPÇÕES" />
         </columns>
       </TableView>
-      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #9CC283;" text="CADASTRO DE DEPARTAMENTO" textFill="WHITE">
+      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9CC283;" text="CADASTRO DE DEPARTAMENTO" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Pane layoutX="684.0" layoutY="110.0" prefHeight="334.0" prefWidth="343.0" style="-fx-background-color: #dcdcdc;">
+      <Pane layoutX="684.0" layoutY="110.0" prefHeight="336.0" prefWidth="343.0" style="-fx-background-color: #dcdcdc;">
          <children>
             <Label layoutX="95.0" layoutY="14.0" text="Cadastrar/Editar Departamento" />
             <Label layoutX="116.0" layoutY="75.0" text="Nome do Departamento:" />
             <Label layoutX="75.0" layoutY="167.0" text="Status Inicial:" />
             <Label layoutX="122.0" layoutY="207.0" text="Ativado/Desativado" />
             <TextField layoutX="108.0" layoutY="108.0" />
-            <ToggleButton layoutX="21.0" layoutY="203.0" mnemonicParsing="false" text="ToggleButton" />
          </children>
       </Pane>
    </children>

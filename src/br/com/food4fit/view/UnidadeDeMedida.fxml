@@ -29,7 +29,10 @@
       </TableView>
       <Pane fx:id="paneConteudo" layoutX="637.0" layoutY="74.0" prefHeight="280.0" prefWidth="280.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Button layoutX="157.0" layoutY="220.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #9cc283;" text="Cancelar" textFill="WHITE" />
+            <Button layoutX="61.5" layoutY="220.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #9cc283;" text="Cancelar" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Label layoutX="61.5" layoutY="36.0" text="Unidade de Medida:">
                <font>
                   <Font name="Roboto Medium" size="14.0" />
@@ -40,7 +43,10 @@
                </font></Label>
             <TextField fx:id="txtUnidadeDeMedida" layoutX="61.5" layoutY="65.0" prefHeight="25.0" prefWidth="157.0" />
             <TextField fx:id="txtSigla" layoutX="61.5" layoutY="167.0" prefHeight="25.0" prefWidth="157.0" />
-            <Button layoutX="61.5" layoutY="220.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="Salvar" textFill="WHITE" />
+            <Button layoutX="171.0" layoutY="220.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="Salvar" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </Pane>
       <Accordion layoutX="540.0" layoutY="371.0" />

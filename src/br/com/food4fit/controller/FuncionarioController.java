@@ -10,8 +10,11 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -51,16 +54,62 @@ public class FuncionarioController {
 	@FXML
 	private Pane paneConteudo;
 
+	@FXML
+	private TextField txtCelularD;
+
+	@FXML
+	private TextField txtEmail;
+
+	@FXML
+	private TextField txtTelefone;
+
+	@FXML
+	private ComboBox comboDepartamento;
+
+	@FXML
+	private TextField txtCpf;
+
+	@FXML
+	private TextField txtSalario;
+
+	@FXML
+	private TextField txtDtAdmissao;
+
+	@FXML
+	private TextField txtDtNasc;
+
+	@FXML
+	private TextField txtCelularU;
+
+	@FXML
+	private ComboBox comboCargo;
+
+	@FXML
+	private ToggleGroup sexo;
+
+	@FXML
+	private TextField txtMatricula;
+
+	@FXML
+	private TextField txtEmpregado;
+
+	@FXML
+	private TextField txtRg;
+
+	@FXML
+    private ImageView fotoFuncionario;
+
 
 	public void initialize() {
 		paneConteudo.setStyle("visibility: false");
+
 
 		Call<Funcionario[]> retorno = new RetrofitConfig().getFuncionarioService().lista();
 		retorno.enqueue(new Callback<Funcionario[]>() {
 
 			@Override
 			public void onResponse(Call<Funcionario[]> arg0, Response<Funcionario[]> arg1) {
-				for(Funcionario f : arg1.body()){
+				for (Funcionario f : arg1.body()) {
 					Image editImg = new Image(Main.class.getResource("assets/icons/editar-c.png").toString());
 
 					Image cancelImg = new Image(Main.class.getResource("assets/icons/cancelar-c.png").toString());
@@ -72,7 +121,6 @@ public class FuncionarioController {
 					editView.setStyle("-fx-cursor: hand;");
 					editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
 						abrirConteudo();
-
 
 						event.consume();
 					});
@@ -113,7 +161,6 @@ public class FuncionarioController {
 							}
 						});
 
-
 					});
 
 					HBox hBox = new HBox(editView, deleteView);
@@ -140,8 +187,13 @@ public class FuncionarioController {
 
 			}
 		});
+
 	}
 
+	@FXML
+	void salvar() {
+
+	}
 
 	// Abrir o panel oculto
 	@FXML
