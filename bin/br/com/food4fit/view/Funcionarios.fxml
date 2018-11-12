@@ -216,7 +216,7 @@
                         </TextField>
                         <HBox layoutX="50.0" layoutY="285.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="260.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #9cc283;" text="CANCELAR" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="90.0" right="35.0" />
                                  </HBox.margin>

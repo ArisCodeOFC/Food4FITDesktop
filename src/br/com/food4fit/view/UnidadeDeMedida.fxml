@@ -29,7 +29,7 @@
       </TableView>
       <Pane fx:id="paneConteudo" layoutX="637.0" layoutY="74.0" prefHeight="280.0" prefWidth="280.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Button layoutX="61.5" layoutY="220.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #9cc283;" text="Cancelar" textFill="WHITE">
+            <Button layoutX="61.5" layoutY="220.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #7f7f7f;" text="Cancelar" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
