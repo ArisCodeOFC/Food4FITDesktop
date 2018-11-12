@@ -7,23 +7,4 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.UsuarioController">
-   <children>
-      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="CADASTRO DE USUÁRIO" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Roboto Medium" size="14.0" />
-         </font></Button>
-      <TableView fx:id="tblUsuario" focusTraversable="false" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0">
-        <columns>
-          <TableColumn fx:id="colunaNome" editable="false" prefWidth="250.0" sortable="false" text="NOME" />
-          <TableColumn fx:id="colunaMatricula" editable="false" prefWidth="147.0" sortable="false" text="MATRÍCULA" />
-            <TableColumn fx:id="colunaEmail" editable="false" prefWidth="255.0" sortable="false" text="E-MAIL" />
-            <TableColumn fx:id="colunaCargo" editable="false" prefWidth="225.0" sortable="false" text="CARGO" />
-            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="150.0" sortable="false" text="OPÇÕES" />
-        </columns>
-      </TableView>
-   </children>
-</AnchorPane>
+<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.UsuarioController" />

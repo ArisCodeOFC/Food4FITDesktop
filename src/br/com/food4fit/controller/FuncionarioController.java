@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -90,7 +91,13 @@ public class FuncionarioController {
 	private ComboBox comboCargo;
 
 	@FXML
-	private ToggleGroup sexo;
+	private ToggleGroup genero;
+
+	@FXML
+	private RadioButton rdoMulher;
+
+	@FXML
+	private RadioButton rdoHomem;
 
 	@FXML
 	private TextField txtMatricula;
@@ -108,6 +115,27 @@ public class FuncionarioController {
 	private ImageView fotoFuncionario;
 
 	@FXML
+	private TextField txtNumero;
+
+	@FXML
+	private TextField txtComplemento;
+
+	@FXML
+	private TextField txtLogradouro;
+
+	@FXML
+	private ComboBox comboEstado;
+
+	@FXML
+	private ComboBox comboCidade;
+
+	@FXML
+	private TextField txtCep;
+
+	@FXML
+	private TextField txtBairro;
+
+	@FXML
 	private Button escolherImg;
 
 	private final Desktop desktop = Desktop.getDesktop();
@@ -115,6 +143,8 @@ public class FuncionarioController {
 	public void initialize() {
 		paneConteudo.setStyle("visibility: false");
 		final FileChooser fileChooser = new FileChooser();
+		rdoHomem.setUserData("H");
+		rdoMulher.setUserData("M");
 
 		escolherImg.setOnAction((final ActionEvent e) -> {
 			configureFileChooser(fileChooser);
@@ -143,9 +173,28 @@ public class FuncionarioController {
 						txtNome.setUserData(f);
 						txtSobrenome.setText(f.getSobrenome());
 						txtEmail.setText(f.getEmail());
+						txtDtAdmissao.setText(String.valueOf(f.getDataFormatada()));
 						comboCargo.setValue(f.getCargo());
+						txtMatricula.setText(String.valueOf(f.getMatricula()));
 						txtNome.setText(f.getNome());
-						//txtCelularU.setText(f.get);
+						txtDtNasc.setText(String.valueOf(f.getDataNasciFormatada()));
+
+
+
+						// genero.selectToggle(f.getGenero());
+						txtCelularU.setText(f.getCelular());
+						txtTelefone.setText(f.getTelefone());
+						txtCpf.setText(f.getCpf());
+						txtRg.setText(f.getRg());
+						txtSalario.setText(String.valueOf(f.getSalario()));
+						comboDepartamento.setValue(f.getDepartamento());
+						comboEstado.setValue(f.getEndereco().getEstado());
+						comboCidade.setValue(f.getEndereco().getCidade());
+						txtBairro.setText(f.getEndereco().getBairro());
+						txtLogradouro.setText(f.getEndereco().getLogradouro());
+						txtNumero.setText(f.getEndereco().getNumero());
+						txtComplemento.setText(f.getEndereco().getComplemento());
+						txtCep.setText(f.getEndereco().getCep());
 
 						abrirConteudo();
 						event.consume();
@@ -162,7 +211,7 @@ public class FuncionarioController {
 
 							@Override
 							public void onFailure(Call<Void> arg0, Throwable arg1) {
-								// TODO Auto-generated method stub
+								arg1.printStackTrace();
 
 							}
 
@@ -209,7 +258,7 @@ public class FuncionarioController {
 
 			@Override
 			public void onFailure(Call<Funcionario[]> arg0, Throwable arg1) {
-				// TODO Auto-generated method stub
+				arg1.printStackTrace();
 
 			}
 		});
@@ -249,6 +298,7 @@ public class FuncionarioController {
 	@FXML
 	void abrirConteudo() {
 		paneConteudo.setStyle("visibility: true;");
+
 	}
 
 	// Fecha o panel que foi aberto
@@ -268,7 +318,20 @@ public class FuncionarioController {
 		txtTelefone.clear();
 		comboCargo.setValue(null);
 		comboDepartamento.setValue(null);
-		sexo.selectToggle(null);
+		genero.selectToggle(null);
+		txtDtNasc.clear();
+
+
+
+
+
+		comboEstado.setValue(null);
+		comboCidade.setValue(null);
+		txtBairro.clear();
+		txtLogradouro.clear();
+		txtNumero.clear();
+		txtComplemento.clear();
+		txtCep.clear();
 
 	}
 

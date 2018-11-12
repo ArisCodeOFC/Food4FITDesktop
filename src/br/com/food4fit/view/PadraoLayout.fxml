@@ -15,7 +15,7 @@
    <children>
       <Pane layoutX="253.0" prefHeight="94.0" prefWidth="1027.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Label fx:id="nomeTela" layoutX="36.0" layoutY="37.0" text="Nome Tela">
+            <Label fx:id="nomeTela" layoutX="36.0" layoutY="35.0" text="Nome Tela">
                <font>
                   <Font name="Roboto Medium" size="20.0" />
                </font>
@@ -31,6 +31,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <Pane fx:id="blackMode" layoutX="806.0" layoutY="34.0" prefHeight="26.0" prefWidth="50.0" />
+            <Label layoutX="861.0" layoutY="38.0" text="Black Mode">
+               <font>
+                  <Font name="Roboto Black" size="14.0" />
+               </font>
+            </Label>
          </children></Pane>
       <Pane fx:id="main" layoutX="253.0" layoutY="94.0" prefHeight="626.0" prefWidth="1027.0" />
       <Pane prefHeight="720.0" prefWidth="253.0">
@@ -188,35 +194,6 @@
                               <Insets bottom="5.0" left="15.0" top="5.0" />
                            </VBox.margin>
                         </Separator>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="317.0" onMouseClicked="#menuUsuario" prefHeight="43.0" prefWidth="251.0">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/icons/usuario-c.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D />
-                                 </viewport>
-                                 <HBox.margin>
-                                    <Insets left="15.0" right="15.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label text="Usuários">
-                                 <font>
-                                    <Font name="Roboto Medium" size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="363.0" onMouseClicked="#menuNivel" prefHeight="43.0" prefWidth="251.0">
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">

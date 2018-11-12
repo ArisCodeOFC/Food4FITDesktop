@@ -22,12 +22,18 @@ public class PadraoLayoutController {
 	@FXML
 	private Pane main;
 
+
+    @FXML
+    private Pane blackMode;
+
 	@FXML
 	private Label nomeTela;
 
 	@FXML
 	public void initialize() {
-		mudarTela("Perfil", "Dashboard");
+		mudarTela("Funcionarios", "Dashboard");
+		ToggleSwitch botao = new ToggleSwitch();
+		blackMode.getChildren().add(botao);
 	}
 
 	@FXML
