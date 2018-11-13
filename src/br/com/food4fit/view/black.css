@@ -18,7 +18,7 @@
 
 
 #raiz{
-	-fx-background-color: #000;
+	-fx-background-color: #303030;
 	-fx-focus-color: transparent;
 	-fx-faint-focus-color: transparent;
 }
@@ -28,18 +28,27 @@
 }
 
 .menu{
-	-fx-background-color: #000;
+	-fx-background-color: #282828;
 	-fx-focus-color: transparent;
 
 }
 
 .separador{
-	-fx-background-color: #fff;
+	-fx-background-color: #353535;
+}
+
+.separador *.line {
+	-fx-border-width: 0px;
 }
 
 TableView{
 	-fx-focus-color: transparent;
 	-fx-faint-focus-color: -fx-control-inner-background;
-	//-fx-background-insets: -1.4, 0, 1, 2;
+	-fx-background-insets: -1.4, 0, 1, 2;
+
+}
+
+.texto{
+	-fx-text-fill: #fff;
 
 }

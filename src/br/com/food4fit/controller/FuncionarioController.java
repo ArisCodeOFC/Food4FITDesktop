@@ -5,14 +5,20 @@ import java.awt.EventQueue;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 
 import br.com.food4fit.Main;
 import br.com.food4fit.config.RetrofitConfig;
+import br.com.food4fit.model.Cargo;
+import br.com.food4fit.model.Cidade;
+import br.com.food4fit.model.Departamento;
+import br.com.food4fit.model.Estado;
 import br.com.food4fit.model.Funcionario;
 import br.com.food4fit.model.UnidadeDeMedida;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -138,8 +144,6 @@ public class FuncionarioController {
 	@FXML
 	private Button escolherImg;
 
-	private final Desktop desktop = Desktop.getDesktop();
-
 	public void initialize() {
 		paneConteudo.setStyle("visibility: false");
 		final FileChooser fileChooser = new FileChooser();
@@ -154,6 +158,74 @@ public class FuncionarioController {
 			}
 		});
 
+		listarFuncionario();
+		listarCargo();
+		listarDepartamento();
+		listarEstado();
+
+	}
+
+	public void listarEstado(){
+		Call<Estado[]> retorno = new RetrofitConfig().getEstadoService().listarEstado();
+		retorno.enqueue(new Callback<Estado[]>() {
+
+			@Override
+			public void onResponse(Call<Estado[]> arg0, Response<Estado[]> arg1) {
+				comboEstado.setItems(FXCollections.observableList(Arrays.asList(arg1.body())));
+
+			}
+
+			@Override
+			public void onFailure(Call<Estado[]> arg0, Throwable arg1) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+	}
+
+	public void listarCidade(int id){
+		Call<Cidade[]> retorno = new RetrofitConfig().getEstadoService().listarCidade(id);
+	}
+
+	public void listarCargo() {
+		Call<Cargo[]> retorno = new RetrofitConfig().getCargoService().listar();
+		retorno.enqueue(new Callback<Cargo[]>() {
+
+			@Override
+			public void onResponse(Call<Cargo[]> arg0, Response<Cargo[]> arg1) {
+				comboCargo.setItems(FXCollections.observableList(Arrays.asList(arg1.body())));
+
+
+			}
+
+			@Override
+			public void onFailure(Call<Cargo[]> arg0, Throwable arg1) {
+				arg1.printStackTrace();
+
+			}
+		});
+
+	}
+
+	public void listarDepartamento(){
+		Call<Departamento[]> retorno = new RetrofitConfig().getDepartamentoService().listar();
+		retorno.enqueue(new Callback<Departamento[]>() {
+
+			@Override
+			public void onResponse(Call<Departamento[]> arg0, Response<Departamento[]> arg1) {
+				comboDepartamento.setItems(FXCollections.observableArrayList(Arrays.asList(arg1.body())));
+
+			}
+
+			@Override
+			public void onFailure(Call<Departamento[]> arg0, Throwable arg1) {
+
+
+			}
+		});
+	}
+
+	public void listarFuncionario() {
 		Call<Funcionario[]> retorno = new RetrofitConfig().getFuncionarioService().lista();
 		retorno.enqueue(new Callback<Funcionario[]>() {
 
@@ -178,8 +250,6 @@ public class FuncionarioController {
 						txtMatricula.setText(String.valueOf(f.getMatricula()));
 						txtNome.setText(f.getNome());
 						txtDtNasc.setText(String.valueOf(f.getDataNasciFormatada()));
-
-
 
 						// genero.selectToggle(f.getGenero());
 						txtCelularU.setText(f.getCelular());
@@ -262,9 +332,7 @@ public class FuncionarioController {
 
 			}
 		});
-
 	}
-
 	// ******************************************************************
 
 	// escolherImg

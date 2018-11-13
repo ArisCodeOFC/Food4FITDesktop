@@ -28,16 +28,16 @@
       </Button>
       <Pane fx:id="paneConteudo" layoutX="682.0" prefHeight="626.0" prefWidth="345.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Label layoutX="95.0" layoutY="14.0" text="Cadastrar/Editar Departamento">
+            <Label layoutX="95.0" layoutY="14.0" styleClass="texto" text="Cadastrar/Editar Departamento">
                <font>
                   <Font name="Roboto Black" size="12.0" />
                </font></Label>
-            <Label layoutX="45.5" layoutY="77.0" text="Nome do Departamento:">
+            <Label layoutX="45.5" layoutY="77.0" styleClass="texto" text="Nome do Departamento:">
                <font>
                   <Font name="Roboto Medium" size="12.0" />
                </font></Label>
-            <Label layoutX="45.5" layoutY="167.0" text="Status:" />
-            <Label layoutX="112.0" layoutY="200.0" text="Ativado/Desativado" />
+            <Label layoutX="45.5" layoutY="167.0" styleClass="texto" text="Status:" />
+            <Label layoutX="112.0" layoutY="200.0" styleClass="texto" text="Ativado/Desativado" />
             <TextField fx:id="txtDepartamento" layoutX="42.5" layoutY="109.0" prefWidth="260.0" />
             <Pane fx:id="paneButton" layoutX="45.5" layoutY="196.0" prefHeight="26.0" prefWidth="50.0" />
             <Button layoutX="267.0" layoutY="585.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">

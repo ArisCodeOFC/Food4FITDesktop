@@ -28,13 +28,13 @@
             <TableColumn fx:id="colunaOpc" editable="false" prefWidth="129.0" sortable="false" text="OPÇÕES" />
         </columns>
       </TableView>
-      <Pane fx:id="paneConteudo" layoutX="673.0" prefHeight="626.0" prefWidth="354.0" style="-fx-background-color: #dcdcdc;">
+      <Pane fx:id="paneConteudo" layoutX="673.0" prefHeight="626.0" prefWidth="354.0" style="-fx-background-color: #dcdcdc;" styleClass="menu">
          <children>
             <ScrollPane prefHeight="626.0" prefWidth="354.0">
                <content>
-                  <VBox prefHeight="1580.0" prefWidth="339.0">
+                  <VBox prefHeight="1580.0" prefWidth="339.0" style="-fx-padding: 0;" styleClass="menu">
                      <children>
-                        <Label text="Cadastrar Funcionário">
+                        <Label styleClass="texto" text="Cadastrar Funcionário">
                            <font>
                               <Font name="Roboto Black" size="16.0" />
                            </font>
@@ -62,7 +62,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Label text="Matrícula:">
+                        <Label styleClass="texto" text="Matrícula:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -78,7 +78,7 @@
                               <Font name="Roboto" size="12.0" />
                            </font>
                         </TextField>
-                        <Label layoutX="50.0" layoutY="285.0" text="Nome:">
+                        <Label layoutX="50.0" layoutY="285.0" styleClass="texto" text="Nome:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -91,7 +91,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label text="Sobrenome:">
+                        <Label styleClass="texto" text="Sobrenome:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -104,7 +104,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="10.0" layoutY="332.0" text="Dt. Nascimento:">
+                        <Label layoutX="10.0" layoutY="332.0" styleClass="texto" text="Dt. Nascimento:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -117,7 +117,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="50.0" layoutY="409.0" text="Gênero:">
+                        <Label layoutX="50.0" layoutY="409.0" styleClass="texto" text="Gênero:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -127,7 +127,7 @@
                         </Label>
                         <HBox prefHeight="25.0" prefWidth="200.0">
                            <children>
-                              <RadioButton fx:id="rdoHomem" mnemonicParsing="false" text="Homem">
+                              <RadioButton fx:id="rdoHomem" mnemonicParsing="false" styleClass="texto" text="Homem">
                                  <HBox.margin>
                                     <Insets left="40.0" right="25.0" top="5.0" />
                                  </HBox.margin>
@@ -135,14 +135,14 @@
                                     <ToggleGroup fx:id="genero" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="rdoMulher" mnemonicParsing="false" text="Mulher" toggleGroup="$genero">
+                              <RadioButton fx:id="rdoMulher" mnemonicParsing="false" styleClass="texto" text="Mulher" toggleGroup="$genero">
                                  <HBox.margin>
                                     <Insets top="5.0" />
                                  </HBox.margin>
                               </RadioButton>
                            </children>
                         </HBox>
-                        <Label layoutX="50.0" layoutY="409.0" text="E-Mail:">
+                        <Label layoutX="50.0" layoutY="409.0" styleClass="texto" text="E-Mail:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -155,7 +155,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="10.0" layoutY="513.0" text="Celular:">
+                        <Label layoutX="10.0" layoutY="513.0" styleClass="texto" text="Celular:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -168,7 +168,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="10.0" layoutY="551.0" text="Telefone:">
+                        <Label layoutX="10.0" layoutY="551.0" styleClass="texto" text="Telefone:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -181,7 +181,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="10.0" layoutY="576.0" text="CPF:">
+                        <Label layoutX="10.0" layoutY="576.0" styleClass="texto" text="CPF:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -194,7 +194,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="10.0" layoutY="551.0" text="RG:">
+                        <Label layoutX="10.0" layoutY="551.0" styleClass="texto" text="RG:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -207,7 +207,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="50.0" layoutY="585.0" text="Dt. Admissão:">
+                        <Label layoutX="50.0" layoutY="585.0" styleClass="texto" text="Dt. Admissão:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -220,7 +220,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="10.0" layoutY="632.0" text="Cargo:">
+                        <Label layoutX="10.0" layoutY="632.0" styleClass="texto" text="Cargo:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -233,7 +233,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </ComboBox>
-                        <Label layoutX="50.0" layoutY="689.0" text="Departamento:">
+                        <Label layoutX="50.0" layoutY="689.0" styleClass="texto" text="Departamento:">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -246,7 +246,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </ComboBox>
-                        <Label layoutX="50.0" layoutY="997.0" text="Salário (R$):">
+                        <Label layoutX="50.0" layoutY="997.0" styleClass="texto" text="Salário (R$):">
                            <VBox.margin>
                               <Insets left="40.0" top="15.0" />
                            </VBox.margin>
@@ -259,12 +259,12 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Separator maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="280.0" style="-fx-background-color: #000;">
+                        <Separator maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="280.0" styleClass="separador">
                            <VBox.margin>
                               <Insets left="29.5" top="15.0" />
                            </VBox.margin>
                         </Separator>
-                        <Label text="Endereço">
+                        <Label styleClass="texto" text="Endereço">
                            <font>
                               <Font name="Roboto Black" size="14.0" />
                            </font>
@@ -272,7 +272,7 @@
                               <Insets left="139.5" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label layoutX="150.0" layoutY="1207.0" text="Estado:">
+                        <Label layoutX="150.0" layoutY="1207.0" styleClass="texto" text="Estado:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
@@ -285,7 +285,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </ComboBox>
-                        <Label layoutX="50.0" layoutY="1225.0" text="Cidade:">
+                        <Label layoutX="50.0" layoutY="1225.0" styleClass="texto" text="Cidade:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
@@ -298,7 +298,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </ComboBox>
-                        <Label layoutX="50.0" layoutY="1225.0" text="Bairro:">
+                        <Label layoutX="50.0" layoutY="1225.0" styleClass="texto" text="Bairro:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
@@ -311,7 +311,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="50.0" layoutY="1311.0" text="Logradouro:">
+                        <Label layoutX="50.0" layoutY="1311.0" styleClass="texto" text="Logradouro:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
@@ -324,7 +324,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="50.0" layoutY="1397.0" text="Numero:">
+                        <Label layoutX="50.0" layoutY="1397.0" styleClass="texto" text="Numero:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
@@ -337,7 +337,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="50.0" layoutY="1354.0" text="Complemento:">
+                        <Label layoutX="50.0" layoutY="1354.0" styleClass="texto" text="Complemento:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
@@ -350,7 +350,7 @@
                               <Insets left="40.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label layoutX="50.0" layoutY="1440.0" text="CEP:">
+                        <Label layoutX="50.0" layoutY="1440.0" styleClass="texto" text="CEP:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>

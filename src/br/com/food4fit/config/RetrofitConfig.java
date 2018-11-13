@@ -1,5 +1,8 @@
 package br.com.food4fit.config;
 
+import br.com.food4fit.service.CargoService;
+import br.com.food4fit.service.DepartamentoService;
+import br.com.food4fit.service.EstadoService;
 import br.com.food4fit.service.FuncionarioService;
 import br.com.food4fit.service.UnidadeDeMedidaService;
 import retrofit2.Retrofit;
@@ -23,6 +26,18 @@ public class RetrofitConfig {
 
 	public UnidadeDeMedidaService getUnidadeDeMedida(){
 		return this.retrofit.create(UnidadeDeMedidaService.class);
+	}
+
+	public CargoService getCargoService(){
+		return this.retrofit.create(CargoService.class);
+	}
+
+	public DepartamentoService getDepartamentoService(){
+		return this.retrofit.create(DepartamentoService.class);
+	}
+
+	public EstadoService getEstadoService(){
+		return this.retrofit.create(EstadoService.class);
 	}
 
 }

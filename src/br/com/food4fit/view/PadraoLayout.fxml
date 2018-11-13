@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="raiz" prefHeight="720.0" prefWidth="1280.0" style="-fx-padding: 0px; -fx-margin: 0px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.PadraoLayoutController">
    <children>
-      <Pane layoutX="253.0" prefHeight="94.0" prefWidth="1027.0" style="-fx-background-color: #dcdcdc;">
+      <Pane layoutX="253.0" prefHeight="94.0" prefWidth="1027.0" style="-fx-background-color: #9cc283;" styleClass="cabecalho">
          <children>
             <Label fx:id="nomeTela" layoutX="36.0" layoutY="35.0" styleClass="itemMenu" text="Nome Tela">
                <font>
@@ -57,8 +57,8 @@
                                     <Font name="Roboto Black" size="24.0" />
                                  </font>
                               </Label>
-                              <Separator layoutX="13.0" layoutY="88.0" prefWidth="215.0" style="-fx-background-color: #000;" styleClass="separador" />
-                              <Separator layoutX="14.0" layoutY="152.0" prefWidth="215.0" style="-fx-background-color: #000;" styleClass="separador" />
+                              <Separator focusTraversable="false" layoutX="13.0" layoutY="88.0" prefWidth="215.0" styleClass="separador" />
+                              <Separator layoutX="14.0" layoutY="152.0" prefWidth="215.0" styleClass="separador" />
                               <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="18.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/icons/person.jpg" />
@@ -189,7 +189,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </HBox>
-                        <Separator maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;" styleClass="separador">
+                        <Separator maxWidth="-Infinity" prefWidth="215.0" styleClass="separador">
                            <VBox.margin>
                               <Insets bottom="5.0" left="15.0" top="5.0" />
                            </VBox.margin>
@@ -376,7 +376,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </HBox>
-                        <Separator layoutX="10.0" layoutY="360.0" maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;" styleClass="separador">
+                        <Separator layoutX="10.0" layoutY="360.0" maxWidth="-Infinity" prefWidth="215.0" styleClass="separador">
                            <VBox.margin>
                               <Insets bottom="5.0" left="15.0" top="5.0" />
                            </VBox.margin></Separator>

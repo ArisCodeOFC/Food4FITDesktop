@@ -37,22 +37,32 @@ public class PadraoLayoutController {
 
 	@FXML
 	public void initialize() {
-		mudarTela("Banco", "Dashboard");
-		ToggleSwitch botao = new ToggleSwitch();
+		mudarTela("Funcionarios", "Dashboard");
+		ToggleSwitch botao = new ToggleSwitch(false);
+
 		blackMode.getChildren().add(botao);
 
-		raiz.getStylesheets().add("br/com/food4fit/view/black.css");
 
-		blackMode.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-			System.out.println(blackMode.getUserData());
-			if(blackMode.getUserData() == null){
+		botao.setListener(status -> {
+			raiz.getStylesheets().clear();
+			if (status) {
 				raiz.getStylesheets().add("br/com/food4fit/view/black.css");
-			}else{
+			} else {
 				raiz.getStylesheets().add("br/com/food4fit/view/white.css");
 			}
-
-			event.consume();
 		});
+//
+//		botao.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
+//			System.out.println("branco");
+//			botao.switchOnProperty().set(!botao.switchOnProperty().get());
+//			if(botao.switchOnProperty().get()){
+//				raiz.getStylesheets().add("br/com/food4fit/view/black.css");
+//			}else{
+//				raiz.getStylesheets().add("br/com/food4fit/view/white.css");
+//			}
+//
+//			event.consume();
+//		});
 
 		//raiz.getStylesheets().add("white.css");
 		//raiz.getStylesheets().add("br/com/food4fit/view/black.css");

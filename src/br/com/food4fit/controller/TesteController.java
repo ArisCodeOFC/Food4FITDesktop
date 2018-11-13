@@ -12,7 +12,7 @@ public class TesteController {
 	@FXML
 	private AnchorPane conteudo;
 
-	ToggleSwitch button = new ToggleSwitch();
+	ToggleSwitch button = new ToggleSwitch(false);
 
 	public void initialize() {
 		botao.getChildren().add(button);

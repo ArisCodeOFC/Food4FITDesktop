@@ -11,7 +11,7 @@ public class DepartamentoController {
 	@FXML
     private Pane paneButton;
 
-	ToggleSwitch button = new ToggleSwitch();
+	ToggleSwitch button = new ToggleSwitch(false);
 
 	public void initialize() {
 

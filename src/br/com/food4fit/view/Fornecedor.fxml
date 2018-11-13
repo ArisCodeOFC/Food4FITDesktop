@@ -29,13 +29,13 @@
       </TableView>
       <Pane fx:id="paneConteudo" layoutX="318.0" prefHeight="626.0" prefWidth="708.0" style="-fx-background-color: dcdcdc;">
          <children>
-            <Label layoutX="287.0" layoutY="26.0" text="Cadastrar um Fornecedo">
+            <Label layoutX="287.0" layoutY="26.0" styleClass="texto" text="Cadastrar um Fornecedo">
                <font>
                   <Font name="Roboto Black" size="14.0" />
                </font></Label>
             <VBox layoutY="72.0" prefHeight="500.0" prefWidth="354.0">
                <children>
-                  <Label text="Código:">
+                  <Label styleClass="texto" text="Código:">
                      <VBox.margin>
                         <Insets left="47.0" />
                      </VBox.margin>
@@ -48,7 +48,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Inscrição Estadual:">
+                  <Label styleClass="texto" text="Inscrição Estadual:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -61,7 +61,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Endereço:">
+                  <Label styleClass="texto" text="Endereço:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -74,7 +74,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Cidade:">
+                  <Label styleClass="texto" text="Cidade:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -87,7 +87,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="CEP:">
+                  <Label styleClass="texto" text="CEP:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -100,7 +100,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="E-Mail:">
+                  <Label styleClass="texto" text="E-Mail:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -113,7 +113,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Observações:">
+                  <Label styleClass="texto" text="Observações:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -129,7 +129,7 @@
                </children></VBox>
             <VBox layoutX="354.0" layoutY="72.0" prefHeight="500.0" prefWidth="354.0">
                <children>
-                  <Label text="Razão Social:">
+                  <Label styleClass="texto" text="Razão Social:">
                      <VBox.margin>
                         <Insets left="47.0" />
                      </VBox.margin>
@@ -142,7 +142,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Label text="CNPJ:">
+                  <Label styleClass="texto" text="CNPJ:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -155,7 +155,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Nome Fantasia:">
+                  <Label styleClass="texto" text="Nome Fantasia:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -168,7 +168,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Bairro:">
+                  <Label styleClass="texto" text="Bairro:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -181,7 +181,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Estado:">
+                  <Label styleClass="texto" text="Estado:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -191,7 +191,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <Label text="Telefone:">
+                  <Label styleClass="texto" text="Telefone:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
@@ -204,7 +204,7 @@
                         <Insets left="47.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Representante:">
+                  <Label styleClass="texto" text="Representante:">
                      <VBox.margin>
                         <Insets left="47.0" top="15.0" />
                      </VBox.margin>
