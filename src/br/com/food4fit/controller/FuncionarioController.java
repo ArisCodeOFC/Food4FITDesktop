@@ -320,11 +320,6 @@ public class FuncionarioController {
 		comboDepartamento.setValue(null);
 		genero.selectToggle(null);
 		txtDtNasc.clear();
-
-
-
-
-
 		comboEstado.setValue(null);
 		comboCidade.setValue(null);
 		txtBairro.clear();

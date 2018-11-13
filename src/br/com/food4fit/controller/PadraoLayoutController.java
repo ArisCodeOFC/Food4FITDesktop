@@ -14,6 +14,8 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -29,11 +31,31 @@ public class PadraoLayoutController {
 	@FXML
 	private Label nomeTela;
 
+    @FXML
+    private AnchorPane raiz;
+
+
 	@FXML
 	public void initialize() {
-		mudarTela("Funcionarios", "Dashboard");
+		mudarTela("Banco", "Dashboard");
 		ToggleSwitch botao = new ToggleSwitch();
 		blackMode.getChildren().add(botao);
+
+		raiz.getStylesheets().add("br/com/food4fit/view/black.css");
+
+		blackMode.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+			System.out.println(blackMode.getUserData());
+			if(blackMode.getUserData() == null){
+				raiz.getStylesheets().add("br/com/food4fit/view/black.css");
+			}else{
+				raiz.getStylesheets().add("br/com/food4fit/view/white.css");
+			}
+
+			event.consume();
+		});
+
+		//raiz.getStylesheets().add("white.css");
+		//raiz.getStylesheets().add("br/com/food4fit/view/black.css");
 	}
 
 	@FXML

@@ -14,12 +14,12 @@
             <Font name="Roboto" size="14.0" />
          </font>
       </Button>
-      <TableView fx:id="tblBanco" layoutY="110.0" prefHeight="516.0" prefWidth="720.0">
+      <TableView fx:id="tblBanco" layoutY="110.0" prefHeight="516.0" prefWidth="720.0" styleClass="tabela">
         <columns>
-          <TableColumn fx:id="colunaBanco" editable="false" prefWidth="260.0" sortable="false" text="BANCO" />
-          <TableColumn fx:id="colunaAgencia" editable="false" prefWidth="160.0" sortable="false" text="AGÊNCIA" />
-            <TableColumn fx:id="colunaConta" editable="false" prefWidth="170.0" sortable="false" text="CONTA" />
-            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" sortable="false" text="OPÇÔES" />
+          <TableColumn fx:id="colunaBanco" editable="false" prefWidth="260.0" resizable="false" sortable="false" text="BANCO" />
+          <TableColumn fx:id="colunaAgencia" editable="false" prefWidth="160.0" resizable="false" sortable="false" text="AGÊNCIA" />
+            <TableColumn fx:id="colunaConta" editable="false" prefWidth="170.0" resizable="false" sortable="false" text="CONTA" />
+            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" resizable="false" sortable="false" text="OPÇÔES" />
         </columns>
       </TableView>
       <Pane fx:id="paneConteudo" layoutX="720.0" prefHeight="626.0" prefWidth="307.0" style="-fx-background-color: dcdcdc;">

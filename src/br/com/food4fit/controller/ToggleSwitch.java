@@ -21,6 +21,8 @@ public class ToggleSwitch extends HBox {
 		//button.
 		//label.setText("OFF");
 
+
+
 		getChildren().addAll(label, button);
 		button.setOnAction((e) -> {
 			switchedOn.set(!switchedOn.get());
@@ -28,6 +30,8 @@ public class ToggleSwitch extends HBox {
 		label.setOnMouseClicked((e) -> {
 			switchedOn.set(!switchedOn.get());
 		});
+
+
 		setStyle();
 		bindProperties();
 	}
@@ -52,14 +56,14 @@ public class ToggleSwitch extends HBox {
 		init();
 		switchedOn.addListener((a, b, c) -> {
 			if (c) {
-				button.setUserData(false);
+				button.setUserData(null);
 				//System.out.println(button.getUserData());
 				//label.setText("ON");
 				setStyle("-fx-background-color: #7f7f7f; -fx-background-radius: 40; -fx-cursor:hand;");
 				label.toFront();
 				button.setStyle("-fx-background-radius: 80;");
 			} else {
-				button.setUserData(true);
+				button.setUserData("verdadeiro");
 				//System.out.println(button.getUserData());
 				//label.setText("OFF");
 				setStyle("-fx-background-color: #9cc283; -fx-background-radius: 40; -fx-cursor:hand;");

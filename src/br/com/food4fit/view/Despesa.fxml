@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.DespesaController">
+   <children>
+      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #9cc283;" text="REGISTRAR DISPESA" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <TableView layoutY="110.0" prefHeight="516.0" prefWidth="1027.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

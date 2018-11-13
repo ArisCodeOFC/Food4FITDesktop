@@ -28,3 +28,11 @@
     -fx-font-family: "Texto";
 }
 
+#raiz{
+	-fx-background-color: #fff;
+}
+
+
+TableView{
+	-fx-focus-color: transparent;
+}

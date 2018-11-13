@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-padding: 0px; -fx-margin: 0px; -fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.PadraoLayoutController">
+<AnchorPane fx:id="raiz" prefHeight="720.0" prefWidth="1280.0" style="-fx-padding: 0px; -fx-margin: 0px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.PadraoLayoutController">
    <children>
       <Pane layoutX="253.0" prefHeight="94.0" prefWidth="1027.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Label fx:id="nomeTela" layoutX="36.0" layoutY="35.0" text="Nome Tela">
+            <Label fx:id="nomeTela" layoutX="36.0" layoutY="35.0" styleClass="itemMenu" text="Nome Tela">
                <font>
                   <Font name="Roboto Medium" size="20.0" />
                </font>
@@ -32,7 +32,7 @@
                </cursor>
             </ImageView>
             <Pane fx:id="blackMode" layoutX="806.0" layoutY="34.0" prefHeight="26.0" prefWidth="50.0" />
-            <Label layoutX="861.0" layoutY="38.0" text="Black Mode">
+            <Label layoutX="861.0" layoutY="38.0" styleClass="itemMenu" text="Black Mode">
                <font>
                   <Font name="Roboto Black" size="14.0" />
                </font>
@@ -41,11 +41,11 @@
       <Pane fx:id="main" layoutX="253.0" layoutY="94.0" prefHeight="626.0" prefWidth="1027.0" />
       <Pane prefHeight="720.0" prefWidth="253.0">
          <children>
-            <ScrollPane hbarPolicy="NEVER" hmax="0.0" pannable="true" prefHeight="720.0" prefWidth="253.0" style="-fx-border: none;" vbarPolicy="NEVER" vmax="0.0">
+            <ScrollPane hbarPolicy="NEVER" hmax="0.0" pannable="true" prefHeight="720.0" prefWidth="253.0" style="-fx-margin: 0; -fx-padding: 0;" styleClass="menu" vbarPolicy="NEVER" vmax="0.0">
                <content>
-                  <VBox prefHeight="720.0" prefWidth="248.0" style="-fx-background-color: #fff;">
+                  <VBox prefHeight="720.0" prefWidth="253.0" style="-fx-magin: 0; -fx-padding: 0;" styleClass="menu">
                      <children>
-                        <Pane prefHeight="178.0" prefWidth="251.0" style="-fx-background-color: #fff;">
+                        <Pane prefHeight="178.0" prefWidth="251.0">
                            <children>
                               <Label layoutX="11.0" layoutY="-1.0" prefHeight="50.0" prefWidth="154.0" style="-fx-color: #9cc283;" text="FOOD 4FIT" textFill="#9cc283">
                                  <font>
@@ -57,8 +57,8 @@
                                     <Font name="Roboto Black" size="24.0" />
                                  </font>
                               </Label>
-                              <Separator layoutX="13.0" layoutY="88.0" prefWidth="215.0" style="-fx-background-color: #000;" />
-                              <Separator layoutX="14.0" layoutY="152.0" prefWidth="215.0" style="-fx-background-color: #000;" />
+                              <Separator layoutX="13.0" layoutY="88.0" prefWidth="215.0" style="-fx-background-color: #000;" styleClass="separador" />
+                              <Separator layoutX="14.0" layoutY="152.0" prefWidth="215.0" style="-fx-background-color: #000;" styleClass="separador" />
                               <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="18.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/icons/person.jpg" />
@@ -67,12 +67,12 @@
                                     <Rectangle2D />
                                  </viewport>
                               </ImageView>
-                              <Label layoutX="84.0" layoutY="102.0" text="João da Silva">
+                              <Label layoutX="84.0" layoutY="102.0" styleClass="itemMenu" text="João da Silva">
                                  <font>
                                     <Font name="Roboto" size="12.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="70.0" layoutY="122.0" text="endereco@provedor.com">
+                              <Label layoutX="70.0" layoutY="122.0" styleClass="itemMenu" text="endereco@provedor.com">
                                  <font>
                                     <Font name="Roboto" size="12.0" />
                                  </font>
@@ -92,7 +92,7 @@
                                     <Image url="@../assets/icons/home-c.png" />
                                  </image>
                               </ImageView>
-                              <Label text="Dashboard">
+                              <Label styleClass="itemMenu" text="Dashboard">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -121,7 +121,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Estatísticas">
+                              <Label styleClass="itemMenu" text="Estatísticas">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -150,7 +150,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Fornecedores">
+                              <Label styleClass="itemMenu" text="Fornecedores">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -176,7 +176,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Funcionários">
+                              <Label styleClass="itemMenu" text="Funcionários">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -189,7 +189,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </HBox>
-                        <Separator maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;">
+                        <Separator maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;" styleClass="separador">
                            <VBox.margin>
                               <Insets bottom="5.0" left="15.0" top="5.0" />
                            </VBox.margin>
@@ -207,7 +207,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Níveis de Acesso">
+                              <Label styleClass="itemMenu" text="Níveis de Acesso">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -233,7 +233,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Despesas">
+                              <Label styleClass="itemMenu" text="Despesas">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -259,7 +259,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Relatórios">
+                              <Label styleClass="itemMenu" text="Relatórios">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -285,7 +285,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Banco">
+                              <Label styleClass="itemMenu" text="Banco">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -311,7 +311,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label onMouseClicked="#menuDepartamento" text="Departamentos">
+                              <Label onMouseClicked="#menuDepartamento" styleClass="itemMenu" text="Departamentos">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -337,7 +337,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Faturamento">
+                              <Label styleClass="itemMenu" text="Faturamento">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -363,7 +363,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Unidade de Medida">
+                              <Label styleClass="itemMenu" text="Unidade de Medida">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -376,7 +376,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </HBox>
-                        <Separator layoutX="10.0" layoutY="360.0" maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;">
+                        <Separator layoutX="10.0" layoutY="360.0" maxWidth="-Infinity" prefWidth="215.0" style="-fx-background-color: #000;" styleClass="separador">
                            <VBox.margin>
                               <Insets bottom="5.0" left="15.0" top="5.0" />
                            </VBox.margin></Separator>
@@ -393,7 +393,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Meu Perfil">
+                              <Label styleClass="itemMenu" text="Meu Perfil">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -419,7 +419,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Ajuda">
+                              <Label styleClass="itemMenu" text="Ajuda">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -445,7 +445,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label text="Sair">
+                              <Label styleClass="itemMenu" text="Sair">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -457,6 +457,9 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
                         </HBox>
                      </children>
                   </VBox>
