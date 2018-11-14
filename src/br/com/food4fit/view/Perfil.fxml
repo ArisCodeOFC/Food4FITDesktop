@@ -70,7 +70,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="txtDtNasci" styleClass="texto" text="Label">
+            <Label fx:id="txtDtNasc" styleClass="texto" text="Label">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
@@ -102,7 +102,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="txtCpfv" styleClass="texto" text="Label">
+            <Label fx:id="txtCpf" styleClass="texto" text="Label">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
@@ -144,9 +144,30 @@
             <Button layoutX="155.0" layoutY="581.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE" />
             <PasswordField fx:id="txtSenhaUm" layoutX="54.5" layoutY="145.0" prefWidth="200.0" />
             <PasswordField fx:id="txtSenhaDois" layoutX="54.5" layoutY="235.0" prefWidth="200.0" />
+            <Label layoutX="116.5" layoutY="28.0" prefWidth="76.0" styleClass="titulo" text="Editar senha">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
-      <Button layoutX="216.0" layoutY="481.0" mnemonicParsing="false" onAction="#abrirConteudo" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #9cc283;" text="ALTERAR SENHA" textFill="WHITE">
+      <Button layoutX="182.0" layoutY="479.0" mnemonicParsing="false" onAction="#abrirConteudo" prefHeight="25.0" prefWidth="267.0" style="-fx-background-color: #9cc283;" text="ALTERAR SENHA" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Pane fx:id="paneConteudoPerfil" layoutX="718.0" prefHeight="626.0" prefWidth="309.0" styleClass="menuCadastro">
+         <children>
+            <Button layoutX="240.0" layoutY="581.0" mnemonicParsing="false" onAction="#salvarPerfil" style="-fx-background-color: #9cc283;" text="Salvar" textFill="WHITE" />
+            <Button layoutX="155.0" layoutY="581.0" mnemonicParsing="false" onAction="#fechaConteudoPerfil" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE" />
+            <Label layoutX="116.5" layoutY="28.0" prefWidth="76.0" styleClass="titulo" text="Editar Perfil:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="182.0" layoutY="526.0" mnemonicParsing="false" onAction="#abrirConteudoPerfil" prefHeight="25.0" prefWidth="267.0" style="-fx-background-color: #9cc283;" text="EDITAR PERFIL" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

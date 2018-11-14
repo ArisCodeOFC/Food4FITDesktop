@@ -2,6 +2,7 @@ package br.com.food4fit;
 
 import java.util.Optional;
 
+import br.com.food4fit.model.Funcionario;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,7 @@ import javafx.scene.text.Font;
 public class Main extends Application {
 
 	static Stage primaryStage;
+	static Funcionario perfil;
 
 
 	@Override
@@ -134,6 +136,14 @@ public class Main extends Application {
 
 		dialogo.showAndWait();
 
+	}
+
+	public static  Funcionario getPerfil() {
+		return perfil;
+	}
+
+	public static void setPerfil(Funcionario perfil) {
+		Main.perfil = perfil;
 	}
 
 }

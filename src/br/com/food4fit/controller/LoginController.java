@@ -54,9 +54,9 @@ public class LoginController {
 
 	@FXML
 	void login() {
-		Platform.runLater(() -> {
-			Main.abrirTela("PadraoLayout");
-		});
+//		Platform.runLater(() -> {
+//			Main.abrirTela("PadraoLayout");
+//		});
 
 
 		if (txtMatricula.getText() == null || txtMatricula.getText().isEmpty()) {
@@ -105,6 +105,7 @@ public class LoginController {
 						// mensagem pro usuario 'matricula ou senha incorreto'
 					} else {
 						Platform.runLater(() -> {
+							Main.setPerfil(funcionario);
 							Main.abrirTela("PadraoLayout");
 						});
 					}

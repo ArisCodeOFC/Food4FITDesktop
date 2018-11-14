@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 
+import javax.swing.event.DocumentEvent.EventType;
+
 import br.com.food4fit.Main;
 import br.com.food4fit.config.RetrofitConfig;
 import br.com.food4fit.model.Cargo;
@@ -158,181 +160,183 @@ public class FuncionarioController {
 			}
 		});
 
-		//listarFuncionario();
-		//listarCargo();
-		//listarDepartamento();
-		//listarEstado();
+		listarFuncionario();
+		listarCargo();
+		listarDepartamento();
+		listarEstado();
 
 	}
 
-//	public void listarEstado(){
-//		Call<Estado[]> retorno = new RetrofitConfig().getEstadoService().listarEstado();
-//		retorno.enqueue(new Callback<Estado[]>() {
-//
-//			@Override
-//			public void onResponse(Call<Estado[]> arg0, Response<Estado[]> arg1) {
-//				comboEstado.setItems(FXCollections.observableList(Arrays.asList(arg1.body())));
-//
-//			}
-//
-//			@Override
-//			public void onFailure(Call<Estado[]> arg0, Throwable arg1) {
-//				// TODO Auto-generated method stub
-//
-//			}
-//		});
-//	}
-//
-//	public void listarCidade(int id){
-//		Call<Cidade[]> retorno = new RetrofitConfig().getEstadoService().listarCidade(id);
-//	}
-//
-//	public void listarCargo() {
-//		Call<Cargo[]> retorno = new RetrofitConfig().getCargoService().listar();
-//		retorno.enqueue(new Callback<Cargo[]>() {
-//
-//			@Override
-//			public void onResponse(Call<Cargo[]> arg0, Response<Cargo[]> arg1) {
-//				comboCargo.setItems(FXCollections.observableList(Arrays.asList(arg1.body())));
-//
-//
-//			}
-//
-//			@Override
-//			public void onFailure(Call<Cargo[]> arg0, Throwable arg1) {
-//				arg1.printStackTrace();
-//
-//			}
-//		});
-//
-//	}
-//
-//	public void listarDepartamento(){
-//		Call<Departamento[]> retorno = new RetrofitConfig().getDepartamentoService().listar();
-//		retorno.enqueue(new Callback<Departamento[]>() {
-//
-//			@Override
-//			public void onResponse(Call<Departamento[]> arg0, Response<Departamento[]> arg1) {
-//				comboDepartamento.setItems(FXCollections.observableArrayList(Arrays.asList(arg1.body())));
-//
-//			}
-//
-//			@Override
-//			public void onFailure(Call<Departamento[]> arg0, Throwable arg1) {
-//
-//
-//			}
-//		});
-//	}
-//
-//	public void listarFuncionario() {
-//		Call<Funcionario[]> retorno = new RetrofitConfig().getFuncionarioService().lista();
-//		retorno.enqueue(new Callback<Funcionario[]>() {
-//
-//			@Override
-//			public void onResponse(Call<Funcionario[]> arg0, Response<Funcionario[]> arg1) {
-//				for (Funcionario f : arg1.body()) {
-//					Image editImg = new Image(Main.class.getResource("assets/icons/editar-c.png").toString());
-//
-//					Image cancelImg = new Image(Main.class.getResource("assets/icons/cancelar-c.png").toString());
-//
-//					ImageView editView = new ImageView();
-//					editView.prefHeight(15);
-//					editView.prefWidth(15);
-//					editView.setImage(editImg);
-//					editView.setStyle("-fx-cursor: hand;");
-//					editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-//						txtNome.setUserData(f);
-//						txtSobrenome.setText(f.getSobrenome());
-//						txtEmail.setText(f.getEmail());
-//						txtDtAdmissao.setText(String.valueOf(f.getDataFormatada()));
-//						comboCargo.setValue(f.getCargo());
-//						txtMatricula.setText(String.valueOf(f.getMatricula()));
-//						txtNome.setText(f.getNome());
-//						txtDtNasc.setText(String.valueOf(f.getDataNasciFormatada()));
-//
-//						// genero.selectToggle(f.getGenero());
-//						txtCelularU.setText(f.getCelular());
-//						txtTelefone.setText(f.getTelefone());
-//						txtCpf.setText(f.getCpf());
-//						txtRg.setText(f.getRg());
-//						txtSalario.setText(String.valueOf(f.getSalario()));
-//						comboDepartamento.setValue(f.getDepartamento());
-//						comboEstado.setValue(f.getEndereco().getEstado());
-//						comboCidade.setValue(f.getEndereco().getCidade());
-//						txtBairro.setText(f.getEndereco().getBairro());
-//						txtLogradouro.setText(f.getEndereco().getLogradouro());
-//						txtNumero.setText(f.getEndereco().getNumero());
-//						txtComplemento.setText(f.getEndereco().getComplemento());
-//						txtCep.setText(f.getEndereco().getCep());
-//
-//						abrirConteudo();
-//						event.consume();
-//					});
-//
-//					ImageView deleteView = new ImageView();
-//					deleteView.prefHeight(15);
-//					deleteView.prefWidth(15);
-//					deleteView.setImage(cancelImg);
-//					deleteView.setStyle("-fx-cursor: hand");
-//					deleteView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-//						Call<Void> retorno = new RetrofitConfig().getFuncionarioService().excluir(f.getId());
-//						retorno.enqueue(new Callback<Void>() {
-//
-//							@Override
-//							public void onFailure(Call<Void> arg0, Throwable arg1) {
-//								arg1.printStackTrace();
-//
-//							}
-//
-//							@Override
-//							public void onResponse(Call<Void> arg0, Response<Void> arg1) {
-//								if (arg1.code() == 500) {
-//									Main.showConfirmDialog("OK", "Erro", "Falha ao tentar excluir",
-//											Alert.AlertType.WARNING);
-//								} else {
-//
-//									Platform.runLater(() -> {
-//										int result = Main.showConfirmDialog("OK", "Excluir", "Deseja excluir o item?",
-//												Alert.AlertType.WARNING);
-//										if (result == 1) {
-//											initialize();
-//										}
-//
-//									});
-//
-//								}
-//
-//							}
-//						});
-//
-//					});
-//
-//					HBox hBox = new HBox(editView, deleteView);
-//					hBox.setPrefHeight(15);
-//					hBox.setPrefWidth(15);
-//					hBox.setStyle("-fx-padding: 0 0 0 32; -fx-spacing:10;");
-//
-//					f.setPaneOpcoes(hBox);
-//
-//				}
-//
-//				colunaNome.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("nomeCompleto"));
-//				colunaMatricula.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("matricula"));
-//				colunaEmail.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("email"));
-//				colunaCargo.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("cargo"));
-//				colunaAdmissao.setCellValueFactory(new PropertyValueFactory<Funcionario, Date>("dataFormatada"));
-//				colunaOpc.setCellValueFactory(new PropertyValueFactory<UnidadeDeMedida, Pane>("paneOpcoes"));
-//				tblFuncionario.setItems(FXCollections.observableArrayList(arg1.body()));
-//			}
-//
-//			@Override
-//			public void onFailure(Call<Funcionario[]> arg0, Throwable arg1) {
-//				arg1.printStackTrace();
-//
-//			}
-//		});
-//	}
+	public void listarEstado(){
+		Call<Estado[]> retorno = new RetrofitConfig().getEstadoService().listarEstado();
+		retorno.enqueue(new Callback<Estado[]>() {
+
+			@Override
+			public void onResponse(Call<Estado[]> arg0, Response<Estado[]> arg1) {
+				comboEstado.setItems(FXCollections.observableList(Arrays.asList(arg1.body())));
+
+
+			}
+
+			@Override
+			public void onFailure(Call<Estado[]> arg0, Throwable arg1) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+	}
+
+	public void listarCidade(int id){
+		Call<Cidade[]> retorno = new RetrofitConfig().getEstadoService().listarCidade(id);
+	}
+
+	public void listarCargo() {
+		Call<Cargo[]> retorno = new RetrofitConfig().getCargoService().listar();
+		retorno.enqueue(new Callback<Cargo[]>() {
+
+			@Override
+			public void onResponse(Call<Cargo[]> arg0, Response<Cargo[]> arg1) {
+				comboCargo.setItems(FXCollections.observableList(Arrays.asList(arg1.body())));
+
+
+			}
+
+			@Override
+			public void onFailure(Call<Cargo[]> arg0, Throwable arg1) {
+				arg1.printStackTrace();
+
+			}
+		});
+
+	}
+
+	public void listarDepartamento(){
+		Call<Departamento[]> retorno = new RetrofitConfig().getDepartamentoService().listar();
+		retorno.enqueue(new Callback<Departamento[]>() {
+
+			@Override
+			public void onResponse(Call<Departamento[]> arg0, Response<Departamento[]> arg1) {
+				comboDepartamento.setItems(FXCollections.observableArrayList(Arrays.asList(arg1.body())));
+
+			}
+
+			@Override
+			public void onFailure(Call<Departamento[]> arg0, Throwable arg1) {
+
+
+			}
+		});
+	}
+
+	public void listarFuncionario() {
+		Call<Funcionario[]> retorno = new RetrofitConfig().getFuncionarioService().lista();
+		retorno.enqueue(new Callback<Funcionario[]>() {
+
+			@Override
+			public void onResponse(Call<Funcionario[]> arg0, Response<Funcionario[]> arg1) {
+				for (Funcionario f : arg1.body()) {
+					Image editImg = new Image(Main.class.getResource("assets/icons/editar-c.png").toString());
+
+					Image cancelImg = new Image(Main.class.getResource("assets/icons/cancelar-c.png").toString());
+
+					ImageView editView = new ImageView();
+					editView.prefHeight(15);
+					editView.prefWidth(15);
+					editView.setImage(editImg);
+					editView.setStyle("-fx-cursor: hand;");
+					editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+						txtNome.setUserData(f);
+						txtSobrenome.setText(f.getSobrenome());
+						txtEmail.setText(f.getEmail());
+						txtDtAdmissao.setText(String.valueOf(f.getDataAdmissaoFormatada()));
+						comboCargo.setValue(f.getCargo());
+						txtMatricula.setText(String.valueOf(f.getMatricula()));
+						txtNome.setText(f.getNome());
+						txtDtNasc.setText(String.valueOf(f.getDataNasciFormatada()));
+
+						// genero.selectToggle(f.getGenero());
+						txtCelularU.setText(f.getCelular());
+						txtTelefone.setText(f.getTelefone());
+						txtCpf.setText(f.getCpf());
+						txtRg.setText(f.getRg());
+						txtSalario.setText(String.valueOf(f.getSalario()));
+						comboDepartamento.setValue(f.getDepartamento());
+						comboEstado.setValue(f.getEndereco().getEstado());
+						comboCidade.setValue(f.getEndereco().getCidade());
+						txtBairro.setText(f.getEndereco().getBairro());
+						txtLogradouro.setText(f.getEndereco().getLogradouro());
+						txtNumero.setText(f.getEndereco().getNumero());
+						txtComplemento.setText(f.getEndereco().getComplemento());
+						txtCep.setText(f.getEndereco().getCep());
+						//fotoFuncionario
+
+						abrirConteudo();
+						event.consume();
+					});
+
+					ImageView deleteView = new ImageView();
+					deleteView.prefHeight(15);
+					deleteView.prefWidth(15);
+					deleteView.setImage(cancelImg);
+					deleteView.setStyle("-fx-cursor: hand");
+					deleteView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+						Call<Void> retorno = new RetrofitConfig().getFuncionarioService().excluir(f.getId());
+						retorno.enqueue(new Callback<Void>() {
+
+							@Override
+							public void onFailure(Call<Void> arg0, Throwable arg1) {
+								arg1.printStackTrace();
+
+							}
+
+							@Override
+							public void onResponse(Call<Void> arg0, Response<Void> arg1) {
+								if (arg1.code() == 500) {
+									Main.showConfirmDialog("OK", "Erro", "Falha ao tentar excluir",
+											Alert.AlertType.WARNING);
+								} else {
+
+									Platform.runLater(() -> {
+										int result = Main.showConfirmDialog("OK", "Excluir", "Deseja excluir o item?",
+												Alert.AlertType.WARNING);
+										if (result == 1) {
+											initialize();
+										}
+
+									});
+
+								}
+
+							}
+						});
+
+					});
+
+					HBox hBox = new HBox(editView, deleteView);
+					hBox.setPrefHeight(15);
+					hBox.setPrefWidth(15);
+					hBox.setStyle("-fx-padding: 0 0 0 32; -fx-spacing:10;");
+
+					f.setPaneOpcoes(hBox);
+
+				}
+
+				colunaNome.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("nomeCompleto"));
+				colunaMatricula.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("matricula"));
+				colunaEmail.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("email"));
+				colunaCargo.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("cargo"));
+				colunaAdmissao.setCellValueFactory(new PropertyValueFactory<Funcionario, Date>("dataFormatada"));
+				colunaOpc.setCellValueFactory(new PropertyValueFactory<UnidadeDeMedida, Pane>("paneOpcoes"));
+				tblFuncionario.setItems(FXCollections.observableArrayList(arg1.body()));
+			}
+
+			@Override
+			public void onFailure(Call<Funcionario[]> arg0, Throwable arg1) {
+				arg1.printStackTrace();
+
+			}
+		});
+	}
 
 	// ******************************************************************
 

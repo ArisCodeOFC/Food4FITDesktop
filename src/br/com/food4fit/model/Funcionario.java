@@ -153,7 +153,7 @@ public class Funcionario {
 		return nome + " " + sobrenome;
 	}
 
-	public String getDataFormatada() {
+	public String getDataAdmissaoFormatada() {
 		SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
 
 		return data.format(dataAdmissao);
