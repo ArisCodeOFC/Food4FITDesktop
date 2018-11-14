@@ -41,9 +41,9 @@
       <Pane fx:id="main" layoutX="253.0" layoutY="94.0" prefHeight="626.0" prefWidth="1027.0" />
       <Pane prefHeight="720.0" prefWidth="253.0">
          <children>
-            <ScrollPane hbarPolicy="NEVER" hmax="0.0" pannable="true" prefHeight="720.0" prefWidth="253.0" style="-fx-margin: 0; -fx-padding: 0;" styleClass="menu" vbarPolicy="NEVER" vmax="0.0">
+            <ScrollPane hbarPolicy="NEVER" hmax="0.0" pannable="true" prefHeight="720.0" prefWidth="253.0" style="-fx-margin: 0; -fx-padding: 0;" styleClass="menuLateral" vbarPolicy="NEVER" vmax="0.0">
                <content>
-                  <VBox prefHeight="720.0" prefWidth="253.0" style="-fx-magin: 0; -fx-padding: 0;" styleClass="menu">
+                  <VBox prefHeight="720.0" prefWidth="253.0" style="-fx-magin: 0; -fx-padding: 0;" styleClass="menuLateral">
                      <children>
                         <Pane prefHeight="178.0" prefWidth="251.0">
                            <children>

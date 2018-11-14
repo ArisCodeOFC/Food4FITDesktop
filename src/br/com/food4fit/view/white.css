@@ -30,11 +30,24 @@
 
 #raiz{
 	-fx-background-color: #fff;
+	-fx-focus-color: transparent;
+	-fx-faint-focus-color: transparent;
 }
 
+.menuLateral{
+	-fx-background-color: #dfdfdf;
+	-fx-focus-color: transparent;
+
+}
+
+.menuCadastro{
+	-fx-background-color: #dcdcdc;
+	-fx-focus-color: transparent;
+
+}
 
 TableView{
-	-fx-focus-color: transparent;
+	-fx-focus-color: -fx-control-inner-background;
 	-fx-faint-focus-color: -fx-control-inner-background;
 	-fx-background-insets: -1.4, 0, 1, 2;
 

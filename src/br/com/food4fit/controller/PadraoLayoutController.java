@@ -37,11 +37,13 @@ public class PadraoLayoutController {
 
 	@FXML
 	public void initialize() {
-		mudarTela("Funcionarios", "Dashboard");
+		mudarTela("Perfil", "Dashboard");
+
+		raiz.getStylesheets().add("br/com/food4fit/view/white.css");
+
 		ToggleSwitch botao = new ToggleSwitch(false);
 
 		blackMode.getChildren().add(botao);
-
 
 		botao.setListener(status -> {
 			raiz.getStylesheets().clear();

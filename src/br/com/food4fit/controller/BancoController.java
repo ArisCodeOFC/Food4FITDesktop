@@ -48,7 +48,7 @@ public class BancoController {
  // Abrir o panel oculto
  	@FXML
  	void abrirConteudo() {
- 		paneConteudo.setStyle("visibility: true; -fx-background-color: #dcdcdc");
+ 		paneConteudo.setStyle("visibility: true;");
  	}
 
  	// Fecha o panel que foi aberto

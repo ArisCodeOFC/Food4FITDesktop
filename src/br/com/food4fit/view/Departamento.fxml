@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.DepartamentoController">
    <children>
-      <TableView fx:id="tblFornecedor" layoutY="110.0" prefHeight="516.0" prefWidth="660.0">
+      <TableView fx:id="tblFornecedor" layoutY="110.0" prefHeight="516.0" prefWidth="660.0" styleClass="tabela">
         <columns>
           <TableColumn fx:id="colunaId" text="ID" />
           <TableColumn fx:id="colunaNome" prefWidth="280.0" text="NOME" />
@@ -26,9 +26,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Pane fx:id="paneConteudo" layoutX="682.0" prefHeight="626.0" prefWidth="345.0" style="-fx-background-color: #dcdcdc;">
+      <Pane fx:id="paneConteudo" layoutX="682.0" prefHeight="626.0" prefWidth="345.0" styleClass="menuCadastro">
          <children>
-            <Label layoutX="95.0" layoutY="14.0" styleClass="texto" text="Cadastrar/Editar Departamento">
+            <Label layoutX="95.0" layoutY="14.0" styleClass="titulo" text="Cadastrar/Editar Departamento">
                <font>
                   <Font name="Roboto Black" size="12.0" />
                </font></Label>

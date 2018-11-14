@@ -29,7 +29,7 @@ public class DepartamentoController {
 
 	@FXML
 	void abrirConteudo() {
-		paneConteudo.setStyle("visibility: true; -fx-background-color: #dcdcdc");
+		paneConteudo.setStyle("visibility: true;");
 	}
 
 	@FXML

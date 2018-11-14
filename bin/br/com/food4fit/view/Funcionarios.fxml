@@ -18,7 +18,7 @@
          <font>
             <Font name="Roboto Medium" size="14.0" />
          </font></Button>
-      <TableView fx:id="tblFuncionario" focusTraversable="false" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0">
+      <TableView fx:id="tblFuncionario" focusTraversable="false" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0" styleClass="tabela">
         <columns>
           <TableColumn fx:id="colunaNome" editable="false" prefWidth="210.0" sortable="false" text="NOME" />
           <TableColumn fx:id="colunaMatricula" editable="false" prefWidth="130.0" sortable="false" text="MATRÍCULA" />
@@ -28,13 +28,13 @@
             <TableColumn fx:id="colunaOpc" editable="false" prefWidth="129.0" sortable="false" text="OPÇÕES" />
         </columns>
       </TableView>
-      <Pane fx:id="paneConteudo" layoutX="673.0" prefHeight="626.0" prefWidth="354.0" style="-fx-background-color: #dcdcdc;" styleClass="menu">
+      <Pane fx:id="paneConteudo" layoutX="673.0" prefHeight="626.0" prefWidth="354.0" styleClass="menuCadastro">
          <children>
             <ScrollPane prefHeight="626.0" prefWidth="354.0">
                <content>
-                  <VBox prefHeight="1580.0" prefWidth="339.0" style="-fx-padding: 0;" styleClass="menu">
+                  <VBox prefHeight="1580.0" prefWidth="339.0" style="-fx-padding: 0;" styleClass="menuCadastro">
                      <children>
-                        <Label styleClass="texto" text="Cadastrar Funcionário">
+                        <Label styleClass="titulo" text="Cadastrar Funcionário">
                            <font>
                               <Font name="Roboto Black" size="16.0" />
                            </font>
@@ -42,7 +42,7 @@
                               <Insets left="90.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane layoutX="69.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #dfdfdf;">
+                        <Pane layoutX="69.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0">
                            <VBox.margin>
                               <Insets left="44.5" top="10.0" />
                            </VBox.margin>
@@ -264,7 +264,7 @@
                               <Insets left="29.5" top="15.0" />
                            </VBox.margin>
                         </Separator>
-                        <Label styleClass="texto" text="Endereço">
+                        <Label styleClass="titulo" text="Endereço">
                            <font>
                               <Font name="Roboto Black" size="14.0" />
                            </font>

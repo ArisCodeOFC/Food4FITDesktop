@@ -22,19 +22,19 @@
             <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" resizable="false" sortable="false" text="OPÇÔES" />
         </columns>
       </TableView>
-      <Pane fx:id="paneConteudo" layoutX="720.0" prefHeight="626.0" prefWidth="307.0" style="-fx-background-color: dcdcdc;">
+      <Pane fx:id="paneConteudo" layoutX="720.0" prefHeight="626.0" prefWidth="307.0" styleClass="menuCadastro">
          <children>
-            <Label layoutX="96.0" layoutY="19.0" text="Cadastrar Banco">
+            <Label layoutX="96.0" layoutY="19.0" styleClass="titulo" text="Cadastrar Banco">
                <font>
                   <Font name="Roboto Black" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="95.0" text="Banco:">
+            <Label layoutX="45.0" layoutY="95.0" styleClass="texto" text="Banco:">
                <font>
                   <Font name="Roboto Medium" size="12.0" />
                </font></Label>
-            <Label layoutX="45.0" layoutY="175.0" text="Agência:" />
-            <Label layoutX="45.0" layoutY="255.0" text="Conta:" />
+            <Label layoutX="45.0" layoutY="175.0" styleClass="texto" text="Agência:" />
+            <Label layoutX="45.0" layoutY="255.0" styleClass="texto" text="Conta:" />
             <TextField fx:id="txtBanco" layoutX="45.0" layoutY="125.0" prefWidth="200.0" />
             <TextField fx:id="txtAgencia" layoutX="45.0" layoutY="205.0" prefWidth="200.0" />
             <TextField fx:id="txtConta" layoutX="45.0" layoutY="285.0" prefWidth="200.0" />

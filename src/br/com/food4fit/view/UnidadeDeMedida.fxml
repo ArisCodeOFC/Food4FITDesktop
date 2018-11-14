@@ -17,7 +17,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="tblUnidadeDeMedida" focusTraversable="false" layoutX="92.0" layoutY="74.0" prefHeight="524.0" prefWidth="410.0">
+      <TableView fx:id="tblUnidadeDeMedida" focusTraversable="false" layoutX="92.0" layoutY="74.0" prefHeight="524.0" prefWidth="410.0" styleClass="tabela">
         <columns>
           <TableColumn fx:id="colunaUnidadeMedida" editable="false" minWidth="-Infinity" prefWidth="182.0" resizable="false" sortable="false" text="Unidade de Medida" />
             <TableColumn fx:id="colunaSigla" editable="false" minWidth="-Infinity" prefWidth="118.0" resizable="false" sortable="false" text="Sigla" />
@@ -27,26 +27,27 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Pane fx:id="paneConteudo" layoutX="637.0" layoutY="74.0" prefHeight="280.0" prefWidth="280.0" style="-fx-background-color: #dcdcdc;">
+      <Pane fx:id="paneConteudo" layoutX="653.0" prefHeight="626.0" prefWidth="374.0" styleClass="menuCadastro">
          <children>
-            <Button layoutX="61.5" layoutY="220.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #7f7f7f;" text="Cancelar" textFill="WHITE">
+            <Button layoutX="211.0" layoutY="580.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #7f7f7f;" text="Cancelar" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Label layoutX="61.5" layoutY="36.0" text="Unidade de Medida:">
+            <Label layoutX="87.0" layoutY="71.0" styleClass="texto" text="Unidade de Medida:">
                <font>
                   <Font name="Roboto Medium" size="14.0" />
                </font></Label>
-            <Label layoutX="61.5" layoutY="140.0" text="Sigla:">
+            <Label layoutX="87.0" layoutY="175.0" styleClass="texto" text="Sigla:">
                <font>
                   <Font name="Roboto Medium" size="14.0" />
                </font></Label>
-            <TextField fx:id="txtUnidadeDeMedida" layoutX="61.5" layoutY="65.0" prefHeight="25.0" prefWidth="157.0" />
-            <TextField fx:id="txtSigla" layoutX="61.5" layoutY="167.0" prefHeight="25.0" prefWidth="157.0" />
-            <Button layoutX="171.0" layoutY="220.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="Salvar" textFill="WHITE">
+            <TextField fx:id="txtUnidadeDeMedida" layoutX="87.0" layoutY="100.0" prefHeight="25.0" prefWidth="200.0" />
+            <TextField fx:id="txtSigla" layoutX="87.0" layoutY="202.0" prefHeight="25.0" prefWidth="200.0" />
+            <Button layoutX="303.0" layoutY="580.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="Salvar" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <Label layoutX="120.0" layoutY="17.0" styleClass="titulo" text="Cadastro Unidade de Medida" />
          </children>
       </Pane>
       <Accordion layoutX="540.0" layoutY="371.0" />

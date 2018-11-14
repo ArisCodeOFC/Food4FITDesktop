@@ -18,7 +18,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="tblFornecedor" focusTraversable="false" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0">
+      <TableView fx:id="tblFornecedor" focusTraversable="false" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0" styleClass="tabela">
         <columns>
           <TableColumn fx:id="colunaNome" editable="false" prefWidth="230.0" sortable="false" text="NOME FANTASIA" />
           <TableColumn fx:id="colunaRazao" editable="false" prefWidth="235.0" sortable="false" text="RAZÃO SOCIAL" />
@@ -27,9 +27,9 @@
             <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" sortable="false" text="OPÇÕES" />
         </columns>
       </TableView>
-      <Pane fx:id="paneConteudo" layoutX="318.0" prefHeight="626.0" prefWidth="708.0" style="-fx-background-color: dcdcdc;">
+      <Pane fx:id="paneConteudo" layoutX="318.0" prefHeight="626.0" prefWidth="708.0" styleClass="menuCadastro">
          <children>
-            <Label layoutX="287.0" layoutY="26.0" styleClass="texto" text="Cadastrar um Fornecedo">
+            <Label layoutX="287.0" layoutY="26.0" styleClass="titulo" text="Cadastrar um Fornecedo">
                <font>
                   <Font name="Roboto Black" size="14.0" />
                </font></Label>
