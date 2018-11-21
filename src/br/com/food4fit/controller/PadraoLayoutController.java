@@ -37,7 +37,7 @@ public class PadraoLayoutController {
 
 	@FXML
 	public void initialize() {
-		mudarTela("Perfil", "Dashboard");
+		mudarTela("Funcionarios", "Dashboard");
 
 		raiz.getStylesheets().add("br/com/food4fit/view/white.css");
 
