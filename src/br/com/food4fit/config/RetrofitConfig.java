@@ -1,5 +1,6 @@
 package br.com.food4fit.config;
 
+import br.com.food4fit.service.BancoService;
 import br.com.food4fit.service.CargoService;
 import br.com.food4fit.service.DepartamentoService;
 import br.com.food4fit.service.EstadoService;
@@ -38,6 +39,10 @@ public class RetrofitConfig {
 
 	public EstadoService getEstadoService(){
 		return this.retrofit.create(EstadoService.class);
+	}
+
+	public BancoService getBancoServece(){
+		return this.retrofit.create(BancoService.class);
 	}
 
 }

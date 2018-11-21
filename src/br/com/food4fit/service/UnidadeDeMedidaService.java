@@ -14,21 +14,17 @@ import retrofit2.http.Path;
 public interface UnidadeDeMedidaService {
 
 	@GET("unidade-medida/")
-
 	Call<UnidadeDeMedida[]> lista();
 
 
 	@POST("unidade-medida/")
-
 	Call<UnidadeDeMedida> salvar(@Body UnidadeDeMedida dados);
 
 
 	@PUT("unidade-medida/{id}")
-
 	Call<Void> editar(@Body UnidadeDeMedida dados, @Path("id") int id);
 
 
 	@DELETE("unidade-medida/{id}")
-
 	Call<Void> excluir(@Path("id") int id);
 }

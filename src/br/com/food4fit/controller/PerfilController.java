@@ -57,15 +57,15 @@ public class PerfilController {
 	public void initialize() {
 		paneConteudo.setStyle("visibility: false");
 		paneConteudoPerfil.setStyle("visibility: false");
-		txtNome.setText(funcionario.getNomeCompleto());
-		txtEmail.setText(funcionario.getEmail());
-		txtMatricula.setText(String.valueOf(funcionario.getMatricula()));
-		txtDtNasc.setText(String.valueOf(funcionario.getDataNasciFormatada()));
-		//txtDtEfetiva.setText(String.valueOf(funcionario.getDataAdmissaoFormatada()));
-
-		txtCpf.setText(funcionario.getCpf());
-		txtRg.setText(funcionario.getRg());
-		txtSalario.setText(String.valueOf(funcionario.getSalario()));
+//		txtNome.setText(funcionario.getNomeCompleto());
+//		txtEmail.setText(funcionario.getEmail());
+//		txtMatricula.setText(String.valueOf(funcionario.getMatricula()));
+//		txtDtNasc.setText(String.valueOf(funcionario.getDataNasciFormatada()));
+//		//txtDtEfetiva.setText(String.valueOf(funcionario.getDataAdmissaoFormatada()));
+//
+//		txtCpf.setText(funcionario.getCpf());
+//		txtRg.setText(funcionario.getRg());
+//		txtSalario.setText(String.valueOf(funcionario.getSalario()));
 
 	}
 
