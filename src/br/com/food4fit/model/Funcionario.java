@@ -14,9 +14,9 @@ public class Funcionario {
 	private String sobrenome;
 	private String email;
 	private int matricula;
-	private String cargo;
+	private Cargo cargo;
 	private Date dataAdmissao;
-	private String departamento;
+	private Departamento departamento;
 	private String avatar;
 	private String genero;
 	private String celular;
@@ -26,8 +26,6 @@ public class Funcionario {
 	private String cpf;
 	private int salario;
 	private Date dataDemissao;
-	private int idCargo;
-	private int idDepartamento;
 	private Endereco endereco;
 
 	public Endereco getEndereco() {
@@ -38,11 +36,11 @@ public class Funcionario {
 		this.endereco = endereco;
 	}
 
-	public String getDepartamento() {
+	public Departamento getDepartamento() {
 		return departamento;
 	}
 
-	public void setDepartamento(String departamento) {
+	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
 	}
 
@@ -130,21 +128,6 @@ public class Funcionario {
 		this.salario = salario;
 	}
 
-	public int getIdCargo() {
-		return idCargo;
-	}
-
-	public void setIdCargo(int idCargo) {
-		this.idCargo = idCargo;
-	}
-
-	public int getIdDepartamento() {
-		return idDepartamento;
-	}
-
-	public void setIdDepartamento(int idDepartamento) {
-		this.idDepartamento = idDepartamento;
-	}
 
 	@JsonIgnore
 	private Pane paneOpcoes;
@@ -159,11 +142,11 @@ public class Funcionario {
 		return data.format(dataAdmissao);
 	}
 
-	public String getCargo() {
+	public Cargo getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
 

@@ -15,15 +15,16 @@ public class TextFieldFormatter {
     private String CaracteresValidos;
     private String mask;
 
-    public TextFieldFormatter(TextField tf, String mask, String CaracteresValidos) {
+    public TextFieldFormatter() {
+//    public TextFieldFormatter(TextField tf, String mask, String CaracteresValidos) {
         mf = new MaskFormatter();
-        setTf(tf);
-        setCaracteresValidos(CaracteresValidos);
-        setMask(mask);
-        formatter(getTf() , getCaracteresValidos(), getMask());
+//        setTf(tf);
+//        setCaracteresValidos(CaracteresValidos);
+//        setMask(mask);
+//        formatter(getTf() , getMask(), getCaracteresValidos());
     }
 
-    public void formatter(TextField tf, String mask, String CaracteresValidos) {
+    public void formatter(TextField tf, String CaracteresValidos, String mask) {
         try {
             mf.setMask(mask);
         } catch (ParseException ex) {

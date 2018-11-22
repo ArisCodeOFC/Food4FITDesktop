@@ -2,16 +2,13 @@ package br.com.food4fit.model;
 
 public class Endereco {
 	private int id;
-	private String cidade;
-	private String estado;
+	private Cidade cidade;
+	private Estado estado;
 	private String logradouro;
-	private int idCidade;
-	private int idEstado;
 	private String complemento;
 	private String numero;
 	private String cep;
 	private String bairro;
-	private String uf;
 
 	public int getId() {
 		return id;
@@ -21,19 +18,19 @@ public class Endereco {
 		this.id = id;
 	}
 
-	public String getCidade() {
+	public Cidade getCidade() {
 		return cidade;
 	}
 
-	public void setCidade(String cidade) {
+	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
 
-	public String getEstado() {
+	public Estado getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
 
@@ -45,21 +42,6 @@ public class Endereco {
 		this.logradouro = logradouro;
 	}
 
-	public int getIdCidade() {
-		return idCidade;
-	}
-
-	public void setIdCidade(int idCidade) {
-		this.idCidade = idCidade;
-	}
-
-	public int getIdEstado() {
-		return idEstado;
-	}
-
-	public void setIdEstado(int idEstado) {
-		this.idEstado = idEstado;
-	}
 
 	public String getComplemento() {
 		return complemento;
@@ -93,12 +75,6 @@ public class Endereco {
 		this.bairro = bairro;
 	}
 
-	public String getUf() {
-		return uf;
-	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
 
 }

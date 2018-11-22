@@ -25,6 +25,8 @@ public interface FuncionarioService {
 	Call<Funcionario> login(@Body DadosFuncionario dados);
 
 
+	@POST("funcionario")
+	Call<Funcionario> salvar(@Body Funcionario dados);
 
 	@DELETE("funcionario/{id}")
 

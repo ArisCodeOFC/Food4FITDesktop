@@ -30,7 +30,7 @@
                         <Font name="Roboto" size="15.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="txtSenha" layoutY="125.0" onKeyReleased="#txtSenhaKey" prefHeight="33.0" prefWidth="309.0" promptText="Digite sua senha..." style="-fx-border-color: #9cc283;">
+                  <PasswordField fx:id="txtSenha" layoutY="125.0" prefHeight="33.0" prefWidth="309.0" promptText="Digite sua senha..." style="-fx-border-color: #9cc283;">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
