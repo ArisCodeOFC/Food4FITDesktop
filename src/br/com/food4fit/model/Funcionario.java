@@ -4,9 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javafx.scene.layout.Pane;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Funcionario {
 
 	private int id;
@@ -66,6 +68,7 @@ public class Funcionario {
 		this.dataDemissao = dataDemissao;
 	}
 
+	@JsonIgnore
 	public String getDataDemissaoFormatada() {
 		SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -136,6 +139,7 @@ public class Funcionario {
 		return nome + " " + sobrenome;
 	}
 
+	@JsonIgnore
 	public String getDataAdmissaoFormatada() {
 		SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -198,6 +202,7 @@ public class Funcionario {
 		this.matricula = matricula;
 	}
 
+	@JsonIgnore
 	public Pane getPaneOpcoes() {
 		return paneOpcoes;
 	}

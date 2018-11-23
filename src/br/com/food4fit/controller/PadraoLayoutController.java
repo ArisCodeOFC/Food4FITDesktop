@@ -14,6 +14,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -34,6 +35,15 @@ public class PadraoLayoutController {
     @FXML
     private AnchorPane raiz;
 
+    @FXML
+    private Label emailUser;
+
+    @FXML
+    private Label nomeUser;
+
+    @FXML
+    private ImageView fotoUser;
+
 
 	@FXML
 	public void initialize() {
@@ -53,21 +63,13 @@ public class PadraoLayoutController {
 				raiz.getStylesheets().add("br/com/food4fit/view/white.css");
 			}
 		});
-//
-//		botao.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
-//			System.out.println("branco");
-//			botao.switchOnProperty().set(!botao.switchOnProperty().get());
-//			if(botao.switchOnProperty().get()){
-//				raiz.getStylesheets().add("br/com/food4fit/view/black.css");
-//			}else{
-//				raiz.getStylesheets().add("br/com/food4fit/view/white.css");
-//			}
-//
-//			event.consume();
-//		});
 
-		//raiz.getStylesheets().add("white.css");
-		//raiz.getStylesheets().add("br/com/food4fit/view/black.css");
+
+		nomeUser.setText(Main.getPerfil().getNomeCompleto());
+		emailUser.setText(Main.getPerfil().getEmail());
+		fotoUser.setImage(new Image("http://localhost/inf4t/Allan/Food-4FitWEB-Procedure-master/" + Main.getPerfil().getAvatar()));
+		//fotoUser.setImage(new Image("http://localhost/arisCodeProcedural/" + Main.getPerfil().getAvatar()));
+
 	}
 
 	@FXML
@@ -155,7 +157,7 @@ public class PadraoLayoutController {
 	void mudarTela(String conteudo, String nome) {
 		Pane xml;
 		try {
-			xml = FXMLLoader.load(PadraoLayoutController.class.getResource("../view/" + conteudo + ".fxml"));
+			xml = FXMLLoader.load(Main.class.getResource("view/" + conteudo + ".fxml"));
 
 			main.getChildren().clear();
 			main.getChildren().add(xml);

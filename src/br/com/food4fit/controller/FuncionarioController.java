@@ -167,19 +167,18 @@ public class FuncionarioController {
 		rdoHomem.setUserData("H");
 		rdoMulher.setUserData("M");
 
-		comboEstado.setConverter(new StringConverter<Estado>() {
-			@Override
-			public String toString(Estado object) {
-				return object.getEstado();
-			}
-
-			@Override
-			public Estado fromString(String string) {
-				return (Estado) comboEstado.getItems().stream().filter(ap -> ((Estado) ap).getEstado().equals(string))
-						.findFirst().orElse(null);
-			}
-
-		});
+		/*
+		 * comboEstado.setConverter(new StringConverter<Estado>() {
+		 *
+		 * @Override public String toString(Estado object) { return
+		 * object.getEstado(); }
+		 *
+		 * @Override public Estado fromString(String string) { return (Estado)
+		 * comboEstado.getItems().stream().filter(ap -> ((Estado)
+		 * ap).getEstado().equals(string)) .findFirst().orElse(null); }
+		 *
+		 * });
+		 */
 
 		comboEstado.valueProperty().addListener((obs, oldval, newval) -> {
 			comboCidade.setValue(null);
@@ -189,19 +188,7 @@ public class FuncionarioController {
 			}
 		});
 
-		comboCidade.setConverter(new StringConverter<Cidade>() {
-			@Override
-			public String toString(Cidade object) {
-				return object.getCidade();
-			}
 
-			@Override
-			public Cidade fromString(String string) {
-				return (Cidade) comboCidade.getItems().stream().filter(ap -> ((Cidade) ap).getCidade().equals(string))
-						.findFirst().orElse(null);
-			}
-
-		});
 
 		escolherImg.setOnAction((final ActionEvent e) -> {
 			configureFileChooser(fileChooser);
@@ -351,9 +338,8 @@ public class FuncionarioController {
 							txtNumero.setText(f.getEndereco().getNumero());
 							txtComplemento.setText(f.getEndereco().getComplemento());
 							txtCep.setText(f.getEndereco().getCep());
-							fotoFuncionario.setImage(new Image(
-									"http://localhost/inf4t/Allan/Food-4FitWEB-Procedure-master/" + f.getAvatar()));
-
+							fotoFuncionario.setImage(new Image("http://localhost/inf4t/Allan/Food-4FitWEB-Procedure-master/" + f.getAvatar()));
+							//fotoFuncionario.setImage(new Image("http://localhost/arisCodeProcedural/" + f.getAvatar()));
 							abrirConteudo();
 							event.consume();
 						});
@@ -409,8 +395,7 @@ public class FuncionarioController {
 					colunaMatricula.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("matricula"));
 					colunaEmail.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("email"));
 					colunaCargo.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("cargo"));
-					colunaAdmissao.setCellValueFactory(
-							new PropertyValueFactory<Funcionario, String>("dataAdmissaoFormatada"));
+					colunaAdmissao.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("dataAdmissaoFormatada"));
 					colunaOpc.setCellValueFactory(new PropertyValueFactory<UnidadeDeMedida, Pane>("paneOpcoes"));
 					tblFuncionario.setItems(FXCollections.observableArrayList(arg1.body()));
 
@@ -494,7 +479,7 @@ public class FuncionarioController {
 
 		System.out.println("1");
 
-		//Convertendo a imagen para base 64
+		// Convertendo a imagen para base 64
 		BufferedImage avatar = SwingFXUtils.fromFXImage(fotoFuncionario.getImage(), null);
 		ByteArrayOutputStream s = new ByteArrayOutputStream();
 		try {
@@ -503,7 +488,7 @@ public class FuncionarioController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		byte[] res  = s.toByteArray();
+		byte[] res = s.toByteArray();
 		try {
 			s.close();
 		} catch (IOException e) {
@@ -513,8 +498,8 @@ public class FuncionarioController {
 		String foto = Base64.getEncoder().encodeToString(res);
 		System.out.println(foto);
 
-		String cargo = (String) comboCargo.getValue();
-		String departamento = (String) comboDepartamento.getValue();
+		Cargo cargo = (Cargo) comboCargo.getValue();
+		Departamento departamento = (Departamento) comboDepartamento.getValue();
 
 		Estado estado = (Estado) comboEstado.getValue();
 		Cidade cidade = (Cidade) comboCidade.getValue();
@@ -551,8 +536,7 @@ public class FuncionarioController {
 		funcionario.getEndereco().setComplemento(complemento);
 		funcionario.getEndereco().setCep(cep);
 
-
-//		if(txtNome.getUserData() == null){
+		if (txtNome.getUserData() == null) {
 			Call<String> retorno = new RetrofitConfigImg().getAvatarService().enviar(foto);
 			retorno.enqueue(new Callback<String>() {
 
@@ -579,11 +563,11 @@ public class FuncionarioController {
 						@Override
 						public void onFailure(Call<Funcionario> arg0, Throwable arg1) {
 							System.out.println("deu ruiim");
+							arg1.printStackTrace();
 
 						}
 
 					});
-
 
 				}
 
@@ -594,13 +578,40 @@ public class FuncionarioController {
 
 				}
 			});
-//		}
+		} else {
+			int decisao = Main.showConfirmDialog("Sim", "Editar", "Deseja editar as informações?",
+					Alert.AlertType.WARNING);
+
+			 if(decisao == 1){
+				 Funcionario f = (Funcionario) txtNome.getUserData();
+				 int id = f.getId();
+				 Call<Void> retorno = new RetrofitConfig().getFuncionarioService().editar(funcionario, id);
+				 retorno.enqueue(new Callback<Void>() {
+
+					@Override
+					public void onResponse(Call<Void> arg0, Response<Void> arg1) {
+						if (arg1.code() == 500) {
+							Main.showConfirmDialog("OK", "Erro", "Falha ao tentar conectar com o servidor",
+									Alert.AlertType.WARNING);
+						}else{
+							Platform.runLater(() ->{
+								fechaConteudo();
+								initialize();
+								txtNome.setUserData(null);
+							});
+						}
+
+					}
 
 
+					@Override
+					public void onFailure(Call<Void> arg0, Throwable arg1) {
+						// TODO Auto-generated method stub
 
-
-
-
+					}
+				});
+			 }
+		}
 
 	}
 
