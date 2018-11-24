@@ -2,17 +2,17 @@
 
 @font-face {
     font-family: Titulo;
-    src: url('../assets/fonts/Roboto-Black.ttf');
+    src: url('/br/com/food4fit/assets/fonts/Roboto-Black.ttf');
 }
 
 @font-face {
     font-family: Subtitulo;
-    src: url('../assets/fonts/Roboto-Medium.ttf');
+    src: url('/br/com/food4fit/assets/fonts/Roboto-Medium.ttf');
 }
 
 @font-face {
     font-family: Texto;
-    src: url('../assets/fonts/Roboto-Regular.ttf');
+    src: url('/br/com/food4fit/assets/fonts/Roboto-Regular.ttf');
 }
 
 

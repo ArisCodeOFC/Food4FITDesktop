@@ -22,7 +22,7 @@
             </Label>
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="964.0" layoutY="31.0" nodeOrientation="INHERIT" onMouseClicked="#sair" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons/sair-c.png" />
+                  <Image url="@/br/com/food4fit/assets/icons/sair-c.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -61,7 +61,7 @@
                               <Separator layoutX="14.0" layoutY="152.0" prefWidth="215.0" styleClass="separador" />
                               <ImageView fx:id="fotoUser" fitHeight="40.0" fitWidth="40.0" layoutX="18.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/us.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/us.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -89,7 +89,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                                  <image>
-                                    <Image url="@../assets/icons/home-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/home-c.png" />
                                  </image>
                               </ImageView>
                               <Label styleClass="itemMenu" text="Dashboard">
@@ -112,7 +112,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/estatistica-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/estatistica-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -141,7 +141,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/fornecedor-v.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/fornecedor-v.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -167,7 +167,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/funcionario-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/funcionario-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -198,7 +198,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/nivel-acesso-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/nivel-acesso-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -224,7 +224,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/despesa-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/despesa-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -250,7 +250,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/relatorio-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/relatorio-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -276,7 +276,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/banco-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/banco-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -302,7 +302,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/departamento-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/departamento-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -328,7 +328,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/faturamento-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/faturamento-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -354,7 +354,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/unidade-medida-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/unidade-medida-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -384,7 +384,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/perfil-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/perfil-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -410,7 +410,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/ajuda-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/ajuda-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -436,7 +436,7 @@
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/sair-c.png" />
+                                    <Image url="@/br/com/food4fit/assets/icons/sair-c.png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />

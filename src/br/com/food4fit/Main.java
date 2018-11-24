@@ -39,9 +39,9 @@ public class Main extends Application {
 		// primaryStage.setMaxHeight(bounds.getHeight());
 		// primaryStage.setMinHeight(bounds.getHeight());
 
-		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Regular.ttf"), 10);
-		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Medium.ttf"), 10);
-		Font.loadFont(Main.class.getResourceAsStream("assets/fonts/Roboto-Black.ttf"), 10);
+		Font.loadFont(Main.class.getResourceAsStream("/br/com/food4fit/assets/fonts/Roboto-Regular.ttf"), 10);
+		Font.loadFont(Main.class.getResourceAsStream("/br/com/food4fit/assets/fonts/Roboto-Medium.ttf"), 10);
+		Font.loadFont(Main.class.getResourceAsStream("/br/com/food4fit/assets/fonts/Roboto-Black.ttf"), 10);
 
 		Main.abrirTela("Login");
 	}
