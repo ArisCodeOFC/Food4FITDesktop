@@ -19,7 +19,8 @@ public class RetrofitConfigImg {
 
 	public RetrofitConfigImg(){
 		this.retrofit = new Retrofit.Builder()
-				.baseUrl("http://localhost/inf4t/Allan/Food-4FitWEB-Procedure-master/")
+				//.baseUrl("http://localhost/inf4t/Allan/Food-4FitWEB-Procedure-master/")
+				.baseUrl("http://localhost/arisCodeProcedural/")
 				.addConverterFactory(new Factory() {
 					private final MediaType MEDIA_TYPE = MediaType.parse("text/plain");
 

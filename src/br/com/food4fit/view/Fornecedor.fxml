@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import br.com.food4fit.component.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.FornecedorController">
+<AnchorPane prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.FornecedorController">
    <children>
       <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="CADASTRO DE FORNECEDOR" textFill="WHITE">
          <font>
@@ -22,218 +23,128 @@
         <columns>
           <TableColumn fx:id="colunaNome" editable="false" prefWidth="230.0" sortable="false" text="NOME FANTASIA" />
           <TableColumn fx:id="colunaRazao" editable="false" prefWidth="235.0" sortable="false" text="RAZÃO SOCIAL" />
-            <TableColumn fx:id="colunaCpf" editable="false" prefWidth="192.0" sortable="false" text="CPF/CNPJ " />
+            <TableColumn fx:id="colunaCnpj" editable="false" prefWidth="192.0" sortable="false" text="CNPJ" />
             <TableColumn fx:id="colunaEmail" editable="false" prefWidth="240.0" sortable="false" text="E-MAIL" />
-            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="130.0" sortable="false" text="OPÇÕES" />
+            <TableColumn fx:id="colunaOpcoes" editable="false" prefWidth="130.0" sortable="false" text="OPÇÕES" />
         </columns>
       </TableView>
-      <Pane fx:id="paneConteudo" layoutX="318.0" prefHeight="626.0" prefWidth="708.0" styleClass="menuCadastro">
+      <Pane fx:id="paneConteudo" layoutX="383.0" prefHeight="626.0" prefWidth="643.0" styleClass="menuCadastro">
          <children>
-            <Label layoutX="287.0" layoutY="26.0" styleClass="titulo" text="Cadastrar um Fornecedo">
+            <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="26.0" prefHeight="20.0" prefWidth="630.0" styleClass="titulo" text="Cadastrar um Fornecedor" textAlignment="CENTER">
                <font>
                   <Font name="Roboto Black" size="14.0" />
                </font></Label>
-            <VBox layoutY="72.0" prefHeight="541.0" prefWidth="354.0">
+            <VBox layoutX="43.0" layoutY="65.0" prefHeight="541.0" prefWidth="260.0" spacing="10.0">
                <children>
                   <Label styleClass="texto" text="Nome Fantasia:">
-                     <VBox.margin>
-                        <Insets left="47.0" />
-                     </VBox.margin>
                   </Label>
                   <TextField fx:id="txtNomeFantasia" maxWidth="-Infinity" prefWidth="260.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
                   </TextField>
                   <Label styleClass="texto" text="Razão Social:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtRazao" maxWidth="-Infinity" prefWidth="260.0">
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
+                  <TextField fx:id="txtRazaoSocial" maxWidth="-Infinity" prefWidth="260.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
                   <Label styleClass="texto" text="Inscrição Estadual:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtInsc" layoutX="57.0" layoutY="27.0" maxWidth="-Infinity" prefWidth="260.0">
+                  <MaskedTextField fx:id="txtInscricaoEstadual" layoutX="57.0" layoutY="27.0" maxWidth="-Infinity" prefWidth="260.0" mask="###.###.###.###" placeholder=" ">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
-                  </TextField>
+                  </MaskedTextField>
                   <Label styleClass="texto" text="CNPJ:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtCnpj" maxWidth="-Infinity" prefWidth="260.0">
+                  <MaskedTextField fx:id="txtCnpj" maxWidth="-Infinity" prefWidth="260.0" mask="##.###.###/####-##" placeholder=" ">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
-                  </TextField>
+                  </MaskedTextField>
                   <Label styleClass="texto" text="Telefone:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtTel" maxWidth="-Infinity" prefWidth="260.0">
+                  <MaskedTextField fx:id="txtTelefone" maxWidth="-Infinity" prefWidth="260.0" mask="(##) ####-####" placeholder=" ">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
-                  </TextField>
+                  </MaskedTextField>
                   <Label styleClass="texto" text="Representante:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
                   <TextField fx:id="txtRepresentante" maxWidth="-Infinity" prefWidth="260.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
                   </TextField>
                   <Label styleClass="texto" text="E-Mail:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
                   <TextField fx:id="txtEmail" layoutX="10.0" layoutY="195.0" maxWidth="-Infinity" prefWidth="260.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
                   </TextField>
                   <Label styleClass="texto" text="Observações:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
                   <TextArea fx:id="txtObs" maxWidth="-Infinity" prefHeight="62.0" prefWidth="260.0" wrapText="true">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
                   </TextArea>
                </children></VBox>
-            <VBox layoutX="354.0" layoutY="72.0" prefHeight="500.0" prefWidth="354.0">
+            <VBox layoutX="354.0" layoutY="65.0" prefHeight="500.0" prefWidth="260.0" spacing="10.0">
                <children>
                   <Label styleClass="texto" text="Estado:">
-                     <VBox.margin>
-                        <Insets left="47.0" />
-                     </VBox.margin>
                   </Label>
                   <ComboBox fx:id="comboEstado" prefWidth="260.0">
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
                   </ComboBox>
                   <Label styleClass="texto" text="Cidade:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
                   <ComboBox fx:id="comboCidade" maxHeight="-Infinity" prefWidth="260.0">
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
                   </ComboBox>
                   <Label styleClass="texto" text="CEP:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtCep" maxWidth="-Infinity" prefWidth="260.0">
+                  <MaskedTextField fx:id="txtCep" mask="#####-###" maxWidth="-Infinity" placeholder=" " prefWidth="260.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
-                  </TextField>
+                  </MaskedTextField>
                   <Label styleClass="texto" text="Bairro:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
                   <TextField fx:id="txtBairro" layoutX="10.0" layoutY="111.0" maxWidth="-Infinity" prefWidth="260.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
                   </TextField>
                   <Label styleClass="texto" text="Logradouro:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
                   <TextField fx:id="txtLogradouro" maxWidth="-Infinity" prefWidth="260.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
                   </TextField>
                   <Label layoutX="57.0" layoutY="382.0" styleClass="texto" text="Complemento:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
                   <TextField fx:id="txtComplemento" layoutX="57.0" layoutY="404.0" maxWidth="-Infinity" prefWidth="260.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" top="5.0" />
-                     </VBox.margin>
                   </TextField>
                   <Label styleClass="texto" text="Número:">
-                     <VBox.margin>
-                        <Insets left="47.0" top="15.0" />
-                     </VBox.margin>
                   </Label>
                   <TextField fx:id="txtNumero" maxWidth="-Infinity" prefWidth="260.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets left="47.0" />
-                     </VBox.margin>
                   </TextField>
                </children></VBox>
-            <Button layoutX="636.0" layoutY="585.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
+            <Button layoutX="570.0" layoutY="587.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="539.0" layoutY="585.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
+            <Button layoutX="473.0" layoutY="587.0" mnemonicParsing="false" onAction="#fecharConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

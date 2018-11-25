@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import br.com.food4fit.component.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -32,20 +33,14 @@
          <children>
             <ScrollPane prefHeight="626.0" prefWidth="354.0">
                <content>
-                  <VBox prefHeight="1580.0" prefWidth="339.0" style="-fx-padding: 0;" styleClass="menuCadastro">
+                  <VBox prefHeight="1580.0" prefWidth="339.0" spacing="10.0" styleClass="menuCadastro">
                      <children>
-                        <Label styleClass="titulo" text="Cadastrar Funcionário">
+                        <Label alignment="BASELINE_CENTER" prefHeight="25.0" prefWidth="268.0" styleClass="titulo" text="Cadastrar Funcionário">
                            <font>
                               <Font name="Roboto Black" size="16.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets left="90.0" top="10.0" />
-                           </VBox.margin>
                         </Label>
                         <Pane layoutX="69.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0">
-                           <VBox.margin>
-                              <Insets left="44.5" top="10.0" />
-                           </VBox.margin>
                            <children>
                               <ImageView fx:id="fotoFuncionario" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -55,72 +50,42 @@
                            </children>
                         </Pane>
                         <Button fx:id="escolherImg" mnemonicParsing="false" prefHeight="25.0" prefWidth="260.0" style="-fx-background-color: #9cc283;" text="ESCOLHA UMA IMAGEM" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets left="40.0" top="10.0" />
-                           </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
                         <Label styleClass="texto" text="Matrícula:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtMatricula" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
+                        <MaskedTextField fx:id="txtMatricula" mask="######" maxHeight="-Infinity" maxWidth="-Infinity" placeholder=" " prefWidth="260.0">
                            <font>
                               <Font name="Roboto" size="12.0" />
                            </font>
-                        </TextField>
+                        </MaskedTextField>
                         <Label layoutX="50.0" layoutY="285.0" styleClass="texto" text="Nome:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
                         <TextField fx:id="txtNome" layoutX="50.0" layoutY="307.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </TextField>
                         <Label styleClass="texto" text="Sobrenome:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
                         <TextField fx:id="txtSobrenome" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </TextField>
                         <Label layoutX="10.0" layoutY="332.0" styleClass="texto" text="Dt. Nascimento:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDtNasc" layoutX="10.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
+                        <MaskedTextField fx:id="txtDtNasc" mask="##/##/####" placeholder=" " layoutX="10.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        </MaskedTextField>
                         <Label layoutX="50.0" layoutY="409.0" styleClass="texto" text="Gênero:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
@@ -143,229 +108,127 @@
                            </children>
                         </HBox>
                         <Label layoutX="50.0" layoutY="409.0" styleClass="texto" text="E-Mail:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
                         <TextField fx:id="txtEmail" layoutX="50.0" layoutY="431.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </TextField>
                         <Label layoutX="10.0" layoutY="513.0" styleClass="texto" text="Celular:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtCelularU" layoutX="10.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
+                        <MaskedTextField fx:id="txtCelularU" mask="(##) #####-####" placeholder=" " layoutX="10.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        </MaskedTextField>
                         <Label layoutX="10.0" layoutY="551.0" styleClass="texto" text="Telefone:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTelefone" layoutX="10.0" layoutY="551.0" maxHeight="-Infinity" maxWidth="-Infinity" onKeyReleased="#txtTelefoneKey" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
+                        <MaskedTextField fx:id="txtTelefone" mask="(##) ####-####" placeholder=" " layoutX="10.0" layoutY="551.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        </MaskedTextField>
                         <Label layoutX="10.0" layoutY="576.0" styleClass="texto" text="CPF:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtCpf" layoutX="10.0" layoutY="551.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
+                        <MaskedTextField fx:id="txtCpf" mask="###.###.###-##" placeholder=" " layoutX="10.0" layoutY="551.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        </MaskedTextField>
                         <Label layoutX="10.0" layoutY="551.0" styleClass="texto" text="RG:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtRg" layoutX="10.0" layoutY="568.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
+                        <MaskedTextField fx:id="txtRg" mask="##.###.###-#" placeholder=" " layoutX="10.0" layoutY="568.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        </MaskedTextField>
                         <Label layoutX="50.0" layoutY="585.0" styleClass="texto" text="Dt. Admissão:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDtAdmissao" layoutX="50.0" layoutY="607.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
+                        <MaskedTextField fx:id="txtDtAdmissao" mask="##/##/####" placeholder=" " layoutX="50.0" layoutY="607.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        </MaskedTextField>
                         <Label layoutX="10.0" layoutY="632.0" styleClass="texto" text="Cargo:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
                         <ComboBox fx:id="comboCargo" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </ComboBox>
                         <Label layoutX="50.0" layoutY="689.0" styleClass="texto" text="Departamento:">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
                         <ComboBox fx:id="comboDepartamento" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </ComboBox>
                         <Label layoutX="50.0" layoutY="997.0" styleClass="texto" text="Salário (R$):">
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
                         <TextField fx:id="txtSalario" layoutX="50.0" layoutY="1019.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </TextField>
                         <Separator maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="280.0" styleClass="separador">
-                           <VBox.margin>
-                              <Insets left="29.5" top="15.0" />
-                           </VBox.margin>
                         </Separator>
                         <Label styleClass="titulo" text="Endereço">
                            <font>
                               <Font name="Roboto Black" size="14.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets left="139.5" top="10.0" />
-                           </VBox.margin>
                         </Label>
                         <Label layoutX="150.0" layoutY="1207.0" styleClass="texto" text="Estado:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                         </Label>
                         <ComboBox fx:id="comboEstado" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </ComboBox>
                         <Label layoutX="50.0" layoutY="1225.0" styleClass="texto" text="Cidade:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                         </Label>
                         <ComboBox fx:id="comboCidade" layoutX="50.0" layoutY="1243.0" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </ComboBox>
                         <Label layoutX="50.0" layoutY="1225.0" styleClass="texto" text="Bairro:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                         </Label>
                         <TextField fx:id="txtBairro" layoutX="50.0" layoutY="1154.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </TextField>
                         <Label layoutX="50.0" layoutY="1311.0" styleClass="texto" text="Logradouro:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                         </Label>
                         <TextField fx:id="txtLogradouro" layoutX="50.0" layoutY="1329.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </TextField>
                         <Label layoutX="50.0" layoutY="1397.0" styleClass="texto" text="Numero:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                         </Label>
                         <TextField fx:id="txtNumero" layoutX="50.0" layoutY="1415.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </TextField>
                         <Label layoutX="50.0" layoutY="1354.0" styleClass="texto" text="Complemento:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                         </Label>
                         <TextField fx:id="txtComplemento" layoutX="50.0" layoutY="1372.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
                         </TextField>
                         <Label layoutX="50.0" layoutY="1440.0" styleClass="texto" text="CEP:">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                         </Label>
-                        <TextField fx:id="txtCep" layoutX="50.0" layoutY="1458.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                           <VBox.margin>
-                              <Insets left="40.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
+                        <MaskedTextField fx:id="txtCep" mask="#####-###" placeholder=" " layoutX="50.0" layoutY="1458.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        </MaskedTextField>
                         <HBox layoutX="50.0" layoutY="285.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="260.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#fecharConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="90.0" right="35.0" />
                                  </HBox.margin>
@@ -379,11 +242,11 @@
                                  </cursor>
                               </Button>
                            </children>
-                           <VBox.margin>
-                              <Insets left="40.0" top="15.0" />
-                           </VBox.margin>
                         </HBox>
                      </children>
+                     <padding>
+                        <Insets bottom="30.0" left="40.0" right="40.0" top="10.0" />
+                     </padding>
                   </VBox>
                </content>
             </ScrollPane>

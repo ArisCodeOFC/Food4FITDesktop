@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.UnidadeDeMedidaController">
+<AnchorPane prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.UnidadeDeMedidaController">
    <children>
       <Button layoutX="92.0" layoutY="24.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="Cadastrar Unidade de Medida" textFill="WHITE">
          <font>
@@ -29,7 +29,7 @@
       </TableView>
       <Pane fx:id="paneConteudo" layoutX="653.0" prefHeight="626.0" prefWidth="374.0" styleClass="menuCadastro">
          <children>
-            <Button layoutX="211.0" layoutY="580.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #7f7f7f;" text="Cancelar" textFill="WHITE">
+            <Button layoutX="211.0" layoutY="580.0" mnemonicParsing="false" onAction="#fecharConteudo" style="-fx-background-color: #7f7f7f;" text="Cancelar" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

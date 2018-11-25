@@ -120,3 +120,9 @@
 .table-view > .virtual-flow > .scroll-bar > .decrement-button {
     -fx-opacity: 0;
 }
+
+.invalid {
+	-fx-background-color: #ed2121;
+	-fx-prompt-text-fill: #fff;
+	-fx-text-fill: #fff;
+}

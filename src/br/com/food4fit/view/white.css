@@ -60,3 +60,9 @@ TableView{
 .separador *.line {
 	-fx-border-width: 0px;
 }
+
+.invalid {
+	-fx-background-color: #ed2121;
+	-fx-prompt-text-fill: #fff;
+	-fx-text-fill: #fff;
+}

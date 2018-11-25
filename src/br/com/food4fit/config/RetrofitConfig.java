@@ -4,6 +4,7 @@ import br.com.food4fit.service.BancoService;
 import br.com.food4fit.service.CargoService;
 import br.com.food4fit.service.DepartamentoService;
 import br.com.food4fit.service.EstadoService;
+import br.com.food4fit.service.FornecedorService;
 import br.com.food4fit.service.FuncionarioService;
 import br.com.food4fit.service.UnidadeDeMedidaService;
 import retrofit2.Retrofit;
@@ -25,7 +26,7 @@ public class RetrofitConfig {
 	}
 
 
-	public UnidadeDeMedidaService getUnidadeDeMedida(){
+	public UnidadeDeMedidaService getUnidadeDeMedidaService(){
 		return this.retrofit.create(UnidadeDeMedidaService.class);
 	}
 
@@ -45,4 +46,7 @@ public class RetrofitConfig {
 		return this.retrofit.create(BancoService.class);
 	}
 
+	public FornecedorService getFornecedorService() {
+		return this.retrofit.create(FornecedorService.class);
+	}
 }

@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import br.com.food4fit.model.Funcionario;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -29,7 +30,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		Main.primaryStage = primaryStage;
-
 		// Screen screen = Screen.getPrimary();
 		// Rectangle2D bounds = screen.getVisualBounds();
 		// primaryStage.setX(bounds.getMinX());
