@@ -15,33 +15,41 @@ public class Banco {
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getBanco() {
 		return banco;
 	}
+
 	public void setBanco(String banco) {
 		this.banco = banco;
 	}
+
 	public String getConta() {
 		return conta;
 	}
+
 	public void setConta(String conta) {
 		this.conta = conta;
 	}
+
 	public String getAgencia() {
 		return agencia;
 	}
+
 	public void setAgencia(String agencia) {
 		this.agencia = agencia;
 	}
+
 	public Pane getPaneOpcoes() {
 		return paneOpcoes;
 	}
+
 	public void setPaneOpcoes(Pane paneOpcoes) {
 		this.paneOpcoes = paneOpcoes;
 	}
-
 
 }

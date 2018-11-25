@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import br.com.food4fit.component.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -24,26 +25,26 @@
       </TableView>
       <Pane fx:id="paneConteudo" layoutX="720.0" prefHeight="626.0" prefWidth="307.0" styleClass="menuCadastro">
          <children>
-            <Label layoutX="96.0" layoutY="19.0" styleClass="titulo" text="Cadastrar Banco">
+            <Label alignment="BASELINE_CENTER" layoutY="19.0" prefHeight="25.0" prefWidth="307.0" styleClass="titulo" text="Cadastrar Banco">
                <font>
                   <Font name="Roboto Black" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="95.0" styleClass="texto" text="Banco:">
+            <Label layoutX="50.0" layoutY="100.0" styleClass="texto" text="Banco:">
                <font>
                   <Font name="Roboto Medium" size="12.0" />
                </font></Label>
-            <Label layoutX="45.0" layoutY="175.0" styleClass="texto" text="Agência:" />
-            <Label layoutX="45.0" layoutY="255.0" styleClass="texto" text="Conta:" />
-            <TextField fx:id="txtBanco" layoutX="45.0" layoutY="125.0" prefWidth="200.0" />
-            <TextField fx:id="txtAgencia" layoutX="45.0" layoutY="205.0" prefWidth="200.0" />
-            <TextField fx:id="txtConta" layoutX="45.0" layoutY="285.0" prefWidth="200.0" />
+            <Label layoutX="50.0" layoutY="173.0" styleClass="texto" text="Agência:" />
+            <Label layoutX="50.0" layoutY="246.0" styleClass="texto" text="Conta:" />
+            <TextField fx:id="txtBanco" layoutX="54.0" layoutY="126.0" prefWidth="200.0" />
+            <MaskedTextField fx:id="txtAgencia" mask="####" placeholder=" " layoutX="54.0" layoutY="193.0" prefWidth="200.0" />
+            <TextField fx:id="txtConta" layoutX="54.0" layoutY="263.0" prefWidth="200.0" />
             <Button layoutX="233.0" layoutY="585.0" mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="133.0" layoutY="585.0" mnemonicParsing="false" onAction="#fechaConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
+            <Button layoutX="133.0" layoutY="585.0" mnemonicParsing="false" onAction="#fecharConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

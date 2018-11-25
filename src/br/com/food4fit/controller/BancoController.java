@@ -1,15 +1,22 @@
 package br.com.food4fit.controller;
 
+import java.util.Arrays;
+
 import br.com.food4fit.Main;
+import br.com.food4fit.component.MaskedTextField;
 import br.com.food4fit.config.RetrofitConfig;
+import br.com.food4fit.helper.FormHelper;
 import br.com.food4fit.model.Banco;
-import br.com.food4fit.model.UnidadeDeMedida;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.geometry.Insets;
+import javafx.scene.Cursor;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -20,227 +27,197 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BancoController {
-	@FXML
-    private TextField txtAgencia;
-
-    @FXML
-    private TextField txtConta;
-
-    @FXML
-    private TableColumn colunaOpc;
-
-    @FXML
-    private TableColumn colunaBanco;
-
-    @FXML
-    private TableColumn colunaAgencia;
-
-    @FXML
-    private TableView tblBanco;
-
-    @FXML
-    private Pane paneConteudo;
-
-    @FXML
-    private TextField txtBanco;
-
-    @FXML
-    private TableColumn colunaConta;
-
-
-    public void initialize(){
-    	paneConteudo.setStyle("visibility: false");
-
-//    	listaBanco();
+	private FormHelper formHelper = FormHelper.getInstance();
+    private @FXML MaskedTextField txtAgencia;
+    private @FXML TextField txtConta, txtBanco;
+    private @FXML TableColumn<Banco, Pane> colunaOpc;
+    private @FXML TableColumn<Banco, String> colunaBanco, colunaAgencia, colunaConta;
+    private @FXML TableView<Banco> tblBanco;
+    private @FXML Pane paneConteudo;
+    
+    private @FXML void initialize() {
+    	paneConteudo.setVisible(false);
+    	formHelper.addValidation(txtConta, FormHelper.REQUIRED);
+    	formHelper.addValidation(txtBanco, FormHelper.REQUIRED);
+    	formHelper.addValidation(txtAgencia, FormHelper.REQUIRED | FormHelper.VALID_MASK);
+    	listarBancos();
     }
-
-
-  @FXML
-  void salvar() {
-
-  }
-
-
-//    @FXML
-//    void salvar() {
-//    	String banco = txtBanco.getText();
-//    	String agencia = txtAgencia.getText();
-//		String conta = txtConta.getText();
-//
-//		Banco bancoObj = new Banco();
-//
-//		bancoObj.setAgencia(agencia);
-//		bancoObj.setBanco(banco);
-//		bancoObj.setConta(conta);
-//
-//		if(txtBanco.getUserData() == null){
-//			Call<Banco> retorno = new RetrofitConfig().getBancoServece().salvar(bancoObj);
-//			retorno.enqueue(new Callback<Banco>() {
-//
-//				@Override
-//				public void onFailure(Call<Banco> arg0, Throwable arg1) {
-//					// TODO Auto-generated method stub
-//
-//				}
-//
-//				@Override
-//				public void onResponse(Call<Banco> arg0, Response<Banco> arg1) {
-//					if (arg1.code() == 500) {
-//						Main.showConfirmDialog("OK", "Erro", "Falha ao tentar conectar com o servidor",
-//								Alert.AlertType.WARNING);
-//					} else {
-//
-//						Banco b = arg1.body();
-//
-//						if (b == null) {
-//							System.out.println("Deu ruim");
-//						} else {
-//							Platform.runLater(() -> {
-//								Main.showInfDialog("Sucesso", "", "Banco cadastrado com secesso!!!");
-//								fechaConteudo();
-//
-//								initialize();
-//
-//							});
-//						}
-//
-//					}
-//
-//				}
-//			});
-//		}else{
-//			int decisao = Main.showConfirmDialog("Sim", "Editar", "Deseja editar as informações?", Alert.AlertType.WARNING);
-//
-//			if(decisao == 1){
-//				Banco banc = (Banco) txtBanco.getUserData();
-//				int id = banc.getId();
-//				Call<Void> retorno = new RetrofitConfig().getBancoServece().editar(banc, id);
-//				retorno.enqueue(new Callback<Void>() {
-//
-//					@Override
-//					public void onResponse(Call<Void> arg0, Response<Void> arg1) {
-//						if (arg1.code() == 500) {
-//							Main.showConfirmDialog("OK", "Erro", "Falha ao tentar conectar com o servidor",
-//									Alert.AlertType.WARNING);
-//						}else{
-//							Platform.runLater(() ->{
-//								fechaConteudo();
-//								initialize();
-//								txtBanco.setUserData(null);
-//							});
-//						}
-//
-//					}
-//
-//					@Override
-//					public void onFailure(Call<Void> arg0, Throwable arg1) {
-//						// TODO Auto-generated method stub
-//
-//					}
-//
-//				});
-//			}
-//		}
-//    }
-//
-//
-//    public void listaBanco(){
-//    	Call<Banco[]> retorno = new RetrofitConfig().getBancoServece().lista();
-//    	retorno.enqueue(new Callback<Banco[]>() {
-//
-//			@Override
-//			public void onResponse(Call<Banco[]> arg0, Response<Banco[]> arg1) {
-//				for (Banco b : arg1.body()) {
-//
-//					Image editImg = new Image(Main.class.getResource("assets/icons/editar-c.png").toString());
-//
-//					Image cancelImg = new Image(Main.class.getResource("assets/icons/cancelar-c.png").toString());
-//
-//					ImageView editView = new ImageView();
-//					editView.prefHeight(15);
-//					editView.prefWidth(15);
-//					editView.setImage(editImg);
-//					editView.setStyle("-fx-cursor: hand;");
-//					editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-//						txtBanco.setUserData(b);
-//						abrirConteudo();
-//						txtBanco.setText(b.getBanco());
-//						txtAgencia.setText(b.getAgencia());
-//						txtConta.setText(b.getConta());
-//
-//						event.consume();
-//					});
-//
-//					ImageView deleteView = new ImageView();
-//					deleteView.prefHeight(15);
-//					deleteView.prefWidth(15);
-//					deleteView.setImage(cancelImg);
-//					deleteView.setStyle("-fx-cursor: hand");
-//					deleteView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-//						Call<Void> resultAcao = new RetrofitConfig().getBancoServece().excluir(b.getId());
-//						resultAcao.enqueue(new Callback<Void>() {
-//
-//							@Override
-//							public void onFailure(Call<Void> arg0, Throwable arg1) {
-//								// TODO Auto-generated method stub
-//
-//							}
-//
-//							@Override
-//							public void onResponse(Call<Void> arg0, Response<Void> arg1) {
-//								if (arg1.code() == 500) {
-//									Main.showConfirmDialog("OK", "Erro", "Falha ao tentar excluir",
-//											Alert.AlertType.WARNING);
-//								} else {
-//
-//									Platform.runLater(() -> {
-//										int result = Main.showConfirmDialog("OK", "Excluir", "Deseja excluir o item?",
-//												Alert.AlertType.WARNING);
-//										if (result == 1) {
-//											initialize();
-//										}
-//
-//									});
-//
-//								}
-//
-//							}
-//						});
-//
-//						event.consume();
-//					});
-//
-//					HBox hBox = new HBox(editView, deleteView);
-//					hBox.setPrefHeight(15);
-//					hBox.setPrefWidth(15);
-//					hBox.setStyle("-fx-padding: 0 0 0 20; -fx-spacing:10;");
-//
-//					b.setPaneOpcoes(hBox);
-//				}
-//
-//			}
-//
-//			@Override
-//			public void onFailure(Call<Banco[]> arg0, Throwable arg1) {
-//				// TODO Auto-generated method stub
-//
-//			}
-//		});
-//    }
-
- // Abrir o panel oculto
- 	@FXML
- 	void abrirConteudo() {
- 		paneConteudo.setStyle("visibility: true;");
- 	}
-
- 	// Fecha o panel que foi aberto
- 	@FXML
- 	void fechaConteudo() {
- 		paneConteudo.setStyle("visibility: false");
- 		txtBanco.clear();
- 		txtAgencia.clear();
- 		txtConta.clear();
-
- 	}
+    
+    private @FXML void salvar() {
+    	if (formHelper.validate()) {
+    		Banco banco;
+    		if (formHelper.getObjectData() != null) {
+    			banco = (Banco) formHelper.getObjectData();
+    		} else {
+    			banco = new Banco();
+    		}
+    		
+    		banco.setAgencia(txtAgencia.getText());
+    		banco.setConta(txtConta.getText());
+    		banco.setBanco(txtBanco.getText());
+    		
+    		if (formHelper.getObjectData() == null) {
+    			new RetrofitConfig().getBancoService().inserir(banco).enqueue(
+					new Callback<Banco>() {
+						@Override
+						public void onResponse(Call<Banco> call, Response<Banco> response) {
+							Platform.runLater(() -> {
+								if (response.code() == 500) {
+									Main.showErrorDialog("Erro", "Erro ao inserir banco", "Não foi possível inserir o banco, tente novamente mais tarde.", AlertType.ERROR);
+								} else {
+									montarPainel(response.body());
+									tblBanco.getItems().add(response.body());
+									Main.showInfDialog("Sucesso", "", "Banco cadastrado com secesso!!!");
+									fecharConteudo();
+								}
+							});
+						}
+						
+						@Override
+						public void onFailure(Call<Banco> call, Throwable t) {
+							t.printStackTrace();
+							Platform.runLater(() -> 
+								Main.showErrorDialog("Erro", "Erro ao inserir banco", "Não foi possível inserir o banco, tente novamente mais tarde.", AlertType.ERROR)
+							);
+						}
+					}
+				);
+    			
+    		} else {
+    			new RetrofitConfig().getBancoService().atualizar(banco.getId(), banco).enqueue(
+					new Callback<Void>() {
+						@Override
+						public void onResponse(Call<Void> call, Response<Void> response) {
+							Platform.runLater(() -> {
+								if (response.code() == 500) {
+									Main.showErrorDialog("Erro", "Erro ao atualizar banco", "Não foi possível atualizar o banco, tente novamente mais tarde.", AlertType.ERROR);
+								} else {
+									formHelper.setObjectData(null);
+									tblBanco.refresh();
+									Main.showInfDialog("Sucesso", "", "Banco atualizado com secesso!!!");
+									fecharConteudo();
+								}
+							});
+						}
+						
+						@Override
+						public void onFailure(Call<Void> call, Throwable t) {
+							t.printStackTrace();
+							Platform.runLater(() -> 
+								Main.showErrorDialog("Erro", "Erro ao atualizar banco", "Não foi possível atualizar o banco, tente novamente mais tarde.", AlertType.ERROR)
+							);
+						}
+					}
+				);
+    		}
+    	}
+    }
+    
+    private @FXML void abrirConteudo() {
+    	paneConteudo.setVisible(true);
+    }
+    
+    private @FXML void fecharConteudo() {
+    	paneConteudo.setVisible(false);
+    	txtConta.clear();
+    	txtBanco.clear();
+    	txtAgencia.clear();
+    }
+    
+    private void listarBancos() {
+    	new RetrofitConfig().getBancoService().listar().enqueue(
+    		new Callback<Banco[]>() {
+				@Override
+				public void onResponse(Call<Banco[]> call, Response<Banco[]> response) {
+					if (response.code() == 500) {
+						Main.showErrorDialog("Erro", "Erro ao obter lista de bancos", "Não foi possível obter a lista de bancos, tente novamente mais tarde.", AlertType.ERROR);
+					} else {
+						montarTabela(response.body());
+					}
+				}
+				
+				@Override
+				public void onFailure(Call<Banco[]> call, Throwable t) {
+					t.printStackTrace();
+					Platform.runLater(() -> {
+						Main.showErrorDialog("Erro", "Erro ao obter lista de bancos", "Não foi possível obter a lista de bancos, tente novamente mais tarde.", AlertType.ERROR);
+					});
+				}
+			}
+		);
+    }
+    
+    private void montarPainel(Banco banco) {
+    	ImageView imgEditar = new ImageView(new Image(Main.class.getResource("/br/com/food4fit/assets/icons/editar-c.png").toString()));
+		imgEditar.prefHeight(15);
+		imgEditar.prefWidth(15);
+		imgEditar.setCursor(Cursor.HAND);
+		imgEditar.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+			editarBanco(banco);
+		});
+		
+		ImageView imgExcluir = new ImageView(new Image(Main.class.getResource("/br/com/food4fit/assets/icons/cancelar-c.png").toString()));
+		imgExcluir.prefHeight(15);
+		imgExcluir.prefWidth(15);
+		imgExcluir.setCursor(Cursor.HAND);
+		imgExcluir.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+			excluirBanco(banco);
+		});
+		
+		HBox hBox = new HBox(imgEditar, imgExcluir);
+		hBox.setPrefHeight(15);
+		hBox.setPrefWidth(15);
+		hBox.setSpacing(10);
+		hBox.setPadding(new Insets(0, 0, 0, 32));
+		banco.setPaneOpcoes(hBox);
+    }
+    
+    private void montarTabela(Banco[] bancos) {
+    	for (Banco banco : bancos) {
+    		montarPainel(banco);
+    	}
+    	
+    	colunaBanco.setCellValueFactory(new PropertyValueFactory<Banco, String>("banco"));
+    	colunaAgencia.setCellValueFactory(new PropertyValueFactory<Banco, String>("agencia"));
+		colunaConta.setCellValueFactory(new PropertyValueFactory<Banco, String>("conta"));
+		colunaOpc.setCellValueFactory(new PropertyValueFactory<Banco, Pane>("paneOpcoes"));
+		tblBanco.setItems(FXCollections.observableArrayList(Arrays.asList(bancos)));
+    }
+    
+    private void excluirBanco(Banco banco) {
+    	int resposta = Main.showConfirmDialog("Excluir", "Excluir", "Deseja realmente excluir este banco?", AlertType.CONFIRMATION);
+		if (resposta == 1) {
+			new RetrofitConfig().getBancoService().excluir(banco.getId()).enqueue(
+				new Callback<Void>() {
+					@Override
+					public void onResponse(Call<Void> call, Response<Void> response) {
+						Platform.runLater(() -> {
+							if (response.code() == 500) {
+								Main.showErrorDialog("Erro", "Erro ao excluir banco", "Não foi possível excluir o banco, tente novamente mais tarde.", AlertType.ERROR);
+							} else {
+								tblBanco.getItems().remove(banco);
+								Main.showInfDialog("Sucesso", "", "Banco excluído com secesso!!!");
+							}
+						});
+					}
+					
+					@Override
+					public void onFailure(Call<Void> call, Throwable t) {
+						t.printStackTrace();
+						Platform.runLater(() -> {
+							Main.showErrorDialog("Erro", "Erro ao excluir banco", "Não foi possível excluir o banco, tente novamente mais tarde.", AlertType.ERROR);
+						});
+					}
+				}
+			);
+		}
+    }
+    
+    private void editarBanco(Banco banco) {
+    	formHelper.setObjectData(banco);
+		txtAgencia.setPlainText(banco.getAgencia());
+		txtConta.setText(banco.getConta());
+		txtBanco.setText(banco.getBanco());
+		abrirConteudo();
+    }
 }

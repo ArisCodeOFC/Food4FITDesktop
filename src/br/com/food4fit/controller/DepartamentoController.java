@@ -1,12 +1,17 @@
 package br.com.food4fit.controller;
 
+import java.util.Arrays;
+
 import br.com.food4fit.Main;
 import br.com.food4fit.config.RetrofitConfig;
+import br.com.food4fit.helper.FormHelper;
 import br.com.food4fit.model.Departamento;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.geometry.Insets;
+import javafx.scene.Cursor;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -21,216 +26,187 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DepartamentoController {
-	@FXML
-	private TableColumn colunaId;
+	private FormHelper formHelper = FormHelper.getInstance();
+	private @FXML TableColumn<Departamento, Integer> colunaId;
+	private @FXML TableColumn<Departamento, Pane> colunaOpc;
+	private @FXML TableColumn<Departamento, String> colunaNome;
+	private @FXML TextField txtDepartamento;
+	private @FXML Pane paneConteudo;
+    private @FXML TableView<Departamento> tblDepartamento;
 
-	@FXML
-	private TableColumn colunaStatus;
-
-	@FXML
-	private TableColumn colunaOpc;
-
-	@FXML
-	private TableColumn colunaNome;
-
-	@FXML
-	private TextField txtDepartamento;
-
-	@FXML
-	private Pane paneConteudo;
-
-    @FXML
-    private TableView tblFornecedor;
-
-	@FXML
-	private Pane paneButton;
-
-	ToggleSwitch button = new ToggleSwitch(false);
-
-	public void initialize() {
-
-		paneConteudo.setStyle("visibility: false");
-		paneButton.getChildren().add(button);
-
+	private @FXML void initialize() {
+		paneConteudo.setVisible(false);
+		formHelper.addValidation(txtDepartamento, FormHelper.REQUIRED);
+		listarDepartamentos();
 	}
 
-	 @FXML
-	 void salvar() {
-
-	 }
-
-//	@FXML
-//	void salvar() {
-//		String departamento = txtDepartamento.getText();
-//
-//		Departamento dep = new Departamento();
-//		dep.setDepartamento(departamento);
-//
-//		if(txtDepartamento.getUserData() == null){
-//			Call<Departamento> retorno = new RetrofitConfig().getDepartamentoService().salvar(dep);
-//
-//			retorno.enqueue(new Callback<Departamento>() {
-//
-//				@Override
-//				public void onFailure(Call<Departamento> arg0, Throwable arg1) {
-//					// TODO Auto-generated method stub
-//
-//				}
-//
-//				@Override
-//				public void onResponse(Call<Departamento> arg0, Response<Departamento> arg1) {
-//					if(arg1.code() == 500) {
-//						Main.showConfirmDialog("OK", "Erro", "Falha ao tentar conectar com o servidor",
-//						Alert.AlertType.WARNING);
-//					}else{
-//						Platform.runLater(() -> {
-//							Main.showInfDialog("Sucesso", "", "Departamento cadastrado com secesso!!!");
-//							fechaConteudo();
-//
-//							initialize();
-//
-//						});
-//
-//				}
-//				}
-//
-//			});
-//		}else{
-//			int decisao = Main.showConfirmDialog("Sim", "Editar", "Deseja editar as informações?", Alert.AlertType.WARNING);
-//
-//						if(decisao == 1){
-//							Departamento d = (Departamento) txtDepartamento.getUserData();
-//							int id = d.getId();
-//
-//							Call<Void> retorno = new RetrofitConfig().getDepartamentoService().editar(dep, id);
-//
-//							retorno.enqueue(new Callback<Void>() {
-//
-//								@Override
-//								public void onResponse(Call<Void> arg0, Response<Void> arg1) {
-//									if (arg1.code() == 500) {
-//										Main.showConfirmDialog("OK", "Erro", "Falha ao tentar conectar com o servidor",
-//												Alert.AlertType.WARNING);
-//									}else{
-//										Platform.runLater(() ->{
-//											fechaConteudo();
-//											initialize();
-//											txtDepartamento.setUserData(null);
-//										});
-//									}
-//
-//								}
-//
-//								@Override
-//								public void onFailure(Call<Void> arg0, Throwable arg1) {
-//									// TODO Auto-generated method stub
-//
-//								}
-//							});
-//						}
-//		}
-//
-//
-//
-//	}
-
-//	public void listar() {
-//		Call<Departamento[]> retorno = new RetrofitConfig().getDepartamentoService().listar();
-//
-//		retorno.enqueue(new Callback<Departamento[]>() {
-//
-//			@Override
-//			public void onResponse(Call<Departamento[]> arg0, Response<Departamento[]> arg1) {
-//				for (Departamento d : arg1.body()) {
-//
-//					Image editImg = new Image(Main.class.getResource("assets/icons/editar-c.png").toString());
-//
-//					Image cancelImg = new Image(Main.class.getResource("assets/icons/cancelar-c.png").toString());
-//
-//					ImageView editView = new ImageView();
-//					editView.prefHeight(15);
-//					editView.prefWidth(15);
-//					editView.setImage(editImg);
-//					editView.setStyle("-fx-cursor: hand;");
-//					editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-//						txtDepartamento.setUserData(d);
-//						abrirConteudo();
-//						txtDepartamento.setText(d.getDepartamento());
-//
-//						event.consume();
-//					});
-//
-//					ImageView deleteView = new ImageView();
-//					deleteView.prefHeight(15);
-//					deleteView.prefWidth(15);
-//					deleteView.setImage(cancelImg);
-//					deleteView.setStyle("-fx-cursor: hand");
-//					deleteView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-//						Call<Void> resultAcao = new RetrofitConfig().getDepartamentoService().excluir(d.getId());
-//						resultAcao.enqueue(new Callback<Void>() {
-//
-//							@Override
-//							public void onFailure(Call<Void> arg0, Throwable arg1) {
-//								// TODO Auto-generated method stub
-//
-//							}
-//
-//							@Override
-//							public void onResponse(Call<Void> arg0, Response<Void> arg1) {
-//								if (arg1.code() == 500) {
-//									Main.showConfirmDialog("OK", "Erro", "Falha ao tentar excluir",
-//											Alert.AlertType.WARNING);
-//								} else {
-//
-//									Platform.runLater(() -> {
-//										int result = Main.showConfirmDialog("OK", "Excluir", "Deseja excluir o item?",
-//												Alert.AlertType.WARNING);
-//										if (result == 1) {
-//											initialize();
-//										}
-//
-//									});
-//
-//								}
-//
-//							}
-//						});
-//
-//						event.consume();
-//					});
-//
-//					HBox hBox = new HBox(editView, deleteView);
-//					hBox.setPrefHeight(15);
-//					hBox.setPrefWidth(15);
-//					hBox.setStyle("-fx-padding: 0 0 0 20; -fx-spacing:10;");
-//
-//					d.setPaneOpcoes(hBox);
-//				}
-//
-//				colunaId.setCellValueFactory(new PropertyValueFactory<Departamento, String>("id"));
-//				colunaNome.setCellValueFactory(new PropertyValueFactory<Departamento, String>("departamento"));
-//				colunaOpc.setCellValueFactory(new PropertyValueFactory<Departamento, Pane>("paneOpcoes"));
-//				tblFornecedor.setItems(FXCollections.observableArrayList(arg1.body()));
-//
-//			}
-//
-//			@Override
-//			public void onFailure(Call<Departamento[]> arg0, Throwable arg1) {
-//				// TODO Auto-generated method stub
-//
-//			}
-//		});
-//	}
-
-	// *************************************************************
-
-	@FXML
-	void abrirConteudo() {
-		paneConteudo.setStyle("visibility: true;");
+	private @FXML void salvar() {
+		if (formHelper.validate()) {
+			Departamento departamento;
+			if (formHelper.getObjectData() != null) {
+				departamento = (Departamento) formHelper.getObjectData();
+			} else {
+				departamento = new Departamento();
+			}
+			
+			departamento.setDepartamento(txtDepartamento.getText());
+			
+			if (formHelper.getObjectData() == null) {
+				new RetrofitConfig().getDepartamentoService().salvar(departamento).enqueue(
+					new Callback<Departamento>() {
+						@Override
+						public void onResponse(Call<Departamento> call, Response<Departamento> response) {
+							Platform.runLater(() -> {
+								if (response.code() == 500) {
+									Main.showErrorDialog("Erro", "Erro ao inserir departamento", "Não foi possível inserir o departamento, tente novamente mais tarde.", AlertType.ERROR);
+								} else {
+									montarPainel(response.body());
+									tblDepartamento.getItems().add(response.body());
+									Main.showInfDialog("Sucesso", "", "Departamento cadastrado com secesso!!!");
+									fecharConteudo();
+								}
+							});
+						}
+						
+						@Override
+						public void onFailure(Call<Departamento> call, Throwable t) {
+							t.printStackTrace();
+							Platform.runLater(() -> 
+								Main.showErrorDialog("Erro", "Erro ao inserir departamento", "Não foi possível inserir o departamento, tente novamente mais tarde.", AlertType.ERROR)
+							);
+						}
+					}
+				);
+				
+			} else {
+				new RetrofitConfig().getDepartamentoService().atualizar(departamento.getId(), departamento).enqueue(
+					new Callback<Void>() {
+						@Override
+						public void onResponse(Call<Void> call, Response<Void> response) {
+							Platform.runLater(() -> {
+								if (response.code() == 500) {
+									Main.showErrorDialog("Erro", "Erro ao atualizar departamento", "Não foi possível atualizar o departamento, tente novamente mais tarde.", AlertType.ERROR);
+								} else {
+									formHelper.setObjectData(null);
+									tblDepartamento.refresh();
+									Main.showInfDialog("Sucesso", "", "Departamento atualizado com secesso!!!");
+									fecharConteudo();
+								}
+							});
+						}
+						
+						@Override
+						public void onFailure(Call<Void> call, Throwable t) {
+							t.printStackTrace();
+							Platform.runLater(() -> 
+								Main.showErrorDialog("Erro", "Erro ao atualizar departamento", "Não foi possível atualizar o departamento, tente novamente mais tarde.", AlertType.ERROR)
+							);
+						}
+					}
+				);
+			}
+		}
+	}
+	 
+	private @FXML void abrirConteudo() {
+		paneConteudo.setVisible(true);
 	}
 
-	@FXML
-	void fechaConteudo() {
-		paneConteudo.setStyle("visibility: false");
+	private @FXML void fecharConteudo() {
+		paneConteudo.setVisible(false);
+		txtDepartamento.clear();
+	}
+	
+	private void listarDepartamentos() {
+		Call<Departamento[]> retorno = new RetrofitConfig().getDepartamentoService().listar();
+		retorno.enqueue(new Callback<Departamento[]>() {
+			@Override
+			public void onResponse(Call<Departamento[]> call, Response<Departamento[]> response) {
+				if (response.code() == 500) {
+					Main.showErrorDialog("Erro", "Erro ao obter lista de departamentos", "Não foi possível obter a lista de departamentos, tente novamente mais tarde.", AlertType.ERROR);
+				} else {
+					montarTabela(response.body());
+				}
+			}
+			
+			@Override
+			public void onFailure(Call<Departamento[]> call, Throwable t) {
+				t.printStackTrace();
+				Platform.runLater(() -> {
+					Main.showErrorDialog("Erro", "Erro ao obter lista de departamentos", "Não foi possível obter a lista de departamentos, tente novamente mais tarde.", AlertType.ERROR);
+				});
+			}
+		});
+	}
+	
+	private void montarPainel(Departamento departamento) {
+		ImageView imgEditar = new ImageView(new Image(Main.class.getResource("/br/com/food4fit/assets/icons/editar-c.png").toString()));
+		imgEditar.prefHeight(15);
+		imgEditar.prefWidth(15);
+		imgEditar.setCursor(Cursor.HAND);
+		imgEditar.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+			editarDepartamento(departamento);
+		});
+		
+		ImageView imgExcluir = new ImageView(new Image(Main.class.getResource("/br/com/food4fit/assets/icons/cancelar-c.png").toString()));
+		imgExcluir.prefHeight(15);
+		imgExcluir.prefWidth(15);
+		imgExcluir.setCursor(Cursor.HAND);
+		imgExcluir.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+			excluirDepartamento(departamento);
+		});
+		
+		HBox hBox = new HBox(imgEditar, imgExcluir);
+		hBox.setPrefHeight(15);
+		hBox.setPrefWidth(15);
+		hBox.setSpacing(10);
+		hBox.setPadding(new Insets(0, 0, 0, 32));
+		departamento.setPaneOpcoes(hBox);
+	}
+	
+	private void montarTabela(Departamento[] departamentos) {
+		for (Departamento departamento : departamentos) {
+			montarPainel(departamento);
+		}
+
+		colunaId.setCellValueFactory(new PropertyValueFactory<Departamento, Integer>("id"));
+		colunaNome.setCellValueFactory(new PropertyValueFactory<Departamento, String>("departamento"));
+		colunaOpc.setCellValueFactory(new PropertyValueFactory<Departamento, Pane>("paneOpcoes"));
+		tblDepartamento.setItems(FXCollections.observableArrayList(Arrays.asList(departamentos)));
+	}
+	
+	private void excluirDepartamento(Departamento departamento) {
+		int resposta = Main.showConfirmDialog("Excluir", "Excluir", "Deseja realmente excluir este departamento?", AlertType.CONFIRMATION);
+		if (resposta == 1) {
+			new RetrofitConfig().getDepartamentoService().excluir(departamento.getId()).enqueue(
+				new Callback<Void>() {
+					@Override
+					public void onResponse(Call<Void> call, Response<Void> response) {
+						Platform.runLater(() -> {
+							if (response.code() == 500) {
+								Main.showErrorDialog("Erro", "Erro ao excluir departamento", "Não foi possível excluir o departamento, tente novamente mais tarde.", AlertType.ERROR);
+							} else {
+								tblDepartamento.getItems().remove(departamento);
+								Main.showInfDialog("Sucesso", "", "Departamento excluído com secesso!!!");
+							}
+						});
+					}
+					
+					@Override
+					public void onFailure(Call<Void> call, Throwable t) {
+						t.printStackTrace();
+						Platform.runLater(() -> {
+							Main.showErrorDialog("Erro", "Erro ao excluir departamento", "Não foi possível excluir o departamento, tente novamente mais tarde.", AlertType.ERROR);
+						});
+					}
+				}
+			);
+		}
+	}
+	
+	private void editarDepartamento(Departamento departamento) {
+		formHelper.setObjectData(departamento);
+		txtDepartamento.setText(departamento.getDepartamento());
+		abrirConteudo();
 	}
 }

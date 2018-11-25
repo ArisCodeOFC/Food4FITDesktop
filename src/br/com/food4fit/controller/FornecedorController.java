@@ -44,7 +44,7 @@ public class FornecedorController {
 	private @FXML TableColumn<Fornecedor, Pane> colunaOpcoes;
 
 	private @FXML void initialize() {
-		paneConteudo.setStyle("visibility: false");
+		paneConteudo.setVisible(false);;
 		formHelper.addValidation(txtNomeFantasia, FormHelper.REQUIRED);
 		formHelper.addValidation(txtRazaoSocial, FormHelper.REQUIRED);
 		formHelper.addValidation(txtInscricaoEstadual, FormHelper.REQUIRED | FormHelper.VALID_MASK);
@@ -156,11 +156,11 @@ public class FornecedorController {
 	}
 
 	private @FXML void abrirConteudo() {
-		paneConteudo.setStyle("visibility: true;");
+		paneConteudo.setVisible(true);
 	}
 	
 	private @FXML void fecharConteudo() {
-		paneConteudo.setStyle("visibility: false");
+		paneConteudo.setVisible(false);
 		txtNomeFantasia.setText("");
 		txtRazaoSocial.setText("");
 		txtInscricaoEstadual.setPlainText("");

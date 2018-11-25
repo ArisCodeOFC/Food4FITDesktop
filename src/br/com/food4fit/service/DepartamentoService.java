@@ -10,16 +10,15 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface DepartamentoService {
-
 	@GET("departamento")
 	Call<Departamento[]> listar();
 
 	@POST("departamento")
 	Call<Departamento> salvar(@Body Departamento dados);
 
-//	@PUT("departamento/{id}")
-//	Call<Void>editar(@Body Departamento dados, @Path("id") int id);
-
-	@DELETE("departamentro/{id}")
-	Call<Void>excluir(@Path("id") int id);
+	@DELETE("departamento/{id}")
+	Call<Void> excluir(@Path("id") int id);
+	
+	@PUT("departamento/{id}")
+	Call<Void> atualizar(@Path("id") int id, @Body Departamento departamento);
 }

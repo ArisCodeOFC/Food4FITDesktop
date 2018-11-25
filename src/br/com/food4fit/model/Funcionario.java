@@ -29,6 +29,8 @@ public class Funcionario {
 	private int salario;
 	private Date dataDemissao;
 	private Endereco endereco;
+	@JsonIgnore
+	private Pane paneOpcoes;
 
 	public Endereco getEndereco() {
 		return endereco;
@@ -130,10 +132,6 @@ public class Funcionario {
 	public void setSalario(int salario) {
 		this.salario = salario;
 	}
-
-
-	@JsonIgnore
-	private Pane paneOpcoes;
 
 	public String getNomeCompleto() {
 		return nome + " " + sobrenome;

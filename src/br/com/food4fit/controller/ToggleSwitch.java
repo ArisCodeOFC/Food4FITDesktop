@@ -1,9 +1,6 @@
 package br.com.food4fit.controller;
 
-import java.util.EventListener;
-
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;

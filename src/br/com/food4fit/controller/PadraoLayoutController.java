@@ -1,24 +1,16 @@
 package br.com.food4fit.controller;
 
 import java.io.IOException;
-import java.util.Optional;
-
-import org.omg.CORBA.INITIALIZE;
 
 import br.com.food4fit.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class PadraoLayoutController {
 
@@ -65,10 +57,10 @@ public class PadraoLayoutController {
 		});
 
 
-		//nomeUser.setText(Main.getPerfil().getNomeCompleto());
-		//emailUser.setText(Main.getPerfil().getEmail());
+		nomeUser.setText(Main.getPerfil().getNomeCompleto());
+		emailUser.setText(Main.getPerfil().getEmail());
 		//fotoUser.setImage(new Image("http://localhost/inf4t/Allan/Food-4FitWEB-Procedure-master/" + Main.getPerfil().getAvatar()));
-		//fotoUser.setImage(new Image("http://localhost/arisCodeProcedural/" + Main.getPerfil().getAvatar()));
+		fotoUser.setImage(new Image("http://localhost/arisCodeProcedural/" + Main.getPerfil().getAvatar()));
 
 	}
 

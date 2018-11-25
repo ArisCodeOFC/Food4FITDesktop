@@ -8,11 +8,9 @@ import br.com.food4fit.service.AvatarService;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
-import retrofit2.Converter.Factory;
 import retrofit2.Converter;
+import retrofit2.Converter.Factory;
 import retrofit2.Retrofit;
-import retrofit2.ScalarsConverterFactory;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public class RetrofitConfigImg {
 	private final Retrofit retrofit;

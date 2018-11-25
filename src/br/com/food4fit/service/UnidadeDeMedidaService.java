@@ -1,7 +1,5 @@
 package br.com.food4fit.service;
 
-import org.intellij.lang.annotations.JdkConstants.PatternFlags;
-
 import br.com.food4fit.model.UnidadeDeMedida;
 import retrofit2.Call;
 import retrofit2.http.Body;

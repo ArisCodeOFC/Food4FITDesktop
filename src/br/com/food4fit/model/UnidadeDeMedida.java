@@ -11,23 +11,26 @@ public class UnidadeDeMedida {
 	@JsonIgnore
 	private Pane paneOpcoes;
 
-	public int getId(){
+	public int getId() {
 		return id;
 	}
 
-	public void setId(int id){
+	public void setId(int id) {
 		this.id = id;
 	}
 
 	public String getUnidadeMedida() {
 		return unidadeMedida;
 	}
+
 	public void setUnidadeMedida(String unidadeMedida) {
 		this.unidadeMedida = unidadeMedida;
 	}
+
 	public String getSigla() {
 		return sigla;
 	}
+
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
 	}
@@ -39,7 +42,5 @@ public class UnidadeDeMedida {
 	public void setPaneOpcoes(Pane paneOpcoes) {
 		this.paneOpcoes = paneOpcoes;
 	}
-
-
 
 }

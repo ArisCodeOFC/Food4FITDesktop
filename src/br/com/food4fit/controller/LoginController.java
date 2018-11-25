@@ -1,7 +1,5 @@
 package br.com.food4fit.controller;
 
-import java.io.IOException;
-
 import br.com.food4fit.Main;
 import br.com.food4fit.config.RetrofitConfig;
 import br.com.food4fit.model.DadosFuncionario;
@@ -13,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,9 +30,9 @@ public class LoginController {
 
 	@FXML
 	void initialize() {
-		Platform.runLater(() -> {
+		/*Platform.runLater(() -> {
 			Main.abrirTela("PadraoLayout");
-		});
+		});*/
 
 		txtMatricula.focusedProperty().addListener(new ChangeListener<Boolean>() {
 

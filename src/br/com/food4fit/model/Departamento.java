@@ -13,18 +13,23 @@ public class Departamento {
 	public Pane getPaneOpcoes() {
 		return paneOpcoes;
 	}
+
 	public void setPaneOpcoes(Pane paneOpcoes) {
 		this.paneOpcoes = paneOpcoes;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getDepartamento() {
 		return departamento;
 	}
+
 	public void setDepartamento(String departamento) {
 		this.departamento = departamento;
 	}
@@ -33,6 +38,5 @@ public class Departamento {
 	public String toString() {
 		return departamento;
 	}
-
 
 }

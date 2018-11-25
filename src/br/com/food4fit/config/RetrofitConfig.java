@@ -42,7 +42,7 @@ public class RetrofitConfig {
 		return this.retrofit.create(EstadoService.class);
 	}
 
-	public BancoService getBancoServece(){
+	public BancoService getBancoService(){
 		return this.retrofit.create(BancoService.class);
 	}
 

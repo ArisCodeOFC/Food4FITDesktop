@@ -44,7 +44,7 @@
                            <children>
                               <ImageView fx:id="fotoFuncionario" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/us.png" />
+                                    <Image url="@br/com/food4fit/assets/icons/us.png" />
                                  </image>
                               </ImageView>
                            </children>
