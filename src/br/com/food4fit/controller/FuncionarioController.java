@@ -93,19 +93,19 @@ public class FuncionarioController {
 		formHelper.addValidation(txtBairro, FormHelper.REQUIRED);
 		formHelper.addValidation(txtLogradouro, FormHelper.REQUIRED);
 		formHelper.addValidation(txtNumero, FormHelper.REQUIRED);
-		
+
 		final FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Escolher imagem");
 		fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
 		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Imagens", "*.jpg", "*.png"));
 
-		comboEstado.valueProperty().addListener((obs, oldval, newval) -> {
-			comboCidade.setValue(null);
-			if (newval != null) {
-				Estado estado = (Estado) newval;
-				listarCidade(estado.getId());
-			}
-		});
+//		comboEstado.valueProperty().addListener((obs, oldval, newval) -> {
+//			comboCidade.setValue(null);
+//			if (newval != null) {
+//				Estado estado = (Estado) newval;
+//				listarCidade(estado.getId());
+//			}
+//		});
 
 		escolherImg.setOnAction((final ActionEvent e) -> {
 			File file = fileChooser.showOpenDialog(conteudo.getScene().getWindow());
@@ -115,183 +115,183 @@ public class FuncionarioController {
 			}
 		});
 
-		listarFuncionario();
-		listarCargo();
-		listarDepartamento();
-		listarEstado();
-	}
-	
-	public void listarEstado() {
-		comboEstado.setCursor(Cursor.WAIT);
-		Call<Estado[]> retorno = new RetrofitConfig().getEstadoService().listarEstado();
-		retorno.enqueue(new Callback<Estado[]>() {
-			@Override
-			public void onResponse(Call<Estado[]> call, Response<Estado[]> response) {
-				Platform.runLater(() -> {
-					comboEstado.setCursor(Cursor.HAND);
-					if (response.code() == 500) {
-						Main.showErrorDialog("Erro", "Erro ao obter lista de estados", "Não foi possível obter a lista de estados, tente novamente mais tarde.", AlertType.ERROR);
-					} else {
-						comboEstado.setItems(FXCollections.observableArrayList(Arrays.asList(response.body())));
-					}
-				});
-			}
-			
-			@Override
-			public void onFailure(Call<Estado[]> call, Throwable t) {
-				t.printStackTrace();
-				Platform.runLater(() -> {
-					comboEstado.setCursor(Cursor.HAND);
-					Main.showErrorDialog("Erro", "Erro ao obter lista de estados", "Não foi possível obter a lista de estados, tente novamente mais tarde.", AlertType.ERROR);
-				});
-			}
-		});
+//		listarFuncionario();
+//		listarCargo();
+//		listarDepartamento();
+//		listarEstado();
 	}
 
-	public void listarCidade(int id) {
-		comboCidade.setCursor(Cursor.WAIT);
-		Call<Cidade[]> retorno = new RetrofitConfig().getEstadoService().listarCidade(id);
-		retorno.enqueue(new Callback<Cidade[]>() {
-			@Override
-			public void onResponse(Call<Cidade[]> call, Response<Cidade[]> response) {
-				comboCidade.setCursor(Cursor.HAND);
-				if (response.code() == 500) {
-					Main.showErrorDialog("Erro", "Erro ao obter lista de cidades", "Não foi possível obter a lista de cidades, tente novamente mais tarde.", AlertType.ERROR);
-				} else {
-					comboCidade.setItems(FXCollections.observableArrayList(Arrays.asList(response.body())));
-				}
-			}
-			
-			@Override
-			public void onFailure(Call<Cidade[]> call, Throwable t) {
-				t.printStackTrace();
-				Platform.runLater(() -> {
-					comboCidade.setCursor(Cursor.HAND);
-					Main.showErrorDialog("Erro", "Erro ao obter lista de cidades", "Não foi possível obter a lista de cidades, tente novamente mais tarde.", AlertType.ERROR);
-				});
-			}
-		});
-	}
-
-	public void listarCargo() {
-		comboCargo.setCursor(Cursor.WAIT);
-		Call<Cargo[]> retorno = new RetrofitConfig().getCargoService().listar();
-		retorno.enqueue(new Callback<Cargo[]>() {
-			@Override
-			public void onResponse(Call<Cargo[]> call, Response<Cargo[]> response) {
-				comboCargo.setCursor(Cursor.HAND);
-				if (response.code() == 500) {
-					Main.showErrorDialog("Erro", "Erro ao obter lista de cargos", "Não foi possível obter a lista de cargos, tente novamente mais tarde.", AlertType.ERROR);
-				} else {
-					comboCargo.setItems(FXCollections.observableArrayList(Arrays.asList(response.body())));
-				}
-			}
-			
-			@Override
-			public void onFailure(Call<Cargo[]> call, Throwable t) {
-				t.printStackTrace();
-				Platform.runLater(() -> {
-					comboCargo.setCursor(Cursor.HAND);
-					Main.showErrorDialog("Erro", "Erro ao obter lista de cargos", "Não foi possível obter a lista de cargos, tente novamente mais tarde.", AlertType.ERROR);
-				});
-			}
-		});
-	}
-
-	public void listarDepartamento() {
-		comboDepartamento.setCursor(Cursor.WAIT);
-		Call<Departamento[]> retorno = new RetrofitConfig().getDepartamentoService().listar();
-		retorno.enqueue(new Callback<Departamento[]>() {
-			@Override
-			public void onResponse(Call<Departamento[]> call, Response<Departamento[]> response) {
-				comboDepartamento.setCursor(Cursor.HAND);
-				if (response.code() == 500) {
-					Main.showErrorDialog("Erro", "Erro ao obter lista de departamentos", "Não foi possível obter a lista de departamentos, tente novamente mais tarde.", AlertType.ERROR);
-				} else {
-					comboDepartamento.setItems(FXCollections.observableArrayList(Arrays.asList(response.body())));
-				}
-			}
-			
-			@Override
-			public void onFailure(Call<Departamento[]> call, Throwable t) {
-				t.printStackTrace();
-				Platform.runLater(() -> {
-					comboDepartamento.setCursor(Cursor.HAND);
-					Main.showErrorDialog("Erro", "Erro ao obter lista de departamentos", "Não foi possível obter a lista de departamentos, tente novamente mais tarde.", AlertType.ERROR);
-				});
-			}
-		});
-	}
-
-	public void listarFuncionario() {
-		Call<Funcionario[]> retorno = new RetrofitConfig().getFuncionarioService().lista();
-		retorno.enqueue(new Callback<Funcionario[]>() {
-			@Override
-			public void onResponse(Call<Funcionario[]> call, Response<Funcionario[]> response) {
-				if (response.code() == 500) {
-					Platform.runLater(() -> 
-						Main.showErrorDialog("Erro", "Erro ao obter lista de funcionários", "Não foi possível obter a lista de funcionários, tente novamente mais tarde.", AlertType.ERROR)
-					);
-					
-				} else {
-					montarTabela(response.body());
-				}
-			}
-			
-			@Override
-			public void onFailure(Call<Funcionario[]> call, Throwable t) {
-				t.printStackTrace();
-				Platform.runLater(() -> 
-					Main.showErrorDialog("Erro", "Erro ao obter lista de funcionários", "Não foi possível obter a lista de funcionários, tente novamente mais tarde.", AlertType.ERROR)
-				);
-			}
-		});
-	}
-	
-	private void montarPainel(Funcionario funcionario) {
-		Image editImg = new Image(Main.class.getResource("assets/icons/editar-c.png").toString());
-		Image cancelImg = new Image(Main.class.getResource("assets/icons/cancelar-c.png").toString());
-
-		ImageView editView = new ImageView();
-		editView.prefHeight(15);
-		editView.prefWidth(15);
-		editView.setImage(editImg);
-		editView.setStyle("-fx-cursor: hand;");
-
-		editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-			editarFuncionario(funcionario);
-			event.consume();
-		});
-
-		ImageView deleteView = new ImageView();
-		deleteView.prefHeight(15);
-		deleteView.prefWidth(15);
-		deleteView.setImage(cancelImg);
-		deleteView.setStyle("-fx-cursor: hand");
-		deleteView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-			excluirFuncionario(funcionario);
-		});
-
-		HBox hBox = new HBox(editView, deleteView);
-		hBox.setPrefHeight(15);
-		hBox.setPrefWidth(15);
-		hBox.setStyle("-fx-padding: 0 0 0 32; -fx-spacing:10;");
-		funcionario.setPaneOpcoes(hBox);
-	}
-	
-	private void montarTabela(Funcionario[] funcionarios) {
-		for (Funcionario funcionario : funcionarios) {
-			montarPainel(funcionario);
-		}
-
-		colunaNome.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("nomeCompleto"));
-		colunaMatricula.setCellValueFactory(new PropertyValueFactory<Funcionario, Integer>("matricula"));
-		colunaEmail.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("email"));
-		colunaCargo.setCellValueFactory(new PropertyValueFactory<Funcionario, Cargo>("cargo"));
-		colunaAdmissao.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("dataAdmissaoFormatada"));
-		colunaOpc.setCellValueFactory(new PropertyValueFactory<Funcionario, Pane>("paneOpcoes"));
-		tblFuncionario.setItems(FXCollections.observableArrayList(funcionarios));
-	}
+//	public void listarEstado() {
+//		comboEstado.setCursor(Cursor.WAIT);
+//		Call<Estado[]> retorno = new RetrofitConfig().getEstadoService().listarEstado();
+//		retorno.enqueue(new Callback<Estado[]>() {
+//			@Override
+//			public void onResponse(Call<Estado[]> call, Response<Estado[]> response) {
+//				Platform.runLater(() -> {
+//					comboEstado.setCursor(Cursor.HAND);
+//					if (response.code() == 500) {
+//						Main.showErrorDialog("Erro", "Erro ao obter lista de estados", "Não foi possível obter a lista de estados, tente novamente mais tarde.", AlertType.ERROR);
+//					} else {
+//						comboEstado.setItems(FXCollections.observableArrayList(Arrays.asList(response.body())));
+//					}
+//				});
+//			}
+//
+//			@Override
+//			public void onFailure(Call<Estado[]> call, Throwable t) {
+//				t.printStackTrace();
+//				Platform.runLater(() -> {
+//					comboEstado.setCursor(Cursor.HAND);
+//					Main.showErrorDialog("Erro", "Erro ao obter lista de estados", "Não foi possível obter a lista de estados, tente novamente mais tarde.", AlertType.ERROR);
+//				});
+//			}
+//		});
+//	}
+//
+//	public void listarCidade(int id) {
+//		comboCidade.setCursor(Cursor.WAIT);
+//		Call<Cidade[]> retorno = new RetrofitConfig().getEstadoService().listarCidade(id);
+//		retorno.enqueue(new Callback<Cidade[]>() {
+//			@Override
+//			public void onResponse(Call<Cidade[]> call, Response<Cidade[]> response) {
+//				comboCidade.setCursor(Cursor.HAND);
+//				if (response.code() == 500) {
+//					Main.showErrorDialog("Erro", "Erro ao obter lista de cidades", "Não foi possível obter a lista de cidades, tente novamente mais tarde.", AlertType.ERROR);
+//				} else {
+//					comboCidade.setItems(FXCollections.observableArrayList(Arrays.asList(response.body())));
+//				}
+//			}
+//
+//			@Override
+//			public void onFailure(Call<Cidade[]> call, Throwable t) {
+//				t.printStackTrace();
+//				Platform.runLater(() -> {
+//					comboCidade.setCursor(Cursor.HAND);
+//					Main.showErrorDialog("Erro", "Erro ao obter lista de cidades", "Não foi possível obter a lista de cidades, tente novamente mais tarde.", AlertType.ERROR);
+//				});
+//			}
+//		});
+//	}
+//
+//	public void listarCargo() {
+//		comboCargo.setCursor(Cursor.WAIT);
+//		Call<Cargo[]> retorno = new RetrofitConfig().getCargoService().listar();
+//		retorno.enqueue(new Callback<Cargo[]>() {
+//			@Override
+//			public void onResponse(Call<Cargo[]> call, Response<Cargo[]> response) {
+//				comboCargo.setCursor(Cursor.HAND);
+//				if (response.code() == 500) {
+//					Main.showErrorDialog("Erro", "Erro ao obter lista de cargos", "Não foi possível obter a lista de cargos, tente novamente mais tarde.", AlertType.ERROR);
+//				} else {
+//					comboCargo.setItems(FXCollections.observableArrayList(Arrays.asList(response.body())));
+//				}
+//			}
+//
+//			@Override
+//			public void onFailure(Call<Cargo[]> call, Throwable t) {
+//				t.printStackTrace();
+//				Platform.runLater(() -> {
+//					comboCargo.setCursor(Cursor.HAND);
+//					Main.showErrorDialog("Erro", "Erro ao obter lista de cargos", "Não foi possível obter a lista de cargos, tente novamente mais tarde.", AlertType.ERROR);
+//				});
+//			}
+//		});
+//	}
+//
+//	public void listarDepartamento() {
+//		comboDepartamento.setCursor(Cursor.WAIT);
+//		Call<Departamento[]> retorno = new RetrofitConfig().getDepartamentoService().listar();
+//		retorno.enqueue(new Callback<Departamento[]>() {
+//			@Override
+//			public void onResponse(Call<Departamento[]> call, Response<Departamento[]> response) {
+//				comboDepartamento.setCursor(Cursor.HAND);
+//				if (response.code() == 500) {
+//					Main.showErrorDialog("Erro", "Erro ao obter lista de departamentos", "Não foi possível obter a lista de departamentos, tente novamente mais tarde.", AlertType.ERROR);
+//				} else {
+//					comboDepartamento.setItems(FXCollections.observableArrayList(Arrays.asList(response.body())));
+//				}
+//			}
+//
+//			@Override
+//			public void onFailure(Call<Departamento[]> call, Throwable t) {
+//				t.printStackTrace();
+//				Platform.runLater(() -> {
+//					comboDepartamento.setCursor(Cursor.HAND);
+//					Main.showErrorDialog("Erro", "Erro ao obter lista de departamentos", "Não foi possível obter a lista de departamentos, tente novamente mais tarde.", AlertType.ERROR);
+//				});
+//			}
+//		});
+//	}
+//
+//	public void listarFuncionario() {
+//		Call<Funcionario[]> retorno = new RetrofitConfig().getFuncionarioService().lista();
+//		retorno.enqueue(new Callback<Funcionario[]>() {
+//			@Override
+//			public void onResponse(Call<Funcionario[]> call, Response<Funcionario[]> response) {
+//				if (response.code() == 500) {
+//					Platform.runLater(() ->
+//						Main.showErrorDialog("Erro", "Erro ao obter lista de funcionários", "Não foi possível obter a lista de funcionários, tente novamente mais tarde.", AlertType.ERROR)
+//					);
+//
+//				} else {
+//					montarTabela(response.body());
+//				}
+//			}
+//
+//			@Override
+//			public void onFailure(Call<Funcionario[]> call, Throwable t) {
+//				t.printStackTrace();
+//				Platform.runLater(() ->
+//					Main.showErrorDialog("Erro", "Erro ao obter lista de funcionários", "Não foi possível obter a lista de funcionários, tente novamente mais tarde.", AlertType.ERROR)
+//				);
+//			}
+//		});
+//	}
+//
+//	private void montarPainel(Funcionario funcionario) {
+//		Image editImg = new Image(Main.class.getResource("assets/icons/editar-c.png").toString());
+//		Image cancelImg = new Image(Main.class.getResource("assets/icons/cancelar-c.png").toString());
+//
+//		ImageView editView = new ImageView();
+//		editView.prefHeight(15);
+//		editView.prefWidth(15);
+//		editView.setImage(editImg);
+//		editView.setStyle("-fx-cursor: hand;");
+//
+//		editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+//			editarFuncionario(funcionario);
+//			event.consume();
+//		});
+//
+//		ImageView deleteView = new ImageView();
+//		deleteView.prefHeight(15);
+//		deleteView.prefWidth(15);
+//		deleteView.setImage(cancelImg);
+//		deleteView.setStyle("-fx-cursor: hand");
+//		deleteView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+//			excluirFuncionario(funcionario);
+//		});
+//
+//		HBox hBox = new HBox(editView, deleteView);
+//		hBox.setPrefHeight(15);
+//		hBox.setPrefWidth(15);
+//		hBox.setStyle("-fx-padding: 0 0 0 32; -fx-spacing:10;");
+//		funcionario.setPaneOpcoes(hBox);
+//	}
+//
+//	private void montarTabela(Funcionario[] funcionarios) {
+//		for (Funcionario funcionario : funcionarios) {
+//			montarPainel(funcionario);
+//		}
+//
+//		colunaNome.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("nomeCompleto"));
+//		colunaMatricula.setCellValueFactory(new PropertyValueFactory<Funcionario, Integer>("matricula"));
+//		colunaEmail.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("email"));
+//		colunaCargo.setCellValueFactory(new PropertyValueFactory<Funcionario, Cargo>("cargo"));
+//		colunaAdmissao.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("dataAdmissaoFormatada"));
+//		colunaOpc.setCellValueFactory(new PropertyValueFactory<Funcionario, Pane>("paneOpcoes"));
+//		tblFuncionario.setItems(FXCollections.observableArrayList(funcionarios));
+//	}
 
 	// ******************************************************************
 
@@ -311,169 +311,169 @@ public class FuncionarioController {
 	// ******************************************************************
 
 	private @FXML void salvar() {
-		if (formHelper.validate()) {
-			String celular = txtCelularU.getText();
-			String telefone = txtTelefone.getText();
-			String cpf = txtCpf.getText();
-	
-			String dtAdmissao = txtDtAdmissao.getText();
-			SimpleDateFormat dataAdmissao = new SimpleDateFormat("dd/MM/yyyy");
-			Date dataAdm = null;
-			try {
-				dataAdm = dataAdmissao.parse(dtAdmissao);
-			} catch (ParseException e) {}
-	
-			String dtNasc = txtDtNasc.getText();
-			SimpleDateFormat dtNascimento = new SimpleDateFormat("dd/MM/yyyy");
-			Date dataNasc = null;
-			try {
-				dataNasc = dtNascimento.parse(dtNasc);
-			} catch (ParseException e) {}
-	
-			String email = txtEmail.getText();
-	
-			String matri = txtMatricula.getText();
-			Integer matricula = Integer.parseInt(matri);
-	
-			String nome = txtNome.getText();
-			String sobrenome = txtSobrenome.getText();
-			String rg = txtRg.getText();
-	
-			String salario = txtSalario.getText();
-			Integer sal = Integer.parseInt(salario);
-	
-			String sexo = "";
-			if (rdoHomem.isSelected()) {
-				sexo = "H";
-			} else if (rdoMulher.isSelected()) {
-				sexo = "M";
-			}
-
-			// Convertendo a imagem para base 64
-			BufferedImage avatar = SwingFXUtils.fromFXImage(fotoFuncionario.getImage(), null);
-			ByteArrayOutputStream s = new ByteArrayOutputStream();
-			String foto = "";
-			try {
-				ImageIO.write(avatar, "png", s);
-				byte[] res = s.toByteArray();
-				s.close();
-				foto = Base64.getEncoder().encodeToString(res);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			Cargo cargo = (Cargo) comboCargo.getValue();
-			Departamento departamento = (Departamento) comboDepartamento.getValue();
-	
-			Estado estado = (Estado) comboEstado.getValue();
-			Cidade cidade = (Cidade) comboCidade.getValue();
-	
-			String bairro = txtBairro.getText();
-			String logradouro = txtLogradouro.getText();
-			String numero = txtNumero.getText();
-			String complemento = txtComplemento.getText();
-			String cep = txtCep.getText();
-			
-			Funcionario funcionario;
-			if (formHelper.getObjectData() != null) {
-				funcionario = (Funcionario) formHelper.getObjectData();
-			} else {
-				funcionario = new Funcionario();
-			}
-			
-			Endereco end = funcionario.getEndereco() == null ? new Endereco() : funcionario.getEndereco();
-			funcionario.setCelular(celular);
-			funcionario.setTelefone(telefone);
-			funcionario.setCpf(cpf);
-			funcionario.setDataAdmissao(dataAdm);
-			funcionario.setDataNascimento(dataNasc);
-			funcionario.setEmail(email);
-			funcionario.setMatricula(matricula);
-			funcionario.setNome(nome);
-			funcionario.setSobrenome(sobrenome);
-			funcionario.setRg(rg);
-			funcionario.setSalario(sal);
-			funcionario.setGenero(sexo);
-			funcionario.setCargo(cargo);
-			funcionario.setDepartamento(departamento);
-	
-			funcionario.setEndereco(end);
-			funcionario.getEndereco().setCidade(cidade);
-			funcionario.getEndereco().setEstado(estado);
-			funcionario.getEndereco().setBairro(bairro);
-			funcionario.getEndereco().setLogradouro(logradouro);
-			funcionario.getEndereco().setNumero(numero);
-			funcionario.getEndereco().setComplemento(complemento);
-			funcionario.getEndereco().setCep(cep);
-	
-			Call<String> retorno = new RetrofitConfigImg().getAvatarService().enviar(foto);
-			retorno.enqueue(new Callback<String>() {
-				@Override
-				public void onResponse(Call<String> call, Response<String> response) {
-					funcionario.setAvatar(response.body());
-					if (formHelper.getObjectData() == null) {
-						Call<Funcionario> ret = new RetrofitConfig().getFuncionarioService().salvar(funcionario);
-						ret.enqueue(new Callback<Funcionario>() {
-							@Override
-							public void onResponse(Call<Funcionario> call, Response<Funcionario> response) {
-								Platform.runLater(() -> {
-									if (response.code() == 500) {
-										Main.showErrorDialog("Erro", "Erro ao inserir funcionário", "Não foi possível inserir o funcionário, tente novamente mais tarde.", AlertType.ERROR);
-									} else {
-										montarPainel(response.body());
-										tblFuncionario.getItems().add(response.body());
-										Main.showInfDialog("Sucesso", "", "Funcionário cadastrado com secesso!!!");
-										fecharConteudo();
-									}
-								});
-							}
-							
-							@Override
-							public void onFailure(Call<Funcionario> call, Throwable t) {
-								t.printStackTrace();
-								Platform.runLater(() -> 
-									Main.showErrorDialog("Erro", "Erro ao inserir funcionário", "Não foi possível inserir o funcionário, tente novamente mais tarde.", AlertType.ERROR)
-								);
-							}
-						});
-						
-					} else {
-						Call<Void> ret = new RetrofitConfig().getFuncionarioService().editar(funcionario, funcionario.getId());
-						ret.enqueue(new Callback<Void>() {
-							@Override
-							public void onResponse(Call<Void> call, Response<Void> response) {
-								Platform.runLater(() -> {
-									if (response.code() == 500) {
-										Main.showErrorDialog("Erro", "Erro ao atualizar funcionário", "Não foi possível atualizar o funcionário, tente novamente mais tarde.", AlertType.ERROR);
-									} else {
-										formHelper.setObjectData(null);
-										tblFuncionario.refresh();
-										Main.showInfDialog("Sucesso", "", "Funcionário atualizado com secesso!!!");
-										fecharConteudo();
-									}
-								});
-							}
-							
-							@Override
-							public void onFailure(Call<Void> call, Throwable t) {
-								t.printStackTrace();
-								Platform.runLater(() -> 
-									Main.showErrorDialog("Erro", "Erro ao atualizar funcionário", "Não foi possível atualizar o funcionário, tente novamente mais tarde.", AlertType.ERROR)
-								);
-							}
-						});
-					}
-				}
-				
-				@Override
-				public void onFailure(Call<String> call, Throwable t) {
-					t.printStackTrace();
-					Platform.runLater(() -> {
-						Main.showErrorDialog("Erro", "Erro ao enviar a foto", "Não foi possível enviar a foto ao servidor, tente novamente mais tarde.", AlertType.ERROR);
-					});
-				}
-			});
-		}
+//		if (formHelper.validate()) {
+//			String celular = txtCelularU.getText();
+//			String telefone = txtTelefone.getText();
+//			String cpf = txtCpf.getText();
+//
+//			String dtAdmissao = txtDtAdmissao.getText();
+//			SimpleDateFormat dataAdmissao = new SimpleDateFormat("dd/MM/yyyy");
+//			Date dataAdm = null;
+//			try {
+//				dataAdm = dataAdmissao.parse(dtAdmissao);
+//			} catch (ParseException e) {}
+//
+//			String dtNasc = txtDtNasc.getText();
+//			SimpleDateFormat dtNascimento = new SimpleDateFormat("dd/MM/yyyy");
+//			Date dataNasc = null;
+//			try {
+//				dataNasc = dtNascimento.parse(dtNasc);
+//			} catch (ParseException e) {}
+//
+//			String email = txtEmail.getText();
+//
+//			String matri = txtMatricula.getText();
+//			Integer matricula = Integer.parseInt(matri);
+//
+//			String nome = txtNome.getText();
+//			String sobrenome = txtSobrenome.getText();
+//			String rg = txtRg.getText();
+//
+//			String salario = txtSalario.getText();
+//			Integer sal = Integer.parseInt(salario);
+//
+//			String sexo = "";
+//			if (rdoHomem.isSelected()) {
+//				sexo = "H";
+//			} else if (rdoMulher.isSelected()) {
+//				sexo = "M";
+//			}
+//
+//			// Convertendo a imagem para base 64
+//			BufferedImage avatar = SwingFXUtils.fromFXImage(fotoFuncionario.getImage(), null);
+//			ByteArrayOutputStream s = new ByteArrayOutputStream();
+//			String foto = "";
+//			try {
+//				ImageIO.write(avatar, "png", s);
+//				byte[] res = s.toByteArray();
+//				s.close();
+//				foto = Base64.getEncoder().encodeToString(res);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//
+//			Cargo cargo = (Cargo) comboCargo.getValue();
+//			Departamento departamento = (Departamento) comboDepartamento.getValue();
+//
+//			Estado estado = (Estado) comboEstado.getValue();
+//			Cidade cidade = (Cidade) comboCidade.getValue();
+//
+//			String bairro = txtBairro.getText();
+//			String logradouro = txtLogradouro.getText();
+//			String numero = txtNumero.getText();
+//			String complemento = txtComplemento.getText();
+//			String cep = txtCep.getText();
+//
+//			Funcionario funcionario;
+//			if (formHelper.getObjectData() != null) {
+//				funcionario = (Funcionario) formHelper.getObjectData();
+//			} else {
+//				funcionario = new Funcionario();
+//			}
+//
+//			Endereco end = funcionario.getEndereco() == null ? new Endereco() : funcionario.getEndereco();
+//			funcionario.setCelular(celular);
+//			funcionario.setTelefone(telefone);
+//			funcionario.setCpf(cpf);
+//			funcionario.setDataAdmissao(dataAdm);
+//			funcionario.setDataNascimento(dataNasc);
+//			funcionario.setEmail(email);
+//			funcionario.setMatricula(matricula);
+//			funcionario.setNome(nome);
+//			funcionario.setSobrenome(sobrenome);
+//			funcionario.setRg(rg);
+//			funcionario.setSalario(sal);
+//			funcionario.setGenero(sexo);
+//			funcionario.setCargo(cargo);
+//			funcionario.setDepartamento(departamento);
+//
+//			funcionario.setEndereco(end);
+//			funcionario.getEndereco().setCidade(cidade);
+//			funcionario.getEndereco().setEstado(estado);
+//			funcionario.getEndereco().setBairro(bairro);
+//			funcionario.getEndereco().setLogradouro(logradouro);
+//			funcionario.getEndereco().setNumero(numero);
+//			funcionario.getEndereco().setComplemento(complemento);
+//			funcionario.getEndereco().setCep(cep);
+//
+//			Call<String> retorno = new RetrofitConfigImg().getAvatarService().enviar(foto);
+//			retorno.enqueue(new Callback<String>() {
+//				@Override
+//				public void onResponse(Call<String> call, Response<String> response) {
+//					funcionario.setAvatar(response.body());
+//					if (formHelper.getObjectData() == null) {
+//						Call<Funcionario> ret = new RetrofitConfig().getFuncionarioService().salvar(funcionario);
+//						ret.enqueue(new Callback<Funcionario>() {
+//							@Override
+//							public void onResponse(Call<Funcionario> call, Response<Funcionario> response) {
+//								Platform.runLater(() -> {
+//									if (response.code() == 500) {
+//										Main.showErrorDialog("Erro", "Erro ao inserir funcionário", "Não foi possível inserir o funcionário, tente novamente mais tarde.", AlertType.ERROR);
+//									} else {
+//										montarPainel(response.body());
+//										tblFuncionario.getItems().add(response.body());
+//										Main.showInfDialog("Sucesso", "", "Funcionário cadastrado com secesso!!!");
+//										fecharConteudo();
+//									}
+//								});
+//							}
+//
+//							@Override
+//							public void onFailure(Call<Funcionario> call, Throwable t) {
+//								t.printStackTrace();
+//								Platform.runLater(() ->
+//									Main.showErrorDialog("Erro", "Erro ao inserir funcionário", "Não foi possível inserir o funcionário, tente novamente mais tarde.", AlertType.ERROR)
+//								);
+//							}
+//						});
+//
+//					} else {
+//						Call<Void> ret = new RetrofitConfig().getFuncionarioService().editar(funcionario, funcionario.getId());
+//						ret.enqueue(new Callback<Void>() {
+//							@Override
+//							public void onResponse(Call<Void> call, Response<Void> response) {
+//								Platform.runLater(() -> {
+//									if (response.code() == 500) {
+//										Main.showErrorDialog("Erro", "Erro ao atualizar funcionário", "Não foi possível atualizar o funcionário, tente novamente mais tarde.", AlertType.ERROR);
+//									} else {
+//										formHelper.setObjectData(null);
+//										tblFuncionario.refresh();
+//										Main.showInfDialog("Sucesso", "", "Funcionário atualizado com secesso!!!");
+//										fecharConteudo();
+//									}
+//								});
+//							}
+//
+//							@Override
+//							public void onFailure(Call<Void> call, Throwable t) {
+//								t.printStackTrace();
+//								Platform.runLater(() ->
+//									Main.showErrorDialog("Erro", "Erro ao atualizar funcionário", "Não foi possível atualizar o funcionário, tente novamente mais tarde.", AlertType.ERROR)
+//								);
+//							}
+//						});
+//					}
+//				}
+//
+//				@Override
+//				public void onFailure(Call<String> call, Throwable t) {
+//					t.printStackTrace();
+//					Platform.runLater(() -> {
+//						Main.showErrorDialog("Erro", "Erro ao enviar a foto", "Não foi possível enviar a foto ao servidor, tente novamente mais tarde.", AlertType.ERROR);
+//					});
+//				}
+//			});
+//		}
 	}
 
 	// Abrir o panel oculto
@@ -541,7 +541,7 @@ public class FuncionarioController {
 		fotoFuncionario.setImage(new Image("http://localhost/arisCodeProcedural/" + funcionario.getAvatar()));
 		abrirConteudo();
 	}
-	
+
 	private void excluirFuncionario(Funcionario funcionario) {
 		int resposta = Main.showConfirmDialog("Excluir", "Excluir", "Deseja realmente excluir este funcionário?", AlertType.CONFIRMATION);
 		if (resposta == 1) {
@@ -558,7 +558,7 @@ public class FuncionarioController {
 						}
 					});
 				}
-				
+
 				@Override
 				public void onFailure(Call<Void> call, Throwable t) {
 					t.printStackTrace();

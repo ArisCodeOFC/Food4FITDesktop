@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.*?>
@@ -7,20 +10,175 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <StackPane layoutX="359.0" layoutY="231.0" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="20.0" layoutY="35.0" prefHeight="235.0" prefWidth="478.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Group>
-               <children>
-                  <TextFlow layoutX="-14.0" layoutY="64.0" prefHeight="200.0" prefWidth="200.0" />
-                  <AnchorPane layoutX="-1129.0" layoutY="-487.0" prefHeight="753.0" prefWidth="200.0" style="-fx-background-color: efefef;">
+            <Label layoutX="15.0" layoutY="15.0" text="Bem-Vindo!">
+               <font>
+                  <Font name="System Bold" size="13.5" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="40.0" text="O serviço desktop pensado para facilitar a sua vida.">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Text layoutX="15.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Este software tem como objetivo controlar a área financeira e a administração geral da empresa Food 4Fit. " wrappingWidth="450.1064453125">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="15.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caso ache necessário, veja o guia de ajuda de interface disponível logo abaixo para aprender sobre o software." wrappingWidth="450.1064453125">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <Button layoutX="16.0" layoutY="190.0" mnemonicParsing="false" style="-fx-background-color: #9CC283;" text="LER MAIS" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="530.0" layoutY="36.0" maxWidth="-Infinity" prefHeight="235.0" prefWidth="478.0" style="-fx-background-color: #dcdcdc;">
+         <children>
+            <Label layoutX="15.0" layoutY="15.0" text="Produto Mais Comprado Este Mês">
+               <font>
+                  <Font name="System Bold" size="13.5" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="40.0" text="Nome do Produto" />
+            <Label layoutX="15.0" layoutY="93.0" text="Valor Unitário: R$">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="120.0" layoutY="93.0" text="30,00">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="155.0" layoutY="131.0" text="100,00">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="130.0" text="Valor Arrecadado: R$">
+               <font>
+                  <Font name="System Bold" size="13.5" />
+               </font>
+            </Label>
+            <ImageView fitHeight="180.0" fitWidth="195.0" layoutX="262.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/img4.jpg" />
+               </image></ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="310.0" prefHeight="283.0" prefWidth="478.0" style="-fx-background-color: #dcdcdc;">
+         <children>
+            <Label layoutX="15.0" layoutY="15.0" text="Ultimas Interações">
+               <font>
+                  <Font name="System Bold" size="13.5" />
+               </font>
+            </Label>
+            <ScrollPane layoutY="45.0" prefHeight="240.0" prefWidth="478.0">
+               <content>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="468.0">
                      <children>
-                        <VBox prefHeight="584.0" prefWidth="200.0" style="-fx-background-color: dcdcdc;" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </Group>
-         </children></StackPane>
+                        <Pane maxWidth="-Infinity" prefHeight="55.0" prefWidth="450.0" style="-fx-background-color: #dfdfdf;">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/us.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="71.0" layoutY="5.0" text="Chico Bento" />
+                              <Label layoutX="305.0" layoutY="5.0" text="às 20:00 de 01/01/2018" />
+                              <Label layoutX="71.0" layoutY="33.0" text="Alteração na área X do software" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" top="5.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane layoutX="20.0" layoutY="15.0" maxWidth="-Infinity" prefHeight="55.0" prefWidth="450.0" style="-fx-background-color: #dfdfdf;">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/us.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="71.0" layoutY="5.0" text="Chico Bento" />
+                              <Label layoutX="305.0" layoutY="5.0" text="às 20:00 de 01/01/2018" />
+                              <Label layoutX="71.0" layoutY="33.0" text="Alteração na área X do software" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" top="5.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane layoutX="20.0" layoutY="80.0" maxWidth="-Infinity" prefHeight="55.0" prefWidth="450.0" style="-fx-background-color: #dfdfdf;">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/us.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="71.0" layoutY="5.0" text="Chico Bento" />
+                              <Label layoutX="305.0" layoutY="5.0" text="às 20:00 de 01/01/2018" />
+                              <Label layoutX="71.0" layoutY="33.0" text="Alteração na área X do software" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" top="5.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane layoutX="20.0" layoutY="145.0" maxWidth="-Infinity" prefHeight="55.0" prefWidth="450.0" style="-fx-background-color: #dfdfdf;">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/us.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="71.0" layoutY="5.0" text="Chico Bento" />
+                              <Label layoutX="305.0" layoutY="5.0" text="às 20:00 de 01/01/2018" />
+                              <Label layoutX="71.0" layoutY="33.0" text="Alteração na área X do software" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" top="5.0" />
+                           </VBox.margin>
+                        </Pane>
+                     </children></VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane layoutX="530.0" layoutY="310.0" prefHeight="283.0" prefWidth="478.0" style="-fx-background-color: #dcdcdc;">
+         <children>
+            <Label layoutX="15.0" layoutY="15.0" text="Compras em 2018">
+               <font>
+                  <Font name="System Bold" size="13.5" />
+               </font>
+            </Label>
+            <LineChart layoutY="48.0" prefHeight="211.0" prefWidth="478.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <Label layoutX="58.0" layoutY="242.0" text="Jan." />
+            <Label layoutX="86.0" layoutY="242.0" text="Fev." />
+            <Label layoutX="115.0" layoutY="242.0" text="Mar." />
+            <Label layoutX="203.0" layoutY="242.0" text="Jun." />
+            <Label layoutX="146.0" layoutY="242.0" text="Abr." />
+            <Label layoutX="174.0" layoutY="242.0" text="Mai." />
+            <Label layoutX="289.0" layoutY="242.0" text="Set." />
+            <Label layoutX="232.0" layoutY="242.0" text="Jul." />
+            <Label layoutX="348.0" layoutY="242.0" text="Nov." />
+            <Label layoutX="260.0" layoutY="242.0" text="Ago." />
+            <Label layoutX="320.0" layoutY="242.0" text="Out." />
+            <Label layoutX="377.0" layoutY="242.0" text="Dez." />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
