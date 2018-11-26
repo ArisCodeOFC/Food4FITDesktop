@@ -71,7 +71,7 @@
             </Label>
             <ImageView fitHeight="180.0" fitWidth="195.0" layoutX="262.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@/br/com/food4fit/assets/icons/img4.jpg" />
+                  <Image url="@../assets/icons/img4.jpg" />
                </image></ImageView>
          </children>
       </Pane>
@@ -90,7 +90,7 @@
                            <children>
                               <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/us.png" />
+                                    <Image url="@../assets/icons/us.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="71.0" layoutY="5.0" text="Chico Bento" />
@@ -105,7 +105,7 @@
                            <children>
                               <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/us.png" />
+                                    <Image url="@../assets/icons/us.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="71.0" layoutY="5.0" text="Chico Bento" />
@@ -120,7 +120,7 @@
                            <children>
                               <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/us.png" />
+                                    <Image url="@../assets/icons/us.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="71.0" layoutY="5.0" text="Chico Bento" />
@@ -135,7 +135,7 @@
                            <children>
                               <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/us.png" />
+                                    <Image url="@../assets/icons/us.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="71.0" layoutY="5.0" text="Chico Bento" />

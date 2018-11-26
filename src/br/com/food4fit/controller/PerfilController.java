@@ -56,7 +56,10 @@ public class PerfilController {
 
 	public void initialize() {
 		paneConteudo.setStyle("visibility: false");
-		paneConteudoPerfil.setStyle("visibility: false");
+		listarPerfil();
+	}
+
+	public void listarPerfil() {
 //		txtNome.setText(funcionario.getNomeCompleto());
 //		txtEmail.setText(funcionario.getEmail());
 //		txtMatricula.setText(String.valueOf(funcionario.getMatricula()));
@@ -69,17 +72,8 @@ public class PerfilController {
 
 	}
 
-	public void listaPerfil() {
-
-	}
-
 	@FXML
 	void salvar() {
-
-	}
-
-	@FXML
-	void salvarPerfil() {
 
 	}
 
@@ -90,11 +84,6 @@ public class PerfilController {
 		paneConteudo.setStyle("visibility: true;");
 	}
 
-	@FXML
-	void abrirConteudoPerfil() {
-		paneConteudoPerfil.setStyle("visibility: true;");
-	}
-
 	// Fecha o panel que foi aberto
 	@FXML
 	void fechaConteudo() {
@@ -102,10 +91,5 @@ public class PerfilController {
 
 		txtSenhaUm.clear();
 		txtSenhaDois.clear();
-	}
-
-	@FXML
-	void fechaConteudoPerfil() {
-		paneConteudoPerfil.setStyle("visibility: false");
 	}
 }

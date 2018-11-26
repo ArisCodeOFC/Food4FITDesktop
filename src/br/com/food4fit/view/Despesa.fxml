@@ -1,24 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.DespesaController">
+<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.DespesaController">
    <children>
-      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #9cc283;" text="REGISTRAR DISPESA" textFill="WHITE">
+      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="REGISTRAR DISPESA" textFill="WHITE">
          <font>
             <Font size="14.0" />
-         </font></Button>
-      <TableView layoutY="110.0" prefHeight="516.0" prefWidth="1027.0">
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TableView fx:id="tblDespesa" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0" styleClass="tabela">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
+          <TableColumn fx:id="colunaTipoDespesa" editable="false" prefWidth="171.0" sortable="false" text="TIPO DESPESA" />
+          <TableColumn fx:id="colunaNome" editable="false" prefWidth="245.0" text="NOME" />
+            <TableColumn fx:id="colunaDtEmissao" editable="false" prefWidth="166.0" sortable="false" text="DT.EMISÃO" />
+            <TableColumn fx:id="colunaDtVencimento" editable="false" minWidth="0.0" prefWidth="156.0" sortable="false" text="DT.VENCIMENTO" />
+            <TableColumn fx:id="colunaValor" editable="false" prefWidth="169.0" sortable="false" text="VALOR" />
+            <TableColumn fx:id="colunaOpc" editable="false" prefWidth="119.0" sortable="false" text="OPÇÕES" />
         </columns>
       </TableView>
+      <Pane fx:id="paneConteudo" layoutX="688.0" prefHeight="626.0" prefWidth="339.0" style="-fx-background-color: #dcdcdc;" styleClass="menuCadastro">
+         <children>
+            <VBox prefHeight="626.0" prefWidth="339.0" spacing="10.0" styleClass="menuCadastro">
+               <padding>
+                  <Insets bottom="30.0" left="40.0" right="40.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label alignment="BASELINE_CENTER" maxWidth="268.0" styleClass="titulo" text="Cadastrar/Editar Despesa">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="texto" text="Tipo Despesa:">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="20.0" prefWidth="200.0" spacing="35.0">
+                     <children>
+                        <RadioButton fx:id="rdoFuncionario" mnemonicParsing="false" styleClass="texto" text="FUNCIONÁRIO">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="despesa" />
+                           </toggleGroup>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </RadioButton>
+                        <RadioButton fx:id="rdoFornecedor" mnemonicParsing="false" styleClass="texto" text="FORNECEDOR" toggleGroup="$despesa">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></RadioButton>
+                     </children>
+                  </HBox>
+                  <Label layoutX="50.0" layoutY="60.0" styleClass="texto" text="Nome Despesa:">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ComboBox fx:id="comboNome" prefHeight="25.0" prefWidth="260.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ComboBox>
+                  <Label layoutX="50.0" layoutY="127.0" styleClass="texto" text="Data de Emissão:">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="txtDtEmissao">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
+                  <Label layoutX="50.0" layoutY="189.0" styleClass="texto" text="Data de Vencimento:">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="txtDtVencimento" layoutX="50.0" layoutY="216.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
+                  <Label layoutX="50.0" layoutY="256.0" styleClass="texto" text="Valor:">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="txtValor" layoutX="50.0" layoutY="283.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
+                  <Label layoutX="50.0" layoutY="323.0" styleClass="texto" text="Descrição:">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextArea fx:id="txtDetalhes" prefHeight="120.0" prefWidth="259.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextArea>
+                  <HBox prefHeight="40.0" prefWidth="259.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#fecharConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="90.0" right="35.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
