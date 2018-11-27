@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Button fx:id="abrirConteudo" layoutX="16.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #9CC283;" text="CADASTRAR PRODUTO" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TableView fx:id="tblProduto" layoutY="110.0" prefHeight="516.0" prefWidth="585.0">
+        <columns>
+          <TableColumn fx:id="colunaCodigo" editable="false" prefWidth="108.0" sortable="false" text="CÓDIGO" />
+          <TableColumn fx:id="colunaProduto" editable="false" prefWidth="200.0" sortable="false" text="PRODUTO" />
+            <TableColumn fx:id="colunaUnidade" editable="false" prefWidth="175.0" sortable="false" text="UNIDADE DE MEDIDA" />
+            <TableColumn fx:id="colunaOpcProduto" minWidth="0.0" prefWidth="101.0" text="OPÇÕES" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tblCategoria" layoutX="689.0" layoutY="110.0" prefHeight="516.0" prefWidth="338.0">
+        <columns>
+          <TableColumn fx:id="colunaCategoria" prefWidth="215.0" text="CATEGORIA" />
+            <TableColumn fx:id="colunaOpcCategoria" prefWidth="122.0" text="OPÇÕES" />
+        </columns>
+      </TableView>
+      <Button fx:id="abrir" layoutX="175.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #9CC283;" text="CADASTRAR CATEGORIA" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Pane layoutX="766.0" prefHeight="626.0" prefWidth="339.0" style="-fx-background-color: #dcdcdc;" />
+   </children>
+</AnchorPane>
