@@ -6,6 +6,7 @@ import br.com.food4fit.service.DepartamentoService;
 import br.com.food4fit.service.EstadoService;
 import br.com.food4fit.service.FornecedorService;
 import br.com.food4fit.service.FuncionarioService;
+import br.com.food4fit.service.PermissaoService;
 import br.com.food4fit.service.UnidadeDeMedidaService;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -25,7 +26,6 @@ public class RetrofitConfig {
 	public FuncionarioService getFuncionarioService(){
 		return this.retrofit.create(FuncionarioService.class);
 	}
-
 
 	public UnidadeDeMedidaService getUnidadeDeMedidaService(){
 		return this.retrofit.create(UnidadeDeMedidaService.class);
@@ -49,5 +49,9 @@ public class RetrofitConfig {
 
 	public FornecedorService getFornecedorService() {
 		return this.retrofit.create(FornecedorService.class);
+	}
+	
+	public PermissaoService getPermissaoService() {
+		return this.retrofit.create(PermissaoService.class);
 	}
 }

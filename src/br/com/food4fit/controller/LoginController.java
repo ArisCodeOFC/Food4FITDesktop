@@ -30,9 +30,9 @@ public class LoginController {
 
 	@FXML
 	void initialize() {
-		/*Platform.runLater(() -> {
+		Platform.runLater(() -> {
 			Main.abrirTela("PadraoLayout");
-		});*/
+		});
 
 		txtMatricula.focusedProperty().addListener(new ChangeListener<Boolean>() {
 

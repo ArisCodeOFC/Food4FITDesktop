@@ -57,10 +57,10 @@ public class PadraoLayoutController {
 		});
 
 
-		nomeUser.setText(Main.getPerfil().getNomeCompleto());
-		emailUser.setText(Main.getPerfil().getEmail());
+		//nomeUser.setText(Main.getPerfil().getNomeCompleto());
+		//emailUser.setText(Main.getPerfil().getEmail());
 		//fotoUser.setImage(new Image("http://localhost/inf4t/Allan/Food-4FitWEB-Procedure-master/" + Main.getPerfil().getAvatar()));
-		fotoUser.setImage(new Image("http://localhost/arisCodeProcedural/" + Main.getPerfil().getAvatar()));
+		//fotoUser.setImage(new Image("http://localhost/arisCodeProcedural/" + Main.getPerfil().getAvatar()));
 
 	}
 
@@ -92,7 +92,7 @@ public class PadraoLayoutController {
 
 	@FXML
 	void menuNivel() {
-		mudarTela("Funcionarios", "Nível de Acesso");
+		mudarTela("NivelAcesso", "Níveis de Acesso");
 	}
 
 	@FXML

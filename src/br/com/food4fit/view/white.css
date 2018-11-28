@@ -66,3 +66,11 @@ TableView{
 	-fx-prompt-text-fill: #fff;
 	-fx-text-fill: #fff;
 }
+
+#vbox-permissoes {
+	-fx-background-color: transparent;
+}
+
+#vbox-permissoes > .viewport {
+	-fx-background-color: transparent;
+}
