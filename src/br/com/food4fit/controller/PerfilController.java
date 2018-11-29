@@ -5,6 +5,7 @@ import br.com.food4fit.model.Funcionario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -64,8 +65,8 @@ public class PerfilController {
 //		txtEmail.setText(funcionario.getEmail());
 //		txtMatricula.setText(String.valueOf(funcionario.getMatricula()));
 //		txtDtNasc.setText(String.valueOf(funcionario.getDataNasciFormatada()));
-//		//txtDtEfetiva.setText(String.valueOf(funcionario.getDataAdmissaoFormatada()));
-//
+		//txtDtEfetiva.setText(String.valueOf(funcionario.getDataAdmissaoFormatada()));
+//		imgFuncionario.setImage(new Image("http://localhost/arisCodeProcedural/" + Main.getPerfil().getAvatar()));
 //		txtCpf.setText(funcionario.getCpf());
 //		txtRg.setText(funcionario.getRg());
 //		txtSalario.setText(String.valueOf(funcionario.getSalario()));
@@ -88,7 +89,6 @@ public class PerfilController {
 	@FXML
 	void fechaConteudo() {
 		paneConteudo.setStyle("visibility: false");
-
 		txtSenhaUm.clear();
 		txtSenhaDois.clear();
 	}

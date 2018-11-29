@@ -55,7 +55,7 @@ public class PadraoLayoutController {
 				raiz.getStylesheets().add("br/com/food4fit/view/white.css");
 			}
 		});
-		
+
 		Main.setHome(this);
 
 		//nomeUser.setText(Main.getPerfil().getNomeCompleto());
@@ -155,7 +155,7 @@ public class PadraoLayoutController {
 			if (loader.getController() instanceof Controller) {
 				((Controller) loader.getController()).init(params);
 			}
-			
+
 			main.getChildren().clear();
 			main.getChildren().add(xml);
 

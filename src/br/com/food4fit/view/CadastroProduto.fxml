@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import br.com.food4fit.component.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -47,12 +48,12 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <Button layoutX="270.0" layoutY="582.0" mnemonicParsing="false" onAction="#salvarEspecificacao" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
+            <Button layoutX="270.0" layoutY="582.0" mnemonicParsing="false" onAction="#salvarClassificacao" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="173.0" layoutY="582.0" mnemonicParsing="false" onAction="#fecharEspecificacao" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
+            <Button layoutX="173.0" layoutY="582.0" mnemonicParsing="false" onAction="#fecharClassificacao" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

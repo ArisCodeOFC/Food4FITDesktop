@@ -9,6 +9,7 @@ public class ClassificacaoProduto {
 	private String titulo;
 	@JsonIgnore
 	private Pane paneOpcoes;
+
 	public int getId() {
 		return id;
 	}
