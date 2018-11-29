@@ -2,11 +2,13 @@ package br.com.food4fit.config;
 
 import br.com.food4fit.service.BancoService;
 import br.com.food4fit.service.CargoService;
+import br.com.food4fit.service.ClassificacaoProdutoService;
 import br.com.food4fit.service.DepartamentoService;
 import br.com.food4fit.service.EstadoService;
 import br.com.food4fit.service.FornecedorService;
 import br.com.food4fit.service.FuncionarioService;
 import br.com.food4fit.service.PermissaoService;
+import br.com.food4fit.service.ProdutoService;
 import br.com.food4fit.service.UnidadeDeMedidaService;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -50,8 +52,16 @@ public class RetrofitConfig {
 	public FornecedorService getFornecedorService() {
 		return this.retrofit.create(FornecedorService.class);
 	}
-	
+
 	public PermissaoService getPermissaoService() {
 		return this.retrofit.create(PermissaoService.class);
+	}
+
+	public ProdutoService getProdutoService() {
+		return this.retrofit.create(ProdutoService.class);
+	}
+
+	public ClassificacaoProdutoService getClassificacaoProdutoService() {
+		return this.retrofit.create(ClassificacaoProdutoService.class);
 	}
 }

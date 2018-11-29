@@ -8,10 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.ProdutoController">
    <children>
-      <Button fx:id="abrirConteudo" layoutX="16.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #9CC283;" text="CADASTRAR PRODUTO" textFill="WHITE">
+      <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirProduto" style="-fx-background-color: #9CC283;" text="CADASTRAR PRODUTO" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -24,17 +23,83 @@
             <TableColumn fx:id="colunaOpcProduto" minWidth="0.0" prefWidth="101.0" text="OPÇÕES" />
         </columns>
       </TableView>
-      <TableView fx:id="tblCategoria" layoutX="689.0" layoutY="110.0" prefHeight="516.0" prefWidth="338.0">
+      <TableView fx:id="tblClassificacao" layoutX="689.0" layoutY="110.0" prefHeight="516.0" prefWidth="338.0">
         <columns>
-          <TableColumn fx:id="colunaCategoria" prefWidth="215.0" text="CATEGORIA" />
-            <TableColumn fx:id="colunaOpcCategoria" prefWidth="122.0" text="OPÇÕES" />
+          <TableColumn fx:id="colunaClassificacao" prefWidth="215.0" text="CLASSIFICAÇÃO" />
+            <TableColumn fx:id="colunaOpcClassificacao" prefWidth="122.0" text="OPÇÕES" />
         </columns>
       </TableView>
-      <Button fx:id="abrir" layoutX="175.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #9CC283;" text="CADASTRAR CATEGORIA" textFill="WHITE">
+      <Button layoutX="175.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirClassficacao" style="-fx-background-color: #9CC283;" text="CADASTRAR CLASSIFICAÇÃO" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Pane layoutX="766.0" prefHeight="626.0" prefWidth="339.0" style="-fx-background-color: #dcdcdc;" />
+      <Pane fx:id="paneClassificacao" layoutX="687.0" prefHeight="626.0" prefWidth="340.0" styleClass="menuCadastro">
+         <children>
+            <Label alignment="BASELINE_CENTER" layoutX="40.0" layoutY="10.0" prefHeight="17.0" prefWidth="260.0" styleClass="titulo" text="Cadastrar/Editar Classificação ">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="90.0" styleClass="texto" text="Classificação do produto:" />
+            <TextField fx:id="txtClassificacao" layoutX="40.0" layoutY="120.0" prefWidth="260.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <Button layoutX="270.0" layoutY="582.0" mnemonicParsing="false" onAction="#salvarEspecificacao" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="173.0" layoutY="582.0" mnemonicParsing="false" onAction="#fecharEspecificacao" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children></Pane>
+      <Pane fx:id="paneProduto" layoutX="687.0" prefHeight="626.0" prefWidth="340.0" styleClass="menuCadastro">
+         <children>
+            <Label alignment="BASELINE_CENTER" layoutX="40.0" layoutY="10.0" prefHeight="17.0" prefWidth="260.0" styleClass="titulo" text="Cadastrar/Editar Produto ">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="90.0" styleClass="texto" text="Nome do produto:" />
+            <TextField fx:id="txtNomeProduto" layoutX="40.0" layoutY="120.0" prefWidth="260.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <Button layoutX="270.0" layoutY="582.0" mnemonicParsing="false" onAction="#salvarProduto" style="-fx-background-color: #9cc283;" text="SALVAR" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="173.0" layoutY="582.0" mnemonicParsing="false" onAction="#fecharProduto" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="40.0" layoutY="171.0" styleClass="texto" text="Unidade de medida:" />
+            <ComboBox fx:id="comboUnidade" layoutX="40.0" layoutY="201.0" prefWidth="260.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <ComboBox fx:id="comboClassificacao" layoutX="40.0" layoutY="281.0" prefWidth="260.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <Label layoutX="40.0" layoutY="251.0" styleClass="texto" text="Classificação do produto:" />
+            <Label layoutX="40.0" layoutY="331.0" styleClass="texto" text="Descrição do produto:" />
+            <TextArea fx:id="txtDescricao" layoutX="39.0" layoutY="361.0" prefHeight="100.0" prefWidth="260.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextArea>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
