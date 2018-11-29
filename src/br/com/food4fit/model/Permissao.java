@@ -37,4 +37,18 @@ public class Permissao {
 	public void setWeb(boolean web) {
 		this.web = web;
 	}
+	
+	@Override
+	public int hashCode() {
+		return 0;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || !(obj instanceof Permissao)) {
+			return false;
+		}
+		
+		return ((Permissao) obj).getChave().equals(getChave());
+	}
 }

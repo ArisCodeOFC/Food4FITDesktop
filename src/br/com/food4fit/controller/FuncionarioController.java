@@ -249,9 +249,21 @@ public class FuncionarioController {
 	}
 	
 	private void montarPainel(Funcionario funcionario) {
+		Image usuarioImg = new Image(Main.class.getResource("assets/icons/usuario-c.png").toString());
 		Image editImg = new Image(Main.class.getResource("assets/icons/editar-c.png").toString());
 		Image cancelImg = new Image(Main.class.getResource("assets/icons/cancelar-c.png").toString());
 
+		ImageView usuarioView = new ImageView();
+		usuarioView.prefHeight(15);
+		usuarioView.prefWidth(15);
+		usuarioView.setImage(usuarioImg);
+		usuarioView.setStyle("-fx-cursor: hand;");
+
+		usuarioView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+			editarFuncionario(funcionario);
+			event.consume();
+		});
+		
 		ImageView editView = new ImageView();
 		editView.prefHeight(15);
 		editView.prefWidth(15);
@@ -272,7 +284,7 @@ public class FuncionarioController {
 			excluirFuncionario(funcionario);
 		});
 
-		HBox hBox = new HBox(editView, deleteView);
+		HBox hBox = new HBox(usuarioView, editView, deleteView);
 		hBox.setPrefHeight(15);
 		hBox.setPrefWidth(15);
 		hBox.setStyle("-fx-padding: 0 0 0 32; -fx-spacing:10;");

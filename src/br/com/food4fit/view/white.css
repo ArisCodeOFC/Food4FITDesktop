@@ -47,10 +47,11 @@
 }
 
 TableView{
-	-fx-focus-color: -fx-control-inner-background;
-	-fx-faint-focus-color: -fx-control-inner-background;
-	-fx-background-insets: -1.4, 0, 1, 2;
-
+	-fx-focus-color: transparent;
+	-fx-faint-focus-color: transparent;
+	-fx-background-insets: 0, 0, 0, 0;
+	-fx-border-width: 1px;
+	-fx-border-color: #000;
 }
 
 .separador{
