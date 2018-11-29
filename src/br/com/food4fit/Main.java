@@ -2,6 +2,7 @@ package br.com.food4fit;
 
 import java.util.Optional;
 
+import br.com.food4fit.controller.PadraoLayoutController;
 import br.com.food4fit.model.Funcionario;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -20,6 +21,7 @@ public class Main extends Application {
 
 	static Stage primaryStage;
 	static Funcionario perfil;
+	private static PadraoLayoutController home;
 
 
 	@Override
@@ -139,6 +141,14 @@ public class Main extends Application {
 
 	public static void setPerfil(Funcionario perfil) {
 		Main.perfil = perfil;
+	}
+	
+	public static void setHome(PadraoLayoutController home) {
+		Main.home = home;
+	}
+	
+	public static PadraoLayoutController getHome() {
+		return home;
 	}
 
 }

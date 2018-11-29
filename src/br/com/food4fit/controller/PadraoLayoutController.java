@@ -55,7 +55,8 @@ public class PadraoLayoutController {
 				raiz.getStylesheets().add("br/com/food4fit/view/white.css");
 			}
 		});
-
+		
+		Main.setHome(this);
 
 		//nomeUser.setText(Main.getPerfil().getNomeCompleto());
 		//emailUser.setText(Main.getPerfil().getEmail());
@@ -146,11 +147,15 @@ public class PadraoLayoutController {
 
 	}
 
-	void mudarTela(String conteudo, String nome) {
+	void mudarTela(String conteudo, String nome, Object... params) {
 		Pane xml;
 		try {
-			xml = FXMLLoader.load(Main.class.getResource("view/" + conteudo + ".fxml"));
-
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("view/" + conteudo + ".fxml"));
+			xml = loader.load();
+			if (loader.getController() instanceof Controller) {
+				((Controller) loader.getController()).init(params);
+			}
+			
 			main.getChildren().clear();
 			main.getChildren().add(xml);
 

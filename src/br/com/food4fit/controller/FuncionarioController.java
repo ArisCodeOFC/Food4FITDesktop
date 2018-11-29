@@ -93,7 +93,7 @@ public class FuncionarioController {
 		formHelper.addValidation(txtBairro, FormHelper.REQUIRED);
 		formHelper.addValidation(txtLogradouro, FormHelper.REQUIRED);
 		formHelper.addValidation(txtNumero, FormHelper.REQUIRED);
-		
+
 		final FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Escolher imagem");
 		fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
@@ -260,8 +260,7 @@ public class FuncionarioController {
 		usuarioView.setStyle("-fx-cursor: hand;");
 
 		usuarioView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-			editarFuncionario(funcionario);
-			event.consume();
+			Main.getHome().mudarTela("Usuario", "Cadastrar Usuário", funcionario);
 		});
 		
 		ImageView editView = new ImageView();
