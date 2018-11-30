@@ -13,21 +13,30 @@ public class ClassificacaoProduto {
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getTitulo() {
 		return titulo;
 	}
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public Pane getPaneOpcoes() {
 		return paneOpcoes;
 	}
+
 	public void setPaneOpcoes(Pane paneOpcoes) {
 		this.paneOpcoes = paneOpcoes;
 	}
-
+	
+	@Override
+	public String toString() {
+		return this.id + " - " + this.titulo;
+	}
 
 }

@@ -64,7 +64,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </RadioButton>
-                        <RadioButton fx:id="rdoFornecedor" mnemonicParsing="false" prefHeight="18.0" prefWidth="140.0" styleClass="texto" text="FORNECEDOR" toggleGroup="$despesa">
+                        <RadioButton fx:id="rdoFornecedor" mnemonicParsing="false" prefHeight="18.0" prefWidth="140.0" styleClass="texto" text="FORNECEDOR" toggleGroup="$toggleTipo">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></RadioButton>

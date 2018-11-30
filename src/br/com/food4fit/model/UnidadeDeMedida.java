@@ -43,4 +43,8 @@ public class UnidadeDeMedida {
 		this.paneOpcoes = paneOpcoes;
 	}
 
+	@Override
+	public String toString() {
+		return this.unidadeMedida + " (" + this.sigla  + ")";
+	}
 }

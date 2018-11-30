@@ -109,7 +109,7 @@ public class FornecedorController {
 								} else {
 									montarPainel(response.body());
 									tblFornecedor.getItems().add(response.body());
-									Main.showInfDialog("Sucesso", "", "Fornecedor cadastrado com secesso!!!");
+									Main.showInfDialog("Sucesso", "", "Fornecedor cadastrado com sucesso!!!");
 									fecharConteudo();
 								}
 							});
@@ -136,7 +136,7 @@ public class FornecedorController {
 								} else {
 									formHelper.setObjectData(null);
 									tblFornecedor.refresh();
-									Main.showInfDialog("Sucesso", "", "Fornecedor atualizado com secesso!!!");
+									Main.showInfDialog("Sucesso", "", "Fornecedor atualizado com sucesso!!!");
 									fecharConteudo();
 								}
 							});
@@ -160,6 +160,7 @@ public class FornecedorController {
 	}
 	
 	private @FXML void fecharConteudo() {
+		formHelper.setObjectData(null);
 		paneConteudo.setVisible(false);
 		txtNomeFantasia.setText("");
 		txtRazaoSocial.setText("");
@@ -302,7 +303,7 @@ public class FornecedorController {
 								Main.showErrorDialog("Erro", "Erro ao excluir fornecedor", "Não foi possível excluir o fornecedor, tente novamente mais tarde.", AlertType.ERROR);
 							} else {
 								tblFornecedor.getItems().remove(fornecedor);
-								Main.showInfDialog("Sucesso", "", "Fornecedor excluído com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Fornecedor excluído com sucesso!!!");
 							}
 						});
 					}

@@ -62,7 +62,7 @@ public class DepartamentoController {
 								} else {
 									montarPainel(response.body());
 									tblDepartamento.getItems().add(response.body());
-									Main.showInfDialog("Sucesso", "", "Departamento cadastrado com secesso!!!");
+									Main.showInfDialog("Sucesso", "", "Departamento cadastrado com sucesso!!!");
 									fecharConteudo();
 								}
 							});
@@ -89,7 +89,7 @@ public class DepartamentoController {
 								} else {
 									formHelper.setObjectData(null);
 									tblDepartamento.refresh();
-									Main.showInfDialog("Sucesso", "", "Departamento atualizado com secesso!!!");
+									Main.showInfDialog("Sucesso", "", "Departamento atualizado com sucesso!!!");
 									fecharConteudo();
 								}
 							});
@@ -113,6 +113,7 @@ public class DepartamentoController {
 	}
 
 	private @FXML void fecharConteudo() {
+		formHelper.setObjectData(null);
 		paneConteudo.setVisible(false);
 		txtDepartamento.clear();
 	}
@@ -187,7 +188,7 @@ public class DepartamentoController {
 								Main.showErrorDialog("Erro", "Erro ao excluir departamento", "Não foi possível excluir o departamento, tente novamente mais tarde.", AlertType.ERROR);
 							} else {
 								tblDepartamento.getItems().remove(departamento);
-								Main.showInfDialog("Sucesso", "", "Departamento excluído com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Departamento excluído com sucesso!!!");
 							}
 						});
 					}

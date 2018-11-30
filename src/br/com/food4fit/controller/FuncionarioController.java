@@ -433,7 +433,7 @@ public class FuncionarioController {
 									} else {
 										montarPainel(response.body());
 										tblFuncionario.getItems().add(response.body());
-										Main.showInfDialog("Sucesso", "", "Funcionário cadastrado com secesso!!!");
+										Main.showInfDialog("Sucesso", "", "Funcionário cadastrado com sucesso!!!");
 										fecharConteudo();
 									}
 								});
@@ -459,7 +459,7 @@ public class FuncionarioController {
 									} else {
 										formHelper.setObjectData(null);
 										tblFuncionario.refresh();
-										Main.showInfDialog("Sucesso", "", "Funcionário atualizado com secesso!!!");
+										Main.showInfDialog("Sucesso", "", "Funcionário atualizado com sucesso!!!");
 										fecharConteudo();
 									}
 								});
@@ -494,6 +494,7 @@ public class FuncionarioController {
 
 	// Fecha o panel que foi aberto
 	private @FXML void fecharConteudo() {
+		formHelper.setObjectData(null);
 		paneConteudo.setStyle("visibility: false");
 		txtCelularU.clear();
 		txtCpf.clear();
@@ -565,7 +566,7 @@ public class FuncionarioController {
 							Main.showErrorDialog("Erro", "Erro ao excluir funcionário", "Não foi possível excluir o funcionário, tente novamente mais tarde.", AlertType.ERROR);
 						} else {
 							tblFuncionario.getItems().remove(funcionario);
-							Main.showInfDialog("Sucesso", "", "Funcionário excluído com secesso!!!");
+							Main.showInfDialog("Sucesso", "", "Funcionário excluído com sucesso!!!");
 						}
 					});
 				}

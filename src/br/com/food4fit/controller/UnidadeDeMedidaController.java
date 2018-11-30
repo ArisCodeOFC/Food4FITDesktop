@@ -63,7 +63,7 @@ public class UnidadeDeMedidaController {
 							} else {
 								montarPainel(response.body());
 								tblUnidadeDeMedida.getItems().add(response.body());
-								Main.showInfDialog("Sucesso", "", "Unidade de medida cadastrada com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Unidade de medida cadastrada com sucesso!!!");
 								fecharConteudo();
 							}
 						});
@@ -89,7 +89,7 @@ public class UnidadeDeMedidaController {
 							} else {
 								formHelper.setObjectData(null);
 								tblUnidadeDeMedida.refresh();
-								Main.showInfDialog("Sucesso", "", "Unidade de medida atualizada com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Unidade de medida atualizada com sucesso!!!");
 								fecharConteudo();
 							}
 						});
@@ -139,6 +139,7 @@ public class UnidadeDeMedidaController {
 
 	// Fecha o panel que foi aberto
 	private @FXML void fecharConteudo() {
+		formHelper.setObjectData(null);
 		paneConteudo.setStyle("visibility: false");
 		txtUnidadeDeMedida.clear();
 		txtSigla.clear();
@@ -178,7 +179,7 @@ public class UnidadeDeMedidaController {
 								Main.showErrorDialog("Erro", "Erro ao excluir unidade de medida", "Não foi possível excluir a unidade de medida, tente novamente mais tarde.", AlertType.ERROR);
 							} else {
 								tblUnidadeDeMedida.getItems().remove(unidade);
-								Main.showInfDialog("Sucesso", "", "Unidade de medida excluída com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Unidade de medida excluída com sucesso!!!");
 							}
 						});
 					}

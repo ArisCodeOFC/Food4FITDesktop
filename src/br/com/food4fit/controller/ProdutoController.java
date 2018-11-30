@@ -5,22 +5,20 @@ import java.util.Arrays;
 import br.com.food4fit.Main;
 import br.com.food4fit.config.RetrofitConfig;
 import br.com.food4fit.helper.FormHelper;
-import br.com.food4fit.model.Cargo;
 import br.com.food4fit.model.ClassificacaoProduto;
-import br.com.food4fit.model.Estado;
-import br.com.food4fit.model.Funcionario;
 import br.com.food4fit.model.Produto;
 import br.com.food4fit.model.UnidadeDeMedida;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -51,7 +49,13 @@ public class ProdutoController {
 		paneClassificacao.setStyle("visibility: false");
 		paneProduto.setStyle("visibility: false");
 		formHelperProduto.addValidation(txtNomeProduto, FormHelper.REQUIRED);
+		formHelperProduto.addValidation(txtDescricao, FormHelper.REQUIRED);
+		formHelperProduto.addValidation(comboClassificacao, FormHelper.REQUIRED);
+		formHelperProduto.addValidation(comboUnidade, FormHelper.REQUIRED);
 		formHelperClassificacao.addValidation(txtClassificacao, FormHelper.REQUIRED);
+		listarClassificacao();
+		listarProduto();
+		listarUnidade();
 	}
 
 	// ******************************************************************
@@ -80,16 +84,16 @@ public class ProdutoController {
 				Call<Produto> ret = new RetrofitConfig().getProdutoService().salvar(produto);
 				ret.enqueue(new Callback<Produto>() {
 					@Override
-					public void onResponse(Call<Produto> arg0, Response<Produto> arg1) {
+					public void onResponse(Call<Produto> call, Response<Produto> response) {
 						Platform.runLater(() -> {
-							if (arg1.code() == 500) {
+							if (response.code() == 500) {
 								Main.showErrorDialog("Erro", "Erro ao inserir produto",
 										"Não foi possível inserir o produto, tente novamente mais tarde.",
 										AlertType.ERROR);
 							} else {
-								montarPainelProduto(arg1.body());
-								tblProduto.getItems().add(arg1.body());
-								Main.showInfDialog("Sucesso", "", "Produto cadastrado com secesso!!!");
+								montarPainelProduto(response.body());
+								tblProduto.getItems().add(response.body());
+								Main.showInfDialog("Sucesso", "", "Produto cadastrado com sucesso!!!");
 								fecharProduto();
 							}
 						});
@@ -97,8 +101,8 @@ public class ProdutoController {
 					}
 
 					@Override
-					public void onFailure(Call<Produto> arg0, Throwable arg1) {
-						arg1.printStackTrace();
+					public void onFailure(Call<Produto> call, Throwable t) {
+						t.printStackTrace();
 						Platform.runLater(() -> Main.showErrorDialog("Erro", "Erro ao inserir produto",
 								"Não foi possível inserir o produto, tente novamente mais tarde.", AlertType.ERROR));
 
@@ -108,24 +112,24 @@ public class ProdutoController {
 				Call<Void> ret = new RetrofitConfig().getProdutoService().editar(produto, produto.getId());
 				ret.enqueue(new Callback<Void>() {
 					@Override
-					public void onResponse(Call<Void> arg0, Response<Void> arg1) {
+					public void onResponse(Call<Void> call, Response<Void> response) {
 						Platform.runLater(() -> {
-							if (arg1.code() == 500) {
+							if (response.code() == 500) {
 								Main.showErrorDialog("Erro", "Erro ao atualizar produto",
-										"Não foi possível atualizar o funcionário, tente novamente mais tarde.",
+										"Não foi possível atualizar o produto, tente novamente mais tarde.",
 										AlertType.ERROR);
 							} else {
 								formHelperProduto.setObjectData(null);
 								tblProduto.refresh();
-								Main.showInfDialog("Sucesso", "", "Produto atualizado com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Produto atualizado com sucesso!!!");
 								fecharProduto();
 							}
 						});
 					}
 
 					@Override
-					public void onFailure(Call<Void> arg0, Throwable arg1) {
-						arg1.printStackTrace();
+					public void onFailure(Call<Void> call, Throwable t) {
+						t.printStackTrace();
 						Platform.runLater(() -> Main.showErrorDialog("Erro", "Erro ao atualizar produto",
 								"Não foi possível atualizar o produto, tente novamente mais tarde.", AlertType.ERROR));
 					}
@@ -138,20 +142,20 @@ public class ProdutoController {
 		Call<Produto[]> ret = new RetrofitConfig().getProdutoService().listar();
 		ret.enqueue(new Callback<Produto[]>() {
 			@Override
-			public void onResponse(Call<Produto[]> arg0, Response<Produto[]> arg1) {
-				if (arg1.code() == 500) {
+			public void onResponse(Call<Produto[]> call, Response<Produto[]> response) {
+				if (response.code() == 500) {
 					Platform.runLater(() -> Main.showErrorDialog("Erro", "Erro ao obter lista de produtos",
 							"Não foi possível obter a lista de produtos, tente novamente mais tarde.",
 							AlertType.ERROR));
 
 				} else {
-					montarTabelaProduto(arg1.body());
+					montarTabelaProduto(response.body());
 				}
 			}
 
 			@Override
-			public void onFailure(Call<Produto[]> arg0, Throwable arg1) {
-				arg1.printStackTrace();
+			public void onFailure(Call<Produto[]> call, Throwable t) {
+				t.printStackTrace();
 				Platform.runLater(() -> Main.showErrorDialog("Erro", "Erro ao obter lista de produtos",
 						"Não foi possível obter a lista de produtos, tente novamente mais tarde.", AlertType.ERROR));
 
@@ -167,6 +171,8 @@ public class ProdutoController {
 		colunaProduto.setCellValueFactory(new PropertyValueFactory<Produto, String>("titulo"));
 		colunaCodigo.setCellValueFactory(new PropertyValueFactory<Produto, Integer>("id"));
 		colunaUnidade.setCellValueFactory(new PropertyValueFactory<Produto, String>("unidadeMedida"));
+		colunaOpcProduto.setCellValueFactory(new PropertyValueFactory<>("paneOpcoes"));
+		tblProduto.setItems(FXCollections.observableArrayList(produtos));
 	}
 
 	private void montarPainelProduto(Produto produto) {
@@ -205,52 +211,24 @@ public class ProdutoController {
 		Call<UnidadeDeMedida[]> ret = new RetrofitConfig().getUnidadeDeMedidaService().lista();
 		ret.enqueue(new Callback<UnidadeDeMedida[]>() {
 			@Override
-			public void onResponse(Call<UnidadeDeMedida[]> arg0, Response<UnidadeDeMedida[]> arg1) {
+			public void onResponse(Call<UnidadeDeMedida[]> call, Response<UnidadeDeMedida[]> response) {
 				Platform.runLater(() -> {
 					comboUnidade.setCursor(Cursor.HAND);
-					if (arg1.code() == 500) {
+					if (response.code() == 500) {
 						Main.showErrorDialog("Erro", "Erro ao obter lista de unidade de medida",
 								"Não foi possível obter a lista de unidade de medida, tente novamente mais tarde.",
 								AlertType.ERROR);
 					} else {
-						comboUnidade.setItems(FXCollections.observableArrayList(Arrays.asList(arg1.body())));
+						comboUnidade.setItems(FXCollections.observableArrayList(Arrays.asList(response.body())));
 					}
 				});
 
 			}
 
 			@Override
-			public void onFailure(Call<UnidadeDeMedida[]> arg0, Throwable arg1) {
+			public void onFailure(Call<UnidadeDeMedida[]> call, Throwable t) {
 				Main.showErrorDialog("Erro", "Erro ao obter lista de unidade de medida",
 						"Não foi possível obter a lista de unidade de medida, tente novamente mais tarde.",
-						AlertType.ERROR);
-			}
-		});
-	}
-
-	public void listarClassificacaoProduto() {
-		comboClassificacao.setCursor(Cursor.WAIT);
-		Call<ClassificacaoProduto[]> ret = new RetrofitConfig().getClassificacaoProdutoService().listar();
-		ret.enqueue(new Callback<ClassificacaoProduto[]>() {
-			@Override
-			public void onResponse(Call<ClassificacaoProduto[]> arg0, Response<ClassificacaoProduto[]> arg1) {
-				Platform.runLater(() -> {
-					comboClassificacao.setCursor(Cursor.HAND);
-					if (arg1.code() == 500) {
-						Main.showErrorDialog("Erro", "Erro ao obter lista de classificação de produto",
-								"Não foi possível obter a lista de classificação de produto, tente novamente mais tarde.",
-								AlertType.ERROR);
-					} else {
-						comboClassificacao.setItems(FXCollections.observableArrayList(Arrays.asList(arg1.body())));
-					}
-				});
-
-			}
-
-			@Override
-			public void onFailure(Call<ClassificacaoProduto[]> arg0, Throwable arg1) {
-				Main.showErrorDialog("Erro", "Erro ao obter lista de classificação de produto",
-						"Não foi possível obter a lista de classificação de produto, tente novamente mais tarde.",
 						AlertType.ERROR);
 			}
 		});
@@ -262,7 +240,7 @@ public class ProdutoController {
 		txtDescricao.setText(produto.getDescricao());
 		comboClassificacao.setValue(produto.getClassificacao());
 		comboUnidade.setValue(produto.getUnidadeMedida());
-		abrirClassficacao();
+		abrirProduto();
 	}
 
 	private void excluirProduto(Produto produto) {
@@ -279,7 +257,7 @@ public class ProdutoController {
 									"Não foi possível excluir o produto, tente novamente mais tarde.", AlertType.ERROR);
 						} else {
 							tblProduto.getItems().remove(produto);
-							Main.showInfDialog("Sucesso", "", "Produto excluído com secesso!!!");
+							Main.showInfDialog("Sucesso", "", "Produto excluído com sucesso!!!");
 						}
 					});
 				}
@@ -288,8 +266,8 @@ public class ProdutoController {
 				public void onFailure(Call<Void> call, Throwable t) {
 					t.printStackTrace();
 					Platform.runLater(() -> {
-						Main.showErrorDialog("Erro", "Erro ao excluir funcionário",
-								"Não foi possível excluir o funcionário, tente novamente mais tarde.", AlertType.ERROR);
+						Main.showErrorDialog("Erro", "Erro ao excluir produto",
+								"Não foi possível excluir o produto, tente novamente mais tarde.", AlertType.ERROR);
 					});
 				}
 			});
@@ -318,7 +296,7 @@ public class ProdutoController {
 				ret.enqueue(new Callback<ClassificacaoProduto>() {
 
 					@Override
-					public void onResponse(Call<ClassificacaoProduto> arg0, Response<ClassificacaoProduto> response) {
+					public void onResponse(Call<ClassificacaoProduto> call, Response<ClassificacaoProduto> response) {
 						Platform.runLater(() -> {
 							if (response.code() == 500) {
 								Main.showErrorDialog("Erro", "Erro ao inserir classificação de produto",
@@ -327,15 +305,15 @@ public class ProdutoController {
 							} else {
 								montarPainelClassificacao(response.body());
 								tblClassificacao.getItems().add(response.body());
-								Main.showInfDialog("Sucesso", "", "Funcionário cadastrado com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Classificação cadastrada com sucesso!!!");
 								fecharClassificacao();
 							}
 						});
 					}
 
 					@Override
-					public void onFailure(Call<ClassificacaoProduto> arg0, Throwable arg1) {
-						arg1.printStackTrace();
+					public void onFailure(Call<ClassificacaoProduto> call, Throwable t) {
+						t.printStackTrace();
 						Platform.runLater(() -> Main.showErrorDialog("Erro", "Erro ao salvar classificação",
 								"Não foi possível salvar a classificação, tente novamente mais tarde.",
 								AlertType.ERROR));
@@ -346,16 +324,16 @@ public class ProdutoController {
 						classificacaoProduto.getId());
 				ret.enqueue(new Callback<Void>() {
 					@Override
-					public void onResponse(Call<Void> arg0, Response<Void> arg1) {
+					public void onResponse(Call<Void> call, Response<Void> response) {
 						Platform.runLater(() -> {
-							if (arg1.code() == 500) {
-								Main.showErrorDialog("Erro", "Erro ao atualizar funcionário",
-										"Não foi possível atualizar o funcionário, tente novamente mais tarde.",
+							if (response.code() == 500) {
+								Main.showErrorDialog("Erro", "Erro ao atualizar classificação",
+										"Não foi possível atualizar o classificação, tente novamente mais tarde.",
 										AlertType.ERROR);
 							} else {
 								formHelperClassificacao.setObjectData(null);
 								tblClassificacao.refresh();
-								Main.showInfDialog("Sucesso", "", "Funcionário atualizado com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Classificação atualizado com sucesso!!!");
 								fecharClassificacao();
 							}
 						});
@@ -363,8 +341,8 @@ public class ProdutoController {
 					}
 
 					@Override
-					public void onFailure(Call<Void> arg0, Throwable arg1) {
-						arg1.printStackTrace();
+					public void onFailure(Call<Void> call, Throwable t) {
+						t.printStackTrace();
 						Platform.runLater(() -> Main.showErrorDialog("Erro", "Erro ao editar classificações",
 								"Não foi possível editar a classificação, tente novamente mais tarde.",
 								AlertType.ERROR));
@@ -404,7 +382,12 @@ public class ProdutoController {
 			montarPainelClassificacao(classificacao);
 		}
 
-		colunaClassificacao.setCellValueFactory(new PropertyValueFactory<ClassificacaoProduto, String>("titulo"));
+		colunaClassificacao.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+		colunaOpcClassificacao.setCellValueFactory(new PropertyValueFactory<>("paneOpcoes"));
+		
+		ObservableList<ClassificacaoProduto> collection = FXCollections.observableArrayList(classificacoes);
+		tblClassificacao.setItems(collection);
+		comboClassificacao.setItems(collection);
 	}
 
 	private void montarPainelClassificacao(ClassificacaoProduto classificacao) {
@@ -459,7 +442,7 @@ public class ProdutoController {
 									AlertType.ERROR);
 						} else {
 							tblClassificacao.getItems().remove(classificacao);
-							Main.showInfDialog("Sucesso", "", "Classificação de produto excluída com secesso!!!");
+							Main.showInfDialog("Sucesso", "", "Classificação de produto excluída com sucesso!!!");
 						}
 					});
 				}
@@ -468,8 +451,8 @@ public class ProdutoController {
 				public void onFailure(Call<Void> call, Throwable t) {
 					t.printStackTrace();
 					Platform.runLater(() -> {
-						Main.showErrorDialog("Erro", "Erro ao excluir funcionário",
-								"Não foi possível excluir o funcionário, tente novamente mais tarde.", AlertType.ERROR);
+						Main.showErrorDialog("Erro", "Erro ao excluir classificação",
+								"Não foi possível excluir o classificação, tente novamente mais tarde.", AlertType.ERROR);
 					});
 				}
 			});
@@ -488,6 +471,7 @@ public class ProdutoController {
 
 	// Fecha o panel que foi aberto
 	private @FXML void fecharProduto() {
+		formHelperProduto.setObjectData(null);
 		paneProduto.setStyle("visibility: false");
 		txtNomeProduto.clear();
 		txtDescricao.clear();
@@ -496,6 +480,7 @@ public class ProdutoController {
 	}
 
 	private @FXML void fecharClassificacao() {
+		formHelperClassificacao.setObjectData(null);
 		paneClassificacao.setStyle("visibility: false");
 		txtClassificacao.clear();
 	}

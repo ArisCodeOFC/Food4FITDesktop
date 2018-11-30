@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import br.com.food4fit.component.MaskedTextField;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
@@ -118,6 +119,10 @@ public class FormHelper {
 		
 		if (node instanceof TextField) {
 			return ((TextField) node).getText();
+		}
+		
+		if (node instanceof TextArea) {
+			return ((TextArea) node).getText();
 		}
 		
 		if (node instanceof ComboBox<?>) {

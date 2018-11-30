@@ -67,7 +67,7 @@ public class BancoController {
 								} else {
 									montarPainel(response.body());
 									tblBanco.getItems().add(response.body());
-									Main.showInfDialog("Sucesso", "", "Banco cadastrado com secesso!!!");
+									Main.showInfDialog("Sucesso", "", "Banco cadastrado com sucesso!!!");
 									fecharConteudo();
 								}
 							});
@@ -94,7 +94,7 @@ public class BancoController {
 								} else {
 									formHelper.setObjectData(null);
 									tblBanco.refresh();
-									Main.showInfDialog("Sucesso", "", "Banco atualizado com secesso!!!");
+									Main.showInfDialog("Sucesso", "", "Banco atualizado com sucesso!!!");
 									fecharConteudo();
 								}
 							});
@@ -118,6 +118,7 @@ public class BancoController {
     }
     
     private @FXML void fecharConteudo() {
+    	formHelper.setObjectData(null);
     	paneConteudo.setVisible(false);
     	txtConta.clear();
     	txtBanco.clear();
@@ -196,7 +197,7 @@ public class BancoController {
 								Main.showErrorDialog("Erro", "Erro ao excluir banco", "Não foi possível excluir o banco, tente novamente mais tarde.", AlertType.ERROR);
 							} else {
 								tblBanco.getItems().remove(banco);
-								Main.showInfDialog("Sucesso", "", "Banco excluído com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Banco excluído com sucesso!!!");
 							}
 						});
 					}

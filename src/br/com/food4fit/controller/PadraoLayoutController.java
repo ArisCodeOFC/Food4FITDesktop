@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -124,6 +123,11 @@ public class PadraoLayoutController {
 	@FXML
 	void menuUnidade() {
 		mudarTela("UnidadeDeMedida", "Unidade de Medida");
+	}
+	
+	@FXML
+	void menuProdutos() {
+		mudarTela("CadastroProduto", "Produtos");
 	}
 
 	@FXML

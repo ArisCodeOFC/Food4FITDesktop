@@ -147,7 +147,7 @@ public class NivelAcessoController {
 							} else {
 								montarPainel(response.body());
 								tblCargos.getItems().add(response.body());
-								Main.showInfDialog("Sucesso", "", "Cargo cadastrado com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Cargo cadastrado com sucesso!!!");
 								limpar();
 							}
 						});
@@ -172,7 +172,7 @@ public class NivelAcessoController {
 							} else {
 								formHelper.setObjectData(null);
 								tblCargos.refresh();
-								Main.showInfDialog("Sucesso", "", "Cargo atualizado com secesso!!!");
+								Main.showInfDialog("Sucesso", "", "Cargo atualizado com sucesso!!!");
 								limpar();
 							}
 						});
@@ -191,6 +191,7 @@ public class NivelAcessoController {
 	}
 	
 	private @FXML void limpar() {
+		formHelper.setObjectData(null);
 		txtTitulo.clear();
 		for (Node node : vboxPermissoes.getChildren()) {
 			if (node instanceof CheckBox) {
@@ -247,7 +248,7 @@ public class NivelAcessoController {
 							Main.showErrorDialog("Erro", "Erro ao excluir cargo", "Não foi possível excluir o cargo, tente novamente mais tarde.", AlertType.ERROR);
 						} else {
 							tblCargos.getItems().remove(cargo);
-							Main.showInfDialog("Sucesso", "", "Cargo excluído com secesso!!!");
+							Main.showInfDialog("Sucesso", "", "Cargo excluído com sucesso!!!");
 						}
 					});
 				}

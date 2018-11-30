@@ -67,7 +67,7 @@ public class UsuarioController implements Controller {
 						if (response.code() == 500) {
 							Main.showErrorDialog("Erro", "Erro ao atualizar dados", "Não foi possível atualizar os dados, tente novamente mais tarde.", AlertType.ERROR);
 						} else {
-							Main.showInfDialog("Sucesso", "", "Dados atualizados com secesso!!!");
+							Main.showInfDialog("Sucesso", "", "Dados atualizados com sucesso!!!");
 							cancelar();
 						}
 					});

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.web.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="raiz" prefHeight="720.0" prefWidth="1280.0" style="-fx-padding: 0px; -fx-margin: 0px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.PadraoLayoutController">
+<AnchorPane fx:id="raiz" prefHeight="720.0" prefWidth="1280.0" style="-fx-padding: 0px; -fx-margin: 0px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.PadraoLayoutController">
    <children>
       <Pane layoutX="253.0" prefHeight="94.0" prefWidth="1027.0" style="-fx-background-color: #9cc283;" styleClass="cabecalho">
          <children>
@@ -364,6 +367,32 @@
                                  </HBox.margin>
                               </ImageView>
                               <Label styleClass="itemMenu" text="Unidade de Medida">
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" onMouseClicked="#menuProdutos" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/br/com/food4fit/assets/icons/unidade-medida-c.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label styleClass="itemMenu" text="Produtos">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
