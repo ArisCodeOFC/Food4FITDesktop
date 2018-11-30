@@ -19,6 +19,7 @@ public class FormHelper {
 	public static final int VALID_EMAIL = 1 << 3;
 	public static final int VALID_DATE = 1 << 4;
 	public static final int VALID_DOUBLE = 1 << 5;
+	public static final int VISIBLE_ONLY = 1 << 6;
 	
 	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
 	private final Map<Object, Integer> nodes = new HashMap<>();
@@ -47,44 +48,46 @@ public class FormHelper {
 				Object value = fetchValue(node);
 				boolean invalid = false;
 				
-				if ((flags & REQUIRED) == REQUIRED && !invalid) {
-					if (value instanceof String) {
-						invalid = value == null || ((String) value).trim().isEmpty();
-					} else {
-						invalid = value == null;
-					}
-				}
-
-				if ((flags & VALID_MASK) == VALID_MASK && !invalid) {
-					if (node instanceof MaskedTextField) {
-						invalid = !((MaskedTextField) node).isValid();
-					}
-				}
-				
-				if ((flags & VALID_EMAIL) == VALID_EMAIL && !invalid) {
-					if (value instanceof String) {
-						invalid = !EMAIL_PATTERN.matcher((String) value).matches();
-					}
-				}
-				
-				if ((flags & VALID_DATE) == VALID_DATE && !invalid) {
-					if (node instanceof TextField) {
-						SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-						try {
-							long time = sdf.parse(((TextField) node).getText()).getTime();
-							invalid = time < 0;
-						} catch (ParseException e) {
-							invalid = true;
+				if ((flags & VISIBLE_ONLY) == VISIBLE_ONLY ? node.isVisible() : true) {
+					if ((flags & REQUIRED) == REQUIRED && !invalid) {	
+						if (value instanceof String) {
+							invalid = value == null || ((String) value).trim().isEmpty();
+						} else {
+							invalid = value == null;
 						}
 					}
-				}
-				
-				if ((flags & VALID_DOUBLE) == VALID_DOUBLE && !invalid) {
-					if (value instanceof String) {
-						try {
-							Double.parseDouble((String) value);
-						} catch (NumberFormatException e) {
-							invalid = true;
+	
+					if ((flags & VALID_MASK) == VALID_MASK && !invalid) {
+						if (node instanceof MaskedTextField) {
+							invalid = !((MaskedTextField) node).isValid();
+						}
+					}
+					
+					if ((flags & VALID_EMAIL) == VALID_EMAIL && !invalid) {
+						if (value instanceof String) {
+							invalid = !EMAIL_PATTERN.matcher((String) value).matches();
+						}
+					}
+					
+					if ((flags & VALID_DATE) == VALID_DATE && !invalid) {
+						if (node instanceof TextField) {
+							SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+							try {
+								long time = sdf.parse(((TextField) node).getText()).getTime();
+								invalid = time < 0;
+							} catch (ParseException e) {
+								invalid = true;
+							}
+						}
+					}
+					
+					if ((flags & VALID_DOUBLE) == VALID_DOUBLE && !invalid) {
+						if (value instanceof String) {
+							try {
+								Double.parseDouble((String) value);
+							} catch (NumberFormatException e) {
+								invalid = true;
+							}
 						}
 					}
 				}

@@ -98,7 +98,7 @@ public class PadraoLayoutController {
 
 	@FXML
 	void menuDespesa() {
-		mudarTela("Funcionarios", "Despesas");
+		mudarTela("Despesa", "Despesas");
 	}
 
 	@FXML

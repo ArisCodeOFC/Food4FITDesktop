@@ -104,4 +104,9 @@ public class Fornecedor {
 	public void setPaneOpcoes(Pane paneOpcoes) {
 		this.paneOpcoes = paneOpcoes;
 	}
+	
+	@Override
+	public String toString() {
+		return id + " - " + razaoSocial;
+	}
 }

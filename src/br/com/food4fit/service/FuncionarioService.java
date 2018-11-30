@@ -2,6 +2,7 @@ package br.com.food4fit.service;
 
 import br.com.food4fit.model.DadosFuncionario;
 import br.com.food4fit.model.Funcionario;
+import br.com.food4fit.model.FuncionarioUsuario;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -34,6 +35,9 @@ public interface FuncionarioService {
 
 	@PUT("funcionario/{id}")
 
-	Call<Void> editar(@Body Funcionario dados, @Path ("id") int id);
+	Call<Void> editar(@Body Funcionario dados, @Path("id") int id);
+	
+	@PUT("funcionario/{id}/dados")
+	Call<Void> atualizarDados(@Body FuncionarioUsuario funcionario, @Path("id") int id);
 
 }

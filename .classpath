@@ -7,16 +7,16 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/annotations-13.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/converter-jackson-2.4.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/converter-scalars-2.0.0-beta3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/jackson-annotations-2.9.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/jackson-core-2.9.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/jackson-databind-2.9.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/kotlin-stdlib-1.3.0-rc-198.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/kotlin-stdlib-common-1.3.0-rc-198.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/okhttp-3.11.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/okio-2.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16254826/Desktop/javafx/Food4FitDesk/bibliotecas/retrofit-2.4.0.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/okhttp-3.11.0.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/okio-2.1.0.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/retrofit-2.4.0.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/kotlin-stdlib-common-1.3.0-rc-198.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/kotlin-stdlib-1.3.0-rc-198.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/jackson-databind-2.9.7.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/jackson-core-2.9.7.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/jackson-annotations-2.9.7.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/converter-scalars-2.0.0-beta3.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/converter-jackson-2.4.0.jar"/>
+	<classpathentry kind="lib" path="/home/wesley/workspace/Food4FITDesktop/bibliotecas/annotations-13.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

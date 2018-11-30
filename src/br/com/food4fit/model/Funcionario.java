@@ -2,6 +2,7 @@ package br.com.food4fit.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -29,6 +30,7 @@ public class Funcionario {
 	private int salario;
 	private Date dataDemissao;
 	private Endereco endereco;
+	private List<Permissao> permissoes;
 	@JsonIgnore
 	private Pane paneOpcoes;
 
@@ -208,5 +210,17 @@ public class Funcionario {
 	public void setPaneOpcoes(Pane paneOpcoes) {
 		this.paneOpcoes = paneOpcoes;
 	}
+	
+	public List<Permissao> getPermissoes() {
+		return permissoes;
+	}
 
+	public void setPermissoes(List<Permissao> permissoes) {
+		this.permissoes = permissoes;
+	}
+	
+	@Override
+	public String toString() {
+		return id + " - " + getNomeCompleto();
+	}
 }

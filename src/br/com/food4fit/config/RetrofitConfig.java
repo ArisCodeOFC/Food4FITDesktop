@@ -4,6 +4,7 @@ import br.com.food4fit.service.BancoService;
 import br.com.food4fit.service.CargoService;
 import br.com.food4fit.service.ClassificacaoProdutoService;
 import br.com.food4fit.service.DepartamentoService;
+import br.com.food4fit.service.DespesaService;
 import br.com.food4fit.service.EstadoService;
 import br.com.food4fit.service.FornecedorService;
 import br.com.food4fit.service.FuncionarioService;
@@ -63,5 +64,9 @@ public class RetrofitConfig {
 
 	public ClassificacaoProdutoService getClassificacaoProdutoService() {
 		return this.retrofit.create(ClassificacaoProdutoService.class);
+	}
+	
+	public DespesaService getDespesaService() {
+		return this.retrofit.create(DespesaService.class);
 	}
 }
