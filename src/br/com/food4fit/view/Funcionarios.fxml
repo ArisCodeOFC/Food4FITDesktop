@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import br.com.food4fit.component.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import br.com.food4fit.component.MaskedTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.FuncionarioController">
+<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.FuncionarioController">
    <children>
       <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirConteudo" style="-fx-background-color: #9cc283;" text="CADASTRO DE FUNCIONÁRIO" textFill="WHITE">
          <cursor>
@@ -21,17 +33,20 @@
          </font></Button>
       <TableView fx:id="tblFuncionario" focusTraversable="false" layoutY="110.0" prefHeight="516.0" prefWidth="1027.0" styleClass="tabela">
         <columns>
-          <TableColumn fx:id="colunaNome" editable="false" prefWidth="210.0" sortable="false" text="NOME" />
-          <TableColumn fx:id="colunaMatricula" editable="false" prefWidth="130.0" sortable="false" text="MATRÍCULA" />
-            <TableColumn fx:id="colunaEmail" editable="false" prefWidth="220.0" sortable="false" text="E-MAIL" />
-            <TableColumn fx:id="colunaCargo" editable="false" prefWidth="192.0" sortable="false" text="CARGO" />
-            <TableColumn fx:id="colunaAdmissao" editable="false" prefWidth="145.0" sortable="false" text="DT.ADMISSÃO" />
+          <TableColumn fx:id="colunaNome" editable="false" prefWidth="210.0" text="NOME" />
+          <TableColumn fx:id="colunaMatricula" editable="false" prefWidth="130.0" text="MATRÍCULA" />
+            <TableColumn fx:id="colunaEmail" editable="false" prefWidth="220.0" text="E-MAIL" />
+            <TableColumn fx:id="colunaCargo" editable="false" prefWidth="192.0" text="CARGO" />
+            <TableColumn fx:id="colunaAdmissao" editable="false" prefWidth="145.0" text="DT.ADMISSÃO" />
             <TableColumn fx:id="colunaOpc" editable="false" prefWidth="129.0" sortable="false" text="OPÇÕES" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <Pane fx:id="paneConteudo" layoutX="673.0" prefHeight="626.0" prefWidth="354.0" styleClass="menuCadastro">
          <children>
-            <ScrollPane prefHeight="626.0" prefWidth="354.0">
+            <ScrollPane hbarPolicy="NEVER" prefHeight="626.0" prefWidth="354.0">
                <content>
                   <VBox prefHeight="1580.0" prefWidth="339.0" spacing="10.0" styleClass="menuCadastro">
                      <children>
@@ -83,8 +98,7 @@
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <MaskedTextField fx:id="txtDtNasc" mask="##/##/####" placeholder=" " layoutX="10.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                        </MaskedTextField>
+                        <DatePicker fx:id="dpDataNascimento" prefHeight="26.0" prefWidth="260.0" />
                         <Label layoutX="50.0" layoutY="409.0" styleClass="texto" text="Gênero:">
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
@@ -119,36 +133,35 @@
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <MaskedTextField fx:id="txtCelularU" mask="(##) #####-####" placeholder=" " layoutX="10.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        <MaskedTextField fx:id="txtCelularU" layoutX="10.0" layoutY="530.0" mask="(##) #####-####" maxHeight="-Infinity" maxWidth="-Infinity" placeholder=" " prefWidth="260.0">
                         </MaskedTextField>
                         <Label layoutX="10.0" layoutY="551.0" styleClass="texto" text="Telefone:">
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <MaskedTextField fx:id="txtTelefone" mask="(##) ####-####" placeholder=" " layoutX="10.0" layoutY="551.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        <MaskedTextField fx:id="txtTelefone" layoutX="10.0" layoutY="551.0" mask="(##) ####-####" maxHeight="-Infinity" maxWidth="-Infinity" placeholder=" " prefWidth="260.0">
                         </MaskedTextField>
                         <Label layoutX="10.0" layoutY="576.0" styleClass="texto" text="CPF:">
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <MaskedTextField fx:id="txtCpf" mask="###.###.###-##" placeholder=" " layoutX="10.0" layoutY="551.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        <MaskedTextField fx:id="txtCpf" layoutX="10.0" layoutY="551.0" mask="###.###.###-##" maxHeight="-Infinity" maxWidth="-Infinity" placeholder=" " prefWidth="260.0">
                         </MaskedTextField>
                         <Label layoutX="10.0" layoutY="551.0" styleClass="texto" text="RG:">
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <MaskedTextField fx:id="txtRg" mask="##.###.###-#" placeholder=" " layoutX="10.0" layoutY="568.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        <MaskedTextField fx:id="txtRg" layoutX="10.0" layoutY="568.0" mask="##.###.###-#" maxHeight="-Infinity" maxWidth="-Infinity" placeholder=" " prefWidth="260.0">
                         </MaskedTextField>
                         <Label layoutX="50.0" layoutY="585.0" styleClass="texto" text="Dt. Admissão:">
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
                            </font>
                         </Label>
-                        <MaskedTextField fx:id="txtDtAdmissao" mask="##/##/####" placeholder=" " layoutX="50.0" layoutY="607.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
-                        </MaskedTextField>
+                        <DatePicker fx:id="dpDataAdmissao" prefHeight="26.0" prefWidth="260.0" />
                         <Label layoutX="10.0" layoutY="632.0" styleClass="texto" text="Cargo:">
                            <font>
                               <Font name="Roboto Medium" size="12.0" />
@@ -224,13 +237,13 @@
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
                         </Label>
-                        <MaskedTextField fx:id="txtCep" mask="#####-###" placeholder=" " layoutX="50.0" layoutY="1458.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0">
+                        <MaskedTextField fx:id="txtCep" layoutX="50.0" layoutY="1458.0" mask="#####-###" maxHeight="-Infinity" maxWidth="-Infinity" placeholder=" " prefWidth="260.0">
                         </MaskedTextField>
                         <HBox layoutX="50.0" layoutY="285.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="260.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#fecharConteudo" style="-fx-background-color: #7f7f7f;" text="CANCELAR" textFill="WHITE">
                                  <HBox.margin>
-                                    <Insets left="90.0" right="35.0" />
+                                    <Insets left="30.0" right="35.0" />
                                  </HBox.margin>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />

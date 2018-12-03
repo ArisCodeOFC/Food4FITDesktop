@@ -109,4 +109,18 @@ public class Fornecedor {
 	public String toString() {
 		return id + " - " + razaoSocial;
 	}
+	
+	@Override
+	public int hashCode() {
+		return 0;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || !(obj instanceof Fornecedor)) {
+			return false;
+		}
+		
+		return ((Fornecedor) obj).getId() == id;
+	}
 }

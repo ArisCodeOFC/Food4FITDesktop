@@ -7,6 +7,7 @@ import br.com.food4fit.model.UnidadeDeMedida;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -27,10 +28,8 @@ public class UnidadeDeMedidaController {
 	private @FXML TableColumn<UnidadeDeMedida, Pane> colunaOpc;
 	private @FXML TableColumn<UnidadeDeMedida, String> colunaSigla, colunaUnidadeMedida;
 	private @FXML TextField txtUnidadeDeMedida, txtSigla;
-	private @FXML Pane paneConteudo;
 
 	private @FXML void initialize() {
-		paneConteudo.setStyle("visibility: false");
 		formHelper.addValidation(txtSigla, FormHelper.REQUIRED);
 		formHelper.addValidation(txtUnidadeDeMedida, FormHelper.REQUIRED);
 		listarUnidade();
@@ -132,15 +131,8 @@ public class UnidadeDeMedidaController {
 		});
 	}
 
-	// Abrir o panel oculto
-	private @FXML void abrirConteudo() {
-		paneConteudo.setStyle("visibility: true;");
-	}
-
-	// Fecha o panel que foi aberto
 	private @FXML void fecharConteudo() {
 		formHelper.setObjectData(null);
-		paneConteudo.setStyle("visibility: false");
 		txtUnidadeDeMedida.clear();
 		txtSigla.clear();
 	}
@@ -156,7 +148,6 @@ public class UnidadeDeMedidaController {
 		editView.setStyle("-fx-cursor: hand;");
 		editView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
 			formHelper.setObjectData(unidade);
-			abrirConteudo();
 			txtUnidadeDeMedida.setText(unidade.getUnidadeMedida());
 			txtSigla.setText(unidade.getSigla());
 			event.consume();
@@ -198,9 +189,8 @@ public class UnidadeDeMedidaController {
 		});
 
 		HBox hBox = new HBox(editView, deleteView);
-		hBox.setPrefHeight(15);
-		hBox.setPrefWidth(15);
-		hBox.setStyle("-fx-padding: 0 0 0 20; -fx-spacing:10;");
+		hBox.setSpacing(10);
+		hBox.setAlignment(Pos.CENTER);
 		unidade.setPaneOpcoes(hBox);
 	}
 

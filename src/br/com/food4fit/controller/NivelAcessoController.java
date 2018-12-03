@@ -12,7 +12,7 @@ import br.com.food4fit.model.Permissao;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Alert.AlertType;
@@ -219,10 +219,8 @@ public class NivelAcessoController {
 		});
 		
 		HBox hBox = new HBox(imgEditar, imgExcluir);
-		hBox.setPrefHeight(15);
-		hBox.setPrefWidth(15);
 		hBox.setSpacing(10);
-		hBox.setPadding(new Insets(0, 0, 0, 32));
+		hBox.setAlignment(Pos.CENTER);
 		cargo.setPaneOpcoes(hBox);
 	}
 	

@@ -9,7 +9,7 @@ import br.com.food4fit.model.Departamento;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
@@ -31,11 +31,9 @@ public class DepartamentoController {
 	private @FXML TableColumn<Departamento, Pane> colunaOpc;
 	private @FXML TableColumn<Departamento, String> colunaNome;
 	private @FXML TextField txtDepartamento;
-	private @FXML Pane paneConteudo;
     private @FXML TableView<Departamento> tblDepartamento;
 
 	private @FXML void initialize() {
-		paneConteudo.setVisible(false);
 		formHelper.addValidation(txtDepartamento, FormHelper.REQUIRED);
 		listarDepartamentos();
 	}
@@ -108,13 +106,8 @@ public class DepartamentoController {
 		}
 	}
 	 
-	private @FXML void abrirConteudo() {
-		paneConteudo.setVisible(true);
-	}
-
 	private @FXML void fecharConteudo() {
 		formHelper.setObjectData(null);
-		paneConteudo.setVisible(false);
 		txtDepartamento.clear();
 	}
 	
@@ -158,10 +151,8 @@ public class DepartamentoController {
 		});
 		
 		HBox hBox = new HBox(imgEditar, imgExcluir);
-		hBox.setPrefHeight(15);
-		hBox.setPrefWidth(15);
 		hBox.setSpacing(10);
-		hBox.setPadding(new Insets(0, 0, 0, 32));
+		hBox.setAlignment(Pos.CENTER);
 		departamento.setPaneOpcoes(hBox);
 	}
 	
@@ -208,6 +199,5 @@ public class DepartamentoController {
 	private void editarDepartamento(Departamento departamento) {
 		formHelper.setObjectData(departamento);
 		txtDepartamento.setText(departamento.getDepartamento());
-		abrirConteudo();
 	}
 }

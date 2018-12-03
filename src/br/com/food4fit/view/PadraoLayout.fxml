@@ -111,61 +111,6 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="188.0" onMouseClicked="#menuEstatisticas" prefHeight="43.0" prefWidth="251.0">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/estatistica-c.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D />
-                                 </viewport>
-                                 <HBox.margin>
-                                    <Insets left="15.0" right="15.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label styleClass="itemMenu" text="Estatísticas">
-                                 <font>
-                                    <Font name="Roboto Medium" size="16.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="231.0" onMouseClicked="#menuFornecedor" prefHeight="43.0" prefWidth="251.0">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/fornecedor-v.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D />
-                                 </viewport>
-                                 <HBox.margin>
-                                    <Insets left="15.0" right="15.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label styleClass="itemMenu" text="Fornecedores">
-                                 <font>
-                                    <Font name="Roboto Medium" size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="274.0" onMouseClicked="#menuFuncionario" prefHeight="43.0" prefWidth="251.0">
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -180,115 +125,6 @@
                                  </HBox.margin>
                               </ImageView>
                               <Label styleClass="itemMenu" text="Funcionários">
-                                 <font>
-                                    <Font name="Roboto Medium" size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </HBox>
-                        <Separator maxWidth="-Infinity" prefWidth="215.0" styleClass="separador">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="15.0" top="5.0" />
-                           </VBox.margin>
-                        </Separator>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="363.0" onMouseClicked="#menuNivel" prefHeight="43.0" prefWidth="251.0">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/nivel-acesso-c.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D />
-                                 </viewport>
-                                 <HBox.margin>
-                                    <Insets left="15.0" right="15.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label styleClass="itemMenu" text="Níveis de Acesso">
-                                 <font>
-                                    <Font name="Roboto Medium" size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="406.0" onMouseClicked="#menuDespesa" prefHeight="43.0" prefWidth="251.0">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/despesa-c.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D />
-                                 </viewport>
-                                 <HBox.margin>
-                                    <Insets left="15.0" right="15.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label styleClass="itemMenu" text="Despesas">
-                                 <font>
-                                    <Font name="Roboto Medium" size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="449.0" onMouseClicked="#menuRelatorio" prefHeight="43.0" prefWidth="251.0">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/relatorio-c.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D />
-                                 </viewport>
-                                 <HBox.margin>
-                                    <Insets left="15.0" right="15.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label styleClass="itemMenu" text="Relatórios">
-                                 <font>
-                                    <Font name="Roboto Medium" size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="492.0" onMouseClicked="#menuBanco" prefHeight="43.0" prefWidth="251.0">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/banco-c.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D />
-                                 </viewport>
-                                 <HBox.margin>
-                                    <Insets left="15.0" right="15.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label styleClass="itemMenu" text="Banco">
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
@@ -327,6 +163,63 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="363.0" onMouseClicked="#menuNivel" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/br/com/food4fit/assets/icons/nivel-acesso-c.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label styleClass="itemMenu" text="Níveis de Acesso">
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                        <Separator maxWidth="-Infinity" prefWidth="215.0" styleClass="separador">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="15.0" top="5.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="406.0" onMouseClicked="#menuDespesa" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/br/com/food4fit/assets/icons/despesa-c.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label styleClass="itemMenu" text="Contas a Pagar">
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="565.0" onMouseClicked="#menuFaturamento" prefHeight="43.0" prefWidth="251.0">
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -340,13 +233,123 @@
                                     <Insets left="15.0" right="15.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label styleClass="itemMenu" text="Faturamento">
+                              <Label styleClass="itemMenu" text="Contas a Receber">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                                  <font>
                                     <Font name="Roboto Medium" size="16.0" />
                                  </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="565.0" onMouseClicked="#menuFluxoCaixa" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/br/com/food4fit/assets/icons/faturamento-c.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label styleClass="itemMenu" text="Fluxo de Caixa">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="565.0" onMouseClicked="#menuConciliacao" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/br/com/food4fit/assets/icons/faturamento-c.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label styleClass="itemMenu" text="Conciliação Bancária">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="492.0" onMouseClicked="#menuBanco" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/br/com/food4fit/assets/icons/banco-c.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label styleClass="itemMenu" text="Bancos">
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                        
+                        <Separator maxWidth="-Infinity" prefWidth="215.0" styleClass="separador">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="15.0" top="5.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="231.0" onMouseClicked="#menuFornecedor" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/br/com/food4fit/assets/icons/fornecedor-v.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label styleClass="itemMenu" text="Fornecedores">
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                            </children>
                            <cursor>
@@ -405,6 +408,32 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </HBox>
+                        <HBox alignment="CENTER_LEFT" onMouseClicked="#menuCompras" prefHeight="43.0" prefWidth="251.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/br/com/food4fit/assets/icons/unidade-medida-c.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label styleClass="itemMenu" text="Compras">
+                                 <font>
+                                    <Font name="Roboto Medium" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
                         <Separator layoutX="10.0" layoutY="360.0" maxWidth="-Infinity" prefWidth="215.0" styleClass="separador">
                            <VBox.margin>
                               <Insets bottom="5.0" left="15.0" top="5.0" />
@@ -429,32 +458,6 @@
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="667.0" onMouseClicked="#menuAjuda" prefHeight="43.0" prefWidth="251.0">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/br/com/food4fit/assets/icons/ajuda-c.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D />
-                                 </viewport>
-                                 <HBox.margin>
-                                    <Insets left="15.0" right="15.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label styleClass="itemMenu" text="Ajuda">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="Roboto Medium" size="16.0" />
-                                 </font>
                               </Label>
                            </children>
                            <cursor>

@@ -1,17 +1,22 @@
 package br.com.food4fit.helper;
 
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
 import br.com.food4fit.component.MaskedTextField;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.ToggleGroup;
 
 public class FormHelper {
@@ -23,6 +28,9 @@ public class FormHelper {
 	public static final int VISIBLE_ONLY = 1 << 6;
 	
 	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
+	private static final Pattern DOUBLE_PATTERN = Pattern.compile("\\d*|\\d+\\,\\d*");
+	private static final NumberFormat NUMBER_FORMAT = NumberFormat.getInstance(new Locale("pt", "br"));
+	
 	private final Map<Object, Integer> nodes = new HashMap<>();
 	private Object objectData;
 
@@ -36,6 +44,12 @@ public class FormHelper {
 		nodes.put(object, flags);
 		if (object instanceof Node) {
 			((Node) object).focusedProperty().addListener(observable -> ((Node) object).getStyleClass().remove("invalid"));
+			
+			if ((flags & VALID_DOUBLE) == VALID_DOUBLE && object instanceof TextField) {
+				((TextField) object).setTextFormatter(new TextFormatter<>((UnaryOperator<TextFormatter.Change>) change -> {
+					return DOUBLE_PATTERN.matcher(change.getControlNewText()).matches() ? change : null;
+				}));
+			}
 		}
 	}
 	
@@ -83,10 +97,10 @@ public class FormHelper {
 					}
 					
 					if ((flags & VALID_DOUBLE) == VALID_DOUBLE && !invalid) {
-						if (value instanceof String) {
+						if (value instanceof String && !((String) value).isEmpty()) {
 							try {
-								Double.parseDouble((String) value);
-							} catch (NumberFormatException e) {
+								NUMBER_FORMAT.parse((String) value).doubleValue();
+							} catch (Exception e) {
 								invalid = true;
 							}
 						}
@@ -127,6 +141,10 @@ public class FormHelper {
 		
 		if (node instanceof ComboBox<?>) {
 			return ((ComboBox<?>) node).getValue();
+		}
+		
+		if (node instanceof DatePicker) {
+			return ((DatePicker) node).getValue();
 		}
 		
 		return null;

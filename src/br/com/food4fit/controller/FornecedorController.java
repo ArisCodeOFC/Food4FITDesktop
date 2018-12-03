@@ -14,6 +14,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
@@ -25,8 +26,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,9 +48,22 @@ public class FornecedorController {
 	private @FXML TableView<Fornecedor> tblFornecedor;
 	private @FXML TableColumn<Fornecedor, String> colunaNome, colunaRazao, colunaCnpj, colunaEmail;
 	private @FXML TableColumn<Fornecedor, Pane> colunaOpcoes;
+	private @FXML AnchorPane anchorPane;
+	private Pane paneBackground;
 
 	private @FXML void initialize() {
 		paneConteudo.setVisible(false);;
+		
+		paneBackground = new Pane();
+		paneBackground.setPrefWidth(anchorPane.getPrefWidth());
+		paneBackground.setPrefHeight(anchorPane.getPrefHeight());
+		paneBackground.setLayoutX(0);
+		paneBackground.setLayoutY(0);
+		paneBackground.setVisible(false);
+		paneBackground.managedProperty().bind(paneBackground.visibleProperty());
+		paneBackground.setBackground(new Background(new BackgroundFill(new Color(0, 0, 0, 0.5), CornerRadii.EMPTY, Insets.EMPTY)));
+		anchorPane.getChildren().add(paneBackground);
+		
 		formHelper.addValidation(txtNomeFantasia, FormHelper.REQUIRED);
 		formHelper.addValidation(txtRazaoSocial, FormHelper.REQUIRED);
 		formHelper.addValidation(txtInscricaoEstadual, FormHelper.REQUIRED | FormHelper.VALID_MASK);
@@ -157,11 +176,14 @@ public class FornecedorController {
 
 	private @FXML void abrirConteudo() {
 		paneConteudo.setVisible(true);
+		paneBackground.setVisible(true);
+		paneConteudo.toFront();
 	}
 	
 	private @FXML void fecharConteudo() {
 		formHelper.setObjectData(null);
 		paneConteudo.setVisible(false);
+		paneBackground.setVisible(false);
 		txtNomeFantasia.setText("");
 		txtRazaoSocial.setText("");
 		txtInscricaoEstadual.setPlainText("");
@@ -221,10 +243,8 @@ public class FornecedorController {
 		});
 		
 		HBox hBox = new HBox(imgEditar, imgExcluir);
-		hBox.setPrefHeight(15);
-		hBox.setPrefWidth(15);
 		hBox.setSpacing(10);
-		hBox.setPadding(new Insets(0, 0, 0, 32));
+		hBox.setAlignment(Pos.CENTER);
 		fornecedor.setPaneOpcoes(hBox);
 	}
 	

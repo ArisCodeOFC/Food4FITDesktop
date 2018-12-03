@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="conteudo" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.ProdutoController">
+<AnchorPane fx:id="anchorPane" prefHeight="626.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.ProdutoController">
    <children>
       <Button layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirProduto" style="-fx-background-color: #9CC283;" text="CADASTRAR PRODUTO" textFill="WHITE">
          <cursor>
@@ -26,19 +26,25 @@
             <TableColumn fx:id="colunaUnidade" editable="false" prefWidth="175.0" sortable="false" text="UNIDADE DE MEDIDA" />
             <TableColumn fx:id="colunaOpcProduto" minWidth="0.0" prefWidth="101.0" text="OPÇÕES" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
-      <TableView fx:id="tblClassificacao" layoutX="689.0" layoutY="110.0" prefHeight="516.0" prefWidth="338.0">
+      <TableView fx:id="tblClassificacao" layoutX="597.0" layoutY="110.0" prefHeight="516.0" prefWidth="430.0">
         <columns>
           <TableColumn fx:id="colunaClassificacao" prefWidth="215.0" text="CLASSIFICAÇÃO" />
             <TableColumn fx:id="colunaOpcClassificacao" prefWidth="122.0" text="OPÇÕES" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <Button layoutX="190.0" layoutY="41.0" mnemonicParsing="false" onAction="#abrirClassficacao" style="-fx-background-color: #9CC283;" text="CADASTRAR CLASSIFICAÇÃO" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Pane fx:id="paneClassificacao" layoutX="687.0" prefHeight="626.0" prefWidth="340.0" styleClass="menuCadastro">
+      <Pane fx:id="paneClassificacao" layoutX="687.0" prefHeight="626.0" prefWidth="340.0" styleClass="menuCadastro" visible="false">
          <children>
             <Label alignment="BASELINE_CENTER" layoutX="40.0" layoutY="10.0" prefHeight="17.0" prefWidth="260.0" styleClass="titulo" text="Cadastrar/Editar Classificação ">
                <font>
@@ -62,7 +68,7 @@
                </cursor>
             </Button>
          </children></Pane>
-      <Pane fx:id="paneProduto" layoutX="687.0" prefHeight="626.0" prefWidth="340.0" styleClass="menuCadastro">
+      <Pane fx:id="paneProduto" layoutX="687.0" prefHeight="626.0" prefWidth="340.0" styleClass="menuCadastro" visible="false">
          <children>
             <Label alignment="BASELINE_CENTER" layoutX="40.0" layoutY="10.0" prefHeight="17.0" prefWidth="260.0" styleClass="titulo" text="Cadastrar/Editar Produto ">
                <font>

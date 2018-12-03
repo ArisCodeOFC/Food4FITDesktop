@@ -1,5 +1,8 @@
 package br.com.food4fit.service;
 
+import java.util.List;
+
+import br.com.food4fit.model.BaixaDespesa;
 import br.com.food4fit.model.Despesa;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -16,9 +19,15 @@ public interface DespesaService {
 	@POST("despesa")
 	Call<Despesa> inserir(@Body Despesa despesa);
 	
+	@POST("despesa/multiplo")
+	Call<Void> inserir(@Body List<Despesa> despesas);
+	
 	@PUT("despesa/{id}")
 	Call<Void> atualizar(@Path("id") int id, @Body Despesa despesa);
 	
 	@DELETE("despesa/{id}")
 	Call<Void> excluir(@Path("id") int id);
+	
+	@POST("despesa/{id}/baixa")
+	Call<Void> darBaixa(@Path("id") int id, @Body BaixaDespesa dados);
 }

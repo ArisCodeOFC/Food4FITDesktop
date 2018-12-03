@@ -14,12 +14,15 @@
 
 <AnchorPane prefHeight="626.0" prefWidth="1027.0" style="-fx-effect: null;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.food4fit.controller.NivelAcessoController">
    <children>
-      <TableView fx:id="tblCargos" layoutX="14.0" layoutY="17.0" prefHeight="595.0" prefWidth="488.0" styleClass="tabela">
+      <TableView fx:id="tblCargos" prefHeight="626.0" prefWidth="615.0" styleClass="tabela">
         <columns>
           <TableColumn fx:id="colunaId" editable="false" prefWidth="60.0" text="ID" />
           <TableColumn fx:id="colunaCargo" editable="false" minWidth="0.0" prefWidth="308.0" text="CARGO" />
             <TableColumn fx:id="colunaOpcoes" prefWidth="119.0" text="OPÇÕES" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <Pane layoutX="616.0" prefHeight="626.0" prefWidth="411.0" styleClass="menuCadastro">
          <children>

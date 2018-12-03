@@ -12,6 +12,8 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
@@ -23,8 +25,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,12 +49,25 @@ public class ProdutoController {
 	private @FXML ComboBox<ClassificacaoProduto> comboClassificacao;
 	private @FXML ComboBox<UnidadeDeMedida> comboUnidade;
 	private @FXML TextArea txtDescricao;
+	private @FXML AnchorPane anchorPane;
+	private Pane paneBackground;
 	private FormHelper formHelperProduto = FormHelper.getInstance();
 	private FormHelper formHelperClassificacao = FormHelper.getInstance();
 
 	private @FXML void initialize() {
 		paneClassificacao.setStyle("visibility: false");
 		paneProduto.setStyle("visibility: false");
+		
+		paneBackground = new Pane();
+		paneBackground.setPrefWidth(anchorPane.getPrefWidth());
+		paneBackground.setPrefHeight(anchorPane.getPrefHeight());
+		paneBackground.setLayoutX(0);
+		paneBackground.setLayoutY(0);
+		paneBackground.setVisible(false);
+		paneBackground.managedProperty().bind(paneBackground.visibleProperty());
+		paneBackground.setBackground(new Background(new BackgroundFill(new Color(0, 0, 0, 0.5), CornerRadii.EMPTY, Insets.EMPTY)));
+		anchorPane.getChildren().add(paneBackground);
+		
 		formHelperProduto.addValidation(txtNomeProduto, FormHelper.REQUIRED);
 		formHelperProduto.addValidation(txtDescricao, FormHelper.REQUIRED);
 		formHelperProduto.addValidation(comboClassificacao, FormHelper.REQUIRED);
@@ -200,9 +220,8 @@ public class ProdutoController {
 		});
 
 		HBox hBox = new HBox(editView, deleteView);
-		hBox.setPrefHeight(15);
-		hBox.setPrefWidth(15);
-		hBox.setStyle("-fx-padding: 0 0 0 32; -fx-spacing:10;");
+		hBox.setSpacing(10);
+		hBox.setAlignment(Pos.CENTER);
 		produto.setPaneOpcoes(hBox);
 	}
 
@@ -415,9 +434,8 @@ public class ProdutoController {
 		});
 
 		HBox hBox = new HBox(editView, deleteView);
-		hBox.setPrefHeight(15);
-		hBox.setPrefWidth(15);
-		hBox.setStyle("-fx-padding: 0 0 0 32; -fx-spacing:10;");
+		hBox.setSpacing(10);
+		hBox.setAlignment(Pos.CENTER);
 		classificacao.setPaneOpcoes(hBox);
 	}
 
@@ -463,16 +481,21 @@ public class ProdutoController {
 	// Abrir o panel oculto
 	private @FXML void abrirProduto() {
 		paneProduto.setStyle("visibility: true");
+		paneBackground.setVisible(true);
+		paneProduto.toFront();
 	}
 
 	private @FXML void abrirClassficacao() {
 		paneClassificacao.setStyle("visibility: true");
+		paneBackground.setVisible(true);
+		paneClassificacao.toFront();
 	}
 
 	// Fecha o panel que foi aberto
 	private @FXML void fecharProduto() {
 		formHelperProduto.setObjectData(null);
 		paneProduto.setStyle("visibility: false");
+		paneBackground.setVisible(false);
 		txtNomeProduto.clear();
 		txtDescricao.clear();
 		comboClassificacao.setValue(null);
@@ -482,6 +505,7 @@ public class ProdutoController {
 	private @FXML void fecharClassificacao() {
 		formHelperClassificacao.setObjectData(null);
 		paneClassificacao.setStyle("visibility: false");
+		paneBackground.setVisible(false);
 		txtClassificacao.clear();
 	}
 }

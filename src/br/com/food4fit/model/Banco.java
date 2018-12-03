@@ -52,4 +52,8 @@ public class Banco {
 		this.paneOpcoes = paneOpcoes;
 	}
 
+	@Override
+	public String toString() {
+		return this.banco + " - " + this.conta;
+	}
 }

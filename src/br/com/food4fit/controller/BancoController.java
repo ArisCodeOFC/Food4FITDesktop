@@ -10,7 +10,7 @@ import br.com.food4fit.model.Banco;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
@@ -33,10 +33,8 @@ public class BancoController {
     private @FXML TableColumn<Banco, Pane> colunaOpc;
     private @FXML TableColumn<Banco, String> colunaBanco, colunaAgencia, colunaConta;
     private @FXML TableView<Banco> tblBanco;
-    private @FXML Pane paneConteudo;
     
     private @FXML void initialize() {
-    	paneConteudo.setVisible(false);
     	formHelper.addValidation(txtConta, FormHelper.REQUIRED);
     	formHelper.addValidation(txtBanco, FormHelper.REQUIRED);
     	formHelper.addValidation(txtAgencia, FormHelper.REQUIRED | FormHelper.VALID_MASK);
@@ -113,13 +111,8 @@ public class BancoController {
     	}
     }
     
-    private @FXML void abrirConteudo() {
-    	paneConteudo.setVisible(true);
-    }
-    
     private @FXML void fecharConteudo() {
     	formHelper.setObjectData(null);
-    	paneConteudo.setVisible(false);
     	txtConta.clear();
     	txtBanco.clear();
     	txtAgencia.clear();
@@ -166,10 +159,8 @@ public class BancoController {
 		});
 		
 		HBox hBox = new HBox(imgEditar, imgExcluir);
-		hBox.setPrefHeight(15);
-		hBox.setPrefWidth(15);
 		hBox.setSpacing(10);
-		hBox.setPadding(new Insets(0, 0, 0, 32));
+		hBox.setAlignment(Pos.CENTER);
 		banco.setPaneOpcoes(hBox);
     }
     
@@ -219,6 +210,5 @@ public class BancoController {
 		txtAgencia.setPlainText(banco.getAgencia());
 		txtConta.setText(banco.getConta());
 		txtBanco.setText(banco.getBanco());
-		abrirConteudo();
     }
 }

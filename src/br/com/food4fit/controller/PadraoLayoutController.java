@@ -97,7 +97,7 @@ public class PadraoLayoutController {
 
 	@FXML
 	void menuDespesa() {
-		mudarTela("Despesa", "Despesas");
+		mudarTela("Despesa", "Contas a Pagar");
 	}
 
 	@FXML
@@ -117,7 +117,17 @@ public class PadraoLayoutController {
 
 	@FXML
 	void menuFaturamento() {
-		mudarTela("Funcionarios", "Faturamento");
+		mudarTela("Faturamento", "Contas a Receber");
+	}
+
+	@FXML
+	void menuFluxoCaixa() {
+		mudarTela("FluxoCaixa", "Fluxo de Caixa");
+	}
+
+	@FXML
+	void menuConciliacao() {
+		mudarTela("ConciliacaoBancaria", "Conciliação Bancária");
 	}
 
 	@FXML
@@ -129,15 +139,15 @@ public class PadraoLayoutController {
 	void menuProdutos() {
 		mudarTela("CadastroProduto", "Produtos");
 	}
+	
+	@FXML
+	void menuCompras() {
+		mudarTela("PedidoCompra", "Pedidos de Compra");
+	}
 
 	@FXML
 	void menuPerfil() {
 		mudarTela("Perfil", "Meu Perfil");
-	}
-
-	@FXML
-	void menuAjuda() {
-		mudarTela("Funcionarios", "Ajuda");
 	}
 
 	@FXML

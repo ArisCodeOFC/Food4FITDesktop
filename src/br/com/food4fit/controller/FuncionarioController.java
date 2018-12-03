@@ -6,8 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Date;
@@ -30,10 +29,13 @@ import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -44,8 +46,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,7 +67,7 @@ public class FuncionarioController {
 	private @FXML TableColumn<Funcionario, Integer> colunaMatricula;
 	private @FXML Pane paneConteudo;
 	private @FXML TextField txtEmail, txtSalario, txtNome, txtSobrenome, txtNumero, txtComplemento, txtBairro, txtLogradouro;
-	private @FXML MaskedTextField txtTelefone, txtCelularU, txtMatricula, txtCpf, txtRg, txtDtAdmissao, txtDtNasc, txtCep;
+	private @FXML MaskedTextField txtTelefone, txtCelularU, txtMatricula, txtCpf, txtRg, txtCep;
 	private @FXML ComboBox<Departamento> comboDepartamento;
 	private @FXML ComboBox<Cargo> comboCargo;
 	private @FXML ToggleGroup genero;
@@ -69,21 +75,23 @@ public class FuncionarioController {
 	private @FXML ImageView fotoFuncionario;
 	private @FXML ComboBox<Estado> comboEstado;
 	private @FXML ComboBox<Cidade> comboCidade;
+	private @FXML DatePicker dpDataNascimento, dpDataAdmissao;
 	private @FXML Button escolherImg;
+	private Pane paneBackground;
 
 	private @FXML void initialize() {
 		paneConteudo.setStyle("visibility: false");
 		formHelper.addValidation(txtMatricula, FormHelper.REQUIRED | FormHelper.VALID_MASK);
 		formHelper.addValidation(txtNome, FormHelper.REQUIRED);
 		formHelper.addValidation(txtSobrenome, FormHelper.REQUIRED);
-		formHelper.addValidation(txtDtNasc, FormHelper.REQUIRED | FormHelper.VALID_MASK | FormHelper.VALID_DATE);
+		formHelper.addValidation(dpDataNascimento, FormHelper.REQUIRED);
 		formHelper.addValidation(txtEmail, FormHelper.REQUIRED | FormHelper.VALID_EMAIL);
 		formHelper.addValidation(genero, FormHelper.REQUIRED);
 		formHelper.addValidation(txtCelularU, FormHelper.REQUIRED | FormHelper.VALID_MASK);
 		formHelper.addValidation(txtTelefone, FormHelper.REQUIRED | FormHelper.VALID_MASK);
 		formHelper.addValidation(txtCpf, FormHelper.REQUIRED | FormHelper.VALID_MASK);
 		formHelper.addValidation(txtRg, FormHelper.REQUIRED | FormHelper.VALID_MASK);
-		formHelper.addValidation(txtDtAdmissao, FormHelper.REQUIRED | FormHelper.VALID_MASK | FormHelper.VALID_DATE);
+		formHelper.addValidation(dpDataAdmissao, FormHelper.REQUIRED);
 		formHelper.addValidation(comboCargo, FormHelper.REQUIRED);
 		formHelper.addValidation(comboDepartamento, FormHelper.REQUIRED);
 		formHelper.addValidation(txtSalario, FormHelper.REQUIRED | FormHelper.VALID_DOUBLE);
@@ -93,6 +101,16 @@ public class FuncionarioController {
 		formHelper.addValidation(txtBairro, FormHelper.REQUIRED);
 		formHelper.addValidation(txtLogradouro, FormHelper.REQUIRED);
 		formHelper.addValidation(txtNumero, FormHelper.REQUIRED);
+		
+		paneBackground = new Pane();
+		paneBackground.setPrefWidth(conteudo.getPrefWidth());
+		paneBackground.setPrefHeight(conteudo.getPrefHeight());
+		paneBackground.setLayoutX(0);
+		paneBackground.setLayoutY(0);
+		paneBackground.setVisible(false);
+		paneBackground.managedProperty().bind(paneBackground.visibleProperty());
+		paneBackground.setBackground(new Background(new BackgroundFill(new Color(0, 0, 0, 0.5), CornerRadii.EMPTY, Insets.EMPTY)));
+		conteudo.getChildren().add(paneBackground);
 
 		final FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Escolher imagem");
@@ -254,9 +272,9 @@ public class FuncionarioController {
 		Image cancelImg = new Image(Main.class.getResource("assets/icons/cancelar-c.png").toString());
 
 		ImageView usuarioView = new ImageView();
+		usuarioView.setImage(usuarioImg);
 		usuarioView.prefHeight(15);
 		usuarioView.prefWidth(15);
-		usuarioView.setImage(usuarioImg);
 		usuarioView.setStyle("-fx-cursor: hand;");
 
 		usuarioView.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -284,9 +302,8 @@ public class FuncionarioController {
 		});
 
 		HBox hBox = new HBox(usuarioView, editView, deleteView);
-		hBox.setPrefHeight(15);
-		hBox.setPrefWidth(15);
-		hBox.setStyle("-fx-padding: 0 0 0 32; -fx-spacing:10;");
+		hBox.setSpacing(10);
+		hBox.setAlignment(Pos.CENTER);
 		funcionario.setPaneOpcoes(hBox);
 	}
 	
@@ -327,19 +344,9 @@ public class FuncionarioController {
 			String telefone = txtTelefone.getText();
 			String cpf = txtCpf.getText();
 	
-			String dtAdmissao = txtDtAdmissao.getText();
-			SimpleDateFormat dataAdmissao = new SimpleDateFormat("dd/MM/yyyy");
-			Date dataAdm = null;
-			try {
-				dataAdm = dataAdmissao.parse(dtAdmissao);
-			} catch (ParseException e) {}
-	
-			String dtNasc = txtDtNasc.getText();
-			SimpleDateFormat dtNascimento = new SimpleDateFormat("dd/MM/yyyy");
-			Date dataNasc = null;
-			try {
-				dataNasc = dtNascimento.parse(dtNasc);
-			} catch (ParseException e) {}
+			Date dataAdm = Date.from(dpDataAdmissao.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+			
+			Date dataNasc = Date.from(dpDataNascimento.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 	
 			String email = txtEmail.getText();
 	
@@ -490,16 +497,19 @@ public class FuncionarioController {
 	// Abrir o panel oculto
 	private @FXML void abrirConteudo() {
 		paneConteudo.setStyle("visibility: true;");
+		paneBackground.setVisible(true);
+		paneConteudo.toFront();
 	}
 
 	// Fecha o panel que foi aberto
 	private @FXML void fecharConteudo() {
 		formHelper.setObjectData(null);
 		paneConteudo.setStyle("visibility: false");
+		paneBackground.setVisible(false);
 		txtCelularU.clear();
 		txtCpf.clear();
-		txtDtAdmissao.clear();
-		txtDtNasc.clear();
+		dpDataAdmissao.setValue(null);
+		dpDataNascimento.setValue(null);
 		txtEmail.clear();
 		txtMatricula.clear();
 		txtNome.clear();
@@ -524,10 +534,10 @@ public class FuncionarioController {
 		formHelper.setObjectData(funcionario);
 		txtSobrenome.setText(funcionario.getSobrenome());
 		txtEmail.setText(funcionario.getEmail());
-		txtDtAdmissao.setPlainText(String.valueOf(funcionario.getDataAdmissaoFormatada()));
 		txtMatricula.setPlainText(String.valueOf(funcionario.getMatricula()));
 		txtNome.setText(funcionario.getNome());
-		txtDtNasc.setPlainText(String.valueOf(funcionario.getDataNasciFormatada()));
+		dpDataNascimento.setValue(funcionario.getDataNascimento().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+		dpDataAdmissao.setValue(funcionario.getDataAdmissao().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 
 		if ("M".equals(funcionario.getGenero())) {
 			rdoMulher.setSelected(true);

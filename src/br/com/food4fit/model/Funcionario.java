@@ -58,6 +58,7 @@ public class Funcionario {
 		this.dataNascimento = dataNascimento;
 	}
 
+	@JsonIgnore
 	public String getDataNasciFormatada() {
 		SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
 

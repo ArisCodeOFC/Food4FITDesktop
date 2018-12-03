@@ -16,6 +16,7 @@ public class Despesa {
 	private double valor;
 	private Fornecedor fornecedor;
 	private Funcionario funcionario;
+	private boolean baixa;
 	private @JsonIgnore Pane paneOpcoes;
 
 	public int getId() {
@@ -112,5 +113,13 @@ public class Despesa {
 	
 	public String getValorFormatado() {
 		return String.format("R$ %.2f", valor);
+	}
+	
+	public boolean isBaixa() {
+		return baixa;
+	}
+	
+	public void setBaixa(boolean baixa) {
+		this.baixa = baixa;
 	}
 }
