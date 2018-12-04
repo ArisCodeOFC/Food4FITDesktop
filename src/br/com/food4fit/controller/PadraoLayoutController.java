@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -57,10 +58,10 @@ public class PadraoLayoutController {
 
 		Main.setHome(this);
 
-		//nomeUser.setText(Main.getPerfil().getNomeCompleto());
-		//emailUser.setText(Main.getPerfil().getEmail());
+		nomeUser.setText(Main.getPerfil().getNomeCompleto());
+		emailUser.setText(Main.getPerfil().getEmail());
 		//fotoUser.setImage(new Image("http://localhost/inf4t/Allan/Food-4FitWEB-Procedure-master/" + Main.getPerfil().getAvatar()));
-		//fotoUser.setImage(new Image("http://localhost/arisCodeProcedural/" + Main.getPerfil().getAvatar()));
+		fotoUser.setImage(new Image("http://localhost/arisCodeProcedural/" + Main.getPerfil().getAvatar()));
 
 	}
 
@@ -134,21 +135,17 @@ public class PadraoLayoutController {
 	void menuUnidade() {
 		mudarTela("UnidadeDeMedida", "Unidade de Medida");
 	}
-	
+
 	@FXML
 	void menuProdutos() {
 		mudarTela("CadastroProduto", "Produtos");
 	}
-	
+
 	@FXML
 	void menuCompras() {
 		mudarTela("PedidoCompra", "Pedidos de Compra");
 	}
 
-	@FXML
-	void menuPerfil() {
-		mudarTela("Perfil", "Meu Perfil");
-	}
 
 	@FXML
 	void sair() {
